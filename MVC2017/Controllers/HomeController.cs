@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVC2017.Models;
+using System.IO;
 
 namespace MVC2017.Controllers
 {
@@ -10,6 +12,9 @@ namespace MVC2017.Controllers
     {
         public ActionResult Index()
         {
+            //ImageProfile ObjImageProfile = new ImageProfile();
+            //ObjImageProfile.FileInfoDetails = new DirectoryInfo(Server.MapPath("~/content/images")).GetFiles();
+            //return View(ObjImageProfile);
             return View();
         }
 

@@ -2,9 +2,9 @@
     var module = angular.module("mainApp");
 
     function fetchMovies($http) {
-        return $http.get("../APINormal/getmovies")
+        return $http.get("../api/apinormal/getmovies")
             .then(function (response) {
-                return response.data;
+                return JSON.parse(response.data);
             });
     }
     function movieListController($http) {

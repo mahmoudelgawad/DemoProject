@@ -17,7 +17,9 @@ namespace MVC2017
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                         "~/Scripts/angular.min.js",
                         "~/Scripts/TS/mainApp.js",
-                        "~/Scripts/TS/MovieList.component.js"));
+                        "~/Scripts/TS/MovieList.component.js",
+                        "~/Scripts/TS/UploadImage.component.js",
+                        "~/Scripts/ng-flow-standalone.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.

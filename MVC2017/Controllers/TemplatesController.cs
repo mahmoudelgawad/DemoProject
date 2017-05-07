@@ -17,5 +17,9 @@ namespace MVC2017.Controllers
         {
             return PartialView("movieList_component");
         }
+        public ActionResult UploadImageComponent()
+        {
+            return PartialView("uploadImage_component");
+        }
     }
 }
