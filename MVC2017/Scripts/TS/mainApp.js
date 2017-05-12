@@ -1,6 +1,11 @@
 var mainApp;
 (function (mainApp) {
-    angular.module("mainApp", ["flow"]);
+    "use strict";
+    var module = angular.module("mainApp", ["flow", "ngRoute"]);
+    module.value("$routerRootComponent", "mainRouter");
+    module.component("aboutUs", {
+        template: "about mahmoud ahmed"
+    });
     //.config(['flowFactoryProvider', function (flowFactoryProvider) {
     //    flowFactoryProvider.defaults = {
     //        permanentErrors: [404, 500, 501],

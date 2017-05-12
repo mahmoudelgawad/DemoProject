@@ -21,5 +21,14 @@ namespace MVC2017.Controllers
         {
             return PartialView("uploadImage_component");
         }
+
+        public ActionResult MovieRatingComponent()
+        {
+            return PartialView("MovieRating_component");
+        }
+        public ActionResult MainRouterComponent()
+        {
+            return PartialView("MainRouter_Component");
+        }
     }
 }
