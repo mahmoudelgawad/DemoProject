@@ -981,6 +981,7 @@
     <Content Include="Views\Templates\movieList_component.cshtml" />
     <Content Include="Views\Templates\uploadImage_component.cshtml" />
     <Content Include="Views\Templates\MovieRating_component.cshtml" />
+    <Content Include="Views\Templates\MainRouter_Component.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\" />
@@ -1003,6 +1004,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\TS\grammer.ts" />
+    <TypeScriptCompile Include="Scripts\TS\main-router.component.ts" />
     <TypeScriptCompile Include="Scripts\TS\mainApp.ts" />
     <TypeScriptCompile Include="Scripts\TS\movie-rating.component.ts" />
     <TypeScriptCompile Include="Scripts\TS\MovieList.component.ts" />

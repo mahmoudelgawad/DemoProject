@@ -6,15 +6,16 @@
         bindings: {
             value: "<"
         },
+        transclude:true,
         controllerAs: "model",
-        controller: ["", movieRatgin_component]
+        controller: function () {
+            var model = this;
+            model.$onInit = function () {
+                model.entries = new Array(model.value);
+            }
+            model.$onChanges = function () {
+                model.entries = new Array(model.value);
+            }
+        }
     });
-
-    var movieRatgin_component = function () {
-        var model = this;
-        model.$onInit = function () {
-            model.entries = new Array(model.value);
-            
-        };
-    }
 }
