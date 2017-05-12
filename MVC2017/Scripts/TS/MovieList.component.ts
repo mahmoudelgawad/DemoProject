@@ -1,10 +1,15 @@
 ﻿module mainApp {
     var module = angular.module("mainApp");
-
+   module.component("movieList",
+        {
+            templateUrl: "../Templates/MovieListComponent",
+            controllerAs: "model",
+            controller: ["$http", movieListController]
+        });
     function fetchMovies($http) {
-        return $http.get("../APINormal/getmovies")
+        return $http.get("../api/apinormal/getmovies")
             .then(function (response) {
-                return response.data;
+                return JSON.parse(response.data);
             });
     }
     function movieListController($http) {
@@ -26,10 +31,5 @@
             };
         };
     }
-    module.component("movieList",
-        {
-            templateUrl: "../Templates/MovieListComponent",
-            controllerAs: "model",
-            controller: ["$http", movieListController]
-        });
+ 
 }

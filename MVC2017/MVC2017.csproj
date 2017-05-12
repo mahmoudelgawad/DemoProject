@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HttpMultipartParser, Version=2.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HttpMultipartParser.2.2.3\lib\net452\HttpMultipartParser.dll</HintPath>
+    </Reference>
     <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
     </Reference>
@@ -162,6 +165,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ImageProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -955,6 +959,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\ng-flow-standalone.js" />
+    <Content Include="Scripts\ng-flow-standalone.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
@@ -973,9 +979,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Templates\movieList_component.cshtml" />
+    <Content Include="Views\Templates\uploadImage_component.cshtml" />
+    <Content Include="Views\Templates\MovieRating_component.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="Content\Images\" />
     <Folder Include="Views\APINormal\" />
   </ItemGroup>
   <ItemGroup>
@@ -996,7 +1004,10 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\TS\grammer.ts" />
     <TypeScriptCompile Include="Scripts\TS\mainApp.ts" />
+    <TypeScriptCompile Include="Scripts\TS\movie-rating.component.ts" />
     <TypeScriptCompile Include="Scripts\TS\MovieList.component.ts" />
+    <TypeScriptCompile Include="Scripts\TS\TypesDefinitions.ts" />
+    <TypeScriptCompile Include="Scripts\TS\UploadImage.component.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
@@ -1005,7 +1016,9 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\flowjs\flowjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\ng-flow\ng-flow.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

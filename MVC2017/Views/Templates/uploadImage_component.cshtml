@@ -1,0 +1,20 @@
+﻿<div flow-init="model.flowOptions" flow-name="model.flowObject.flow"
+               flow-files-submitted="$flow.upload()"
+               flow-file-success="model.flowFileSuccess($file, $message, $flow)">
+        <input type="file" flow-btn />
+
+    <br/>
+    <input type="button" ng-click="model.flowFileCheck()" value="Check File"/>
+    <br/>
+
+    <img id="imgElm" flow-img="model.flowObject.flow.files[0]" ng-src="data:image/JPEG;base64,{{model.imageData}}">
+    @*<img id="imgElm"  ng-src="data:image/JPEG;base64,{{model.imageData}}">*@
+        <table class="table">
+            <tr ng-repeat="file in $flow.files">
+                <td>{{$index}}</td>
+                <td>{{file.name}}</td>
+                <td>{{file.msg}}</td>
+                <td>{{file.size}}</td>
+            </tr>
+        </table>
+    </div>

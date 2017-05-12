@@ -71,3 +71,7 @@ D:\MyLab\MVC2017\MVC2017\bin\Microsoft.AI.Web.xml
 D:\MyLab\MVC2017\MVC2017\obj\Debug\MVC2017.dll
 D:\MyLab\MVC2017\MVC2017\obj\Debug\MVC2017.pdb
 D:\MyLab\MVC2017\MVC2017\obj\Debug\MVC2017.csprojResolveAssemblyReference.cache
+D:\MyLab\MVC2017\MVC2017\bin\ImageResizer.dll
+D:\MyLab\MVC2017\MVC2017\bin\ImageResizer.xml
+D:\MyLab\MVC2017\MVC2017\bin\HttpMultipartParser.dll
+D:\MyLab\MVC2017\MVC2017\bin\HttpMultipartParser.xml
