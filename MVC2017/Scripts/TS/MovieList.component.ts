@@ -1,6 +1,11 @@
 ﻿module mainApp {
     var module = angular.module("mainApp");
-
+   module.component("movieList",
+        {
+            templateUrl: "../Templates/MovieListComponent",
+            controllerAs: "model",
+            controller: ["$http", movieListController]
+        });
     function fetchMovies($http) {
         return $http.get("../api/apinormal/getmovies")
             .then(function (response) {
@@ -26,10 +31,5 @@
             };
         };
     }
-    module.component("movieList",
-        {
-            templateUrl: "../Templates/MovieListComponent",
-            controllerAs: "model",
-            controller: ["$http", movieListController]
-        });
+ 
 }
