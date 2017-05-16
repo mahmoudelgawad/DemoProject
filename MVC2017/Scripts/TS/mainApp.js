@@ -1,8 +1,18 @@
 var mainApp;
 (function (mainApp) {
     "use strict";
-    var module = angular.module("mainApp", ["flow", "ngRoute"]);
-    module.value("$routerRootComponent", "mainRouter");
+    var module = angular.module("mainApp", ["flow", "ui.router"]);
+    module.config(function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("/");
+        $stateProvider.state("movieListState", {
+            url: "/list",
+            template: "<movie-list></movie-list>"
+        })
+            .state("aboutUsState", {
+            url: "/about",
+            template: "<about-us></about-us>"
+        });
+    });
     module.component("aboutUs", {
         template: "about mahmoud ahmed"
     });

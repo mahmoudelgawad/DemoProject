@@ -16,7 +16,8 @@ namespace MVC2017
 
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                         "~/Scripts/angular.min.js",
-                        "~/Scripts/angular-route.min.js",
+                        //"~/Scripts/angular-route.min.js",
+                        "~/Scripts/angular-ui-router.min.js",
                         "~/Scripts/ng-flow-standalone.min.js",
                         "~/Scripts/TS/mainApp.js",
                         "~/Scripts/TS/MovieList.component.js",
