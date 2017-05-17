@@ -72,3 +72,17 @@ D:\MyLab\MVC2017\MVC2017\Scripts\TS\TypesDefinitions.js
 D:\MyLab\MVC2017\MVC2017\Scripts\TS\TypesDefinitions.js.map
 D:\MyLab\MVC2017\MVC2017\Scripts\TS\UploadImage.component.js
 D:\MyLab\MVC2017\MVC2017\Scripts\TS\UploadImage.component.js.map
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\grammer.js
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\grammer.js.map
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\main-router.component.js
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\main-router.component.js.map
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\mainApp.js
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\mainApp.js.map
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\movie-rating.component.js
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\movie-rating.component.js.map
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\MovieList.component.js
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\MovieList.component.js.map
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\TypesDefinitions.js
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\TypesDefinitions.js.map
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\UploadImage.component.js
+D:\MyLab\MVC2017\MVC2017\Scripts\TS\UploadImage.component.js.map

@@ -4,13 +4,15 @@ var mainApp;
     var module = angular.module("mainApp", ["flow", "ui.router"]);
     module.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
-        $stateProvider.state("movieListState", {
+        $stateProvider.state({
+            name: "movieListState",
             url: "/list",
-            template: "<movie-list></movie-list>"
+            component: "movieList"
         })
-            .state("aboutUsState", {
+            .state({
+            name: "aboutUsState",
             url: "/about",
-            template: "<about-us></about-us>"
+            component: "aboutUs"
         });
     });
     module.component("aboutUs", {

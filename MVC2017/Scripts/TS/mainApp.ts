@@ -5,18 +5,22 @@
 
     module.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
-        $stateProvider.state("movieListState", {
-            url:"/list",
-            template:"<movie-list></movie-list>"
-        })
-            .state("aboutUsState", {
+        $stateProvider.state(
+            {
+                name: "movieListState",
+                url: "/list",
+                component: "movieList"
+            })
+            .state(
+            {
+                name: "aboutUsState",
                 url: "/about",
-                template:"<about-us></about-us>"
+                component: "aboutUs"
             });
     });
 
     module.component("aboutUs", {
-        template:"about mahmoud ahmed"
+        template: "about mahmoud ahmed"
     });
     //.config(['flowFactoryProvider', function (flowFactoryProvider) {
     //    flowFactoryProvider.defaults = {
