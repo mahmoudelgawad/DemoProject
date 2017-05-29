@@ -22,7 +22,8 @@ namespace MVC2017
                         "~/Scripts/TS/mainApp.js",
                         "~/Scripts/TS/MovieList.component.js",
                         "~/Scripts/TS/UploadImage.component.js",
-                        "~/Scripts/TS/movie-rating.component.js"
+                        "~/Scripts/TS/movie-rating.component.js",
+                        "~/Scripts/TS/movie-details.component.js"
                         ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

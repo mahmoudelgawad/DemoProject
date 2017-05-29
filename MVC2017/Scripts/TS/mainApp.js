@@ -11,6 +11,10 @@ var mainApp;
             .state("aboutUsState", {
             url: "/about",
             template: "<about-us></about-us>"
+        })
+            .state("movieDetailsState", {
+            url: "/detail/{id}",
+            template: "<movieDetails></movieDetails>"
         });
     });
     module.component("aboutUs", {

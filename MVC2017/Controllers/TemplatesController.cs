@@ -30,5 +30,9 @@ namespace MVC2017.Controllers
         {
             return PartialView("MainRouter_Component");
         }
+        public ActionResult MovieDetailsComponent()
+        {
+            return PartialView("MovieDetails_Component");
+        }
     }
 }
