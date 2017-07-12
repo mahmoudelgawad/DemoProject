@@ -74,3 +74,4 @@ D:\MyLab\MVC2017\MVC2017\bin\ImageResizer.dll
 D:\MyLab\MVC2017\MVC2017\bin\ImageResizer.xml
 D:\MyLab\MVC2017\MVC2017\bin\HttpMultipartParser.dll
 D:\MyLab\MVC2017\MVC2017\bin\HttpMultipartParser.xml
+D:\MyLab\MVC2017\MVC2017\obj\Debug\MVC2017.csprojResolveAssemblyReference.cache
