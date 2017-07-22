@@ -24,12 +24,17 @@ namespace MVC2017.Controllers
 
             return View();
         }
-
+   
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        [NonAction]
+        public void SomeMethod()
+        {
+            Response.Write("Hello I private");
         }
     }
 }
