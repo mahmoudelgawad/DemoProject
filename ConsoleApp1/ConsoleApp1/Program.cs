@@ -13,55 +13,10 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            Console.WriteLine(solution(1162));
 
         }
 
-        public static int solution(int N)
-        {
-            bool Start = false;
-            bool End = false;
-            string Binary = "";
-            char[] A = new char[0];
-            List<int> GapList = new List<int>();
-            while (N > 0)
-            {
-                if ((N % 2) == 0)
-                {
-                    Binary += "0";
-                }
-                else
-                {
-                    Binary += "1";
-                }
-                N = N/ 2;
-            }
-            A = Binary.Reverse().ToArray();
-            int GapLength = 0;
-            foreach (char elm in A)
-            {
-                
-                if (elm == '1')
-                {
-                    if (!Start)
-                    {
-                        Start = true;
-                    }
-                    else if (!End) { End = true; }
-                }
-                else if (elm == '0') {
-                    ++GapLength;
-                }
-
-                if (Start && End) {
-                    GapList.Add(GapLength);
-                    Start = false;
-                    End = false;
-                }
-            }
-
-            return (GapList.Count > 0)?GapList.Max() : 0;
-        }
+       
 
 
 
