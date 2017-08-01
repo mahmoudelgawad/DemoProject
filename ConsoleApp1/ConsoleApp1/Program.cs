@@ -6,173 +6,188 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    class MyStaticCalss {
+        public static string Name;
+        private int BornYear;
+        static MyStaticCalss()//must parameterless
+        {
+            Name = "default name";
+            BornYear = 12;
+        }
+        public static void GetName() {
+            Console.WriteLine(Name);
+        }
+    }
+
 
     class Program
     {
+        public class Personinfo
+        {
+            public int Weight;
+            public int Floor;
+        }
         static void Main(string[] args)
-        { 
+        {
+            MyStaticCalss.GetName();
 
-            int[] A = { 1, 2, 3, 3, 1, 3, 1 };
-            int[] B = { 5};
-            int result= solution(3, A);
+
+
+            int[] A = { 40, 100, 80, 20 };
+            int[] B = { 3, 2, 2, 3 };
+            int Result = solution(A, B, 5, 2, 200);
+            Console.WriteLine(Result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
-        public static int solution1(string E, string L)
+        public static int solution(int[] A, int[] B, int M, int X, int Y)
         {
-            try
+            int StopCount = 0;
+            int Queue = A.Length;
+            Dictionary<int, Personinfo> Peoplelist = new Dictionary<int, Personinfo>();
+            while (Queue > 0)
             {
-                if (string.IsNullOrEmpty(E) || string.IsNullOrEmpty(L))
-                {
-                    return 0;
-                }
+                Peoplelist = GetPeoplelist(A, B, X, Y, A.Length - Queue);
+                StopCount += RunElevator(Peoplelist, ref Queue, M);
 
-
-                DateTime StartTime = DateTime.ParseExact(E, "HH:mm", System.Globalization.CultureInfo.CurrentCulture);
-                DateTime EndTime = DateTime.ParseExact(L, "HH:mm", System.Globalization.CultureInfo.CurrentCulture);
-
-
-                double TotalHours = (EndTime - StartTime).TotalHours;
-                if (TotalHours <= 0)
-                {
-                    return 0;
-                }
-                if (!((TotalHours % 1) == 0))
-                {
-                    TotalHours = (int)TotalHours + 1;
-                }
-                double TotalCost = 2 + (3 * (TotalHours - (TotalHours - 1))) + (4 * (TotalHours - 1));
-                return (int)TotalCost;
             }
-            catch
-            {
-                return 0;
-            }
-
+            return StopCount;
         }
-        public static int solution2(int[] A)
+        public static Dictionary<int, Personinfo> GetPeoplelist(int[] A, int[] B, int X, int Y, int Startindex)
         {
-            try
+            Dictionary<int, Personinfo> Peoplelist = new Dictionary<int, Personinfo>();
+            for (int i = Startindex; i <= A.Length - 1; i++)
             {
-                if (!(A.Length > 0))
-                {
-                    return 0;
-                }
-                int N = A.Length - 1;
-                List<int> FirstPart = new List<int>();
-                List<int> SecondPart = new List<int>();
-                List<int> Results = new List<int>();
-                for (int i = 0; i <= N; i++)
-                {
-                    for (int i2 = 0; i2 <= N; i2++)
-                    {
-                        if (i2 <= i)
-                        {
-                            FirstPart.Add(A[i2]);
-                        }
-                        if (i2 > i)
-                        {
-                            SecondPart.Add(A[i2]);
-                        }
 
-                    }
-                    if (i == N)
-                    {
-                        break;
-                    }
-                    int FirstMax = (FirstPart.Count > 0) ? FirstPart.Max() : 0;
-                    int SecondMax = (SecondPart.Count > 0) ? SecondPart.Max() : 0;
-                    int diff = (FirstMax - SecondMax);
-                    Results.Add((diff >= 0) ? diff : diff * -1);
-                    FirstPart.Clear();
-                    SecondPart.Clear();
-                }
-                return Results.Max();
-            }
-            catch
-            {
-                return 0;
-            }
-
-        }
-        
-        static void RecFun(int[] A, int Start, int Num)
-        {
-            if ( A.Length == 0) { Console.WriteLine("\r\nEMPTY"); return; }
-            if (Num > A.Length - 1 ) { return; }
-            if (Start > A.Length - 1)
-            {
-                Console.WriteLine("");
-                RecFun(A, 0, Num + 1);
-            }
-                if (Start > A.Length - 1) { return; }
-            if (Start != Num)
-            {
-                if (A[Num] > A[Start])
+                if (Peoplelist.Sum(p => p.Value.Weight) < Y)
                 {
-                    Console.Write("True ");
+                    Peoplelist.Add(i, new Personinfo { Weight = A[i], Floor = B[i] });
                 }
                 else
                 {
-                    Console.Write("false ");
+                    Peoplelist.Remove(i - 1);
                 }
-            }
 
-            RecFun(A, Start + 1, Num);
+                if (Peoplelist.Count > X)
+                {
+
+                    Peoplelist.Remove(i);
+                }
+            }
+            return Peoplelist;
         }
 
-        public static int solution(int M, int[] A)
+        public static int RunElevator(Dictionary<int, Personinfo> Peoplelist, ref int Queue, int M)
         {
-            int N = A.Length;
-            int[] count = new int[M + 1];
-            for (int i = 0; i < count.Length; i++)
-                count[i] = 0;
-            int maxOccurence = 1;
-            int index = -1;
-            for (int i = 0; i < N; i++)
+            int StopCount = 0;
+            string FloorsDone = "";
+            Queue -= Peoplelist.Count;
+            foreach (var Person in Peoplelist)
             {
-                if (count[(A[i] <= count.Length) ? 0 : i] > 0)
+                if (!FloorsDone.Contains("[" + Person.Value.Floor.ToString() + "]"))
                 {
-                    int tmp = count[A[i]];
-                    if (tmp > maxOccurence)
+                    if (Person.Value.Floor <= M)
                     {
-                        maxOccurence = tmp;
-                        index = i;
+                        ++StopCount;
+                        FloorsDone += "[" + Person.Value.Floor + "]";
                     }
-                    count[A[i]] = tmp + 1;
-                }
-                else
-                {
-                    count[(A[i] <= count.Length) ? 0 : i] = 1;
                 }
             }
-            return (A.Length > 0) ? A[0] : 0;
+            ++StopCount; // last stop
+            return StopCount;
         }
-        public int solutiontest(int M, int[] A)
-        {
-            int N = A.Length;
-            int[] count = new int[M + 1];
-            for (int i = 0; i <= M; i++)
-                count[i] = 0;
-            int maxOccurence = 1;
-            int index = -1;
-            for (int i = 0; i < N; i++)
-            {
-                if (count[A[i]] > 0)
-                {
-                    int tmp = count[A[i]];
-                    if (tmp > maxOccurence)
-                    {
-                        maxOccurence = tmp;
-                        index = i;
-                    }
-                    count[A[i]] = tmp + 1;
-                }
-                else
-                {
-                    count[A[i]] = 1;
-                }
-            }
-            return A[index];
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
