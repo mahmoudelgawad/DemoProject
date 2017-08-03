@@ -13,9 +13,10 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            string[] Astr = new string[0];
+
+           
         }
 
-       
+
     }
 }
