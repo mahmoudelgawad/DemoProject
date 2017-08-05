@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BinaryGap.cs" />
     <Compile Include="Elevator.cs" />
+    <Compile Include="minCentralSperes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
