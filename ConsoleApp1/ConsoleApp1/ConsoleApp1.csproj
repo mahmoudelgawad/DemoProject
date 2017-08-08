@@ -46,6 +46,7 @@
     <Compile Include="CyclicRotation.cs" />
     <Compile Include="Elevator.cs" />
     <Compile Include="minCentralSperes.cs" />
+    <Compile Include="PermMissingElem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

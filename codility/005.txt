@@ -1,0 +1,30 @@
+<div id="brinza-task-description">
+<p>Given a table <tt style="white-space:pre-wrap">transfers</tt> with the following structure:</p>
+<tt style="white-space:pre-wrap">  create table transfers (
+      sender varchar not null,
+      recipient varchar not null,
+      date date not null,
+      amount integer not null
+  );</tt>
+<p>write a query in SQL that returns a list of accounts that have received at least 1024 USD in at most three transfers. In other words, an account name is to be listed if there exist some three (or fewer) transfers, with the recipient equal to the account name, such that the sum of the transferred amounts is not less that 1024 USD. Note that there can be more than three transfers to that account, as long as some three or fewer transfers amount to at least 1024 USD. The table should be ordered by name (in ascending order).</p>
+<p>The <tt style="white-space:pre-wrap">sender</tt> and <tt style="white-space:pre-wrap">recipient</tt> columns contain the names of the corresponding accounts, the <tt style="white-space:pre-wrap">date</tt> column contains the dates of the transfers, and the <tt style="white-space:pre-wrap">amount</tt> column contains the transferred amounts expressed in USD. You can assume that the <tt style="white-space:pre-wrap">sender</tt> value is different from the <tt style="white-space:pre-wrap">recipient</tt> value in each row.</p>
+<p>For example, given the following data:</p>
+<tt style="white-space:pre-wrap">   sender     | recipient  | date       | amount
+  ------------+------------+------------+--------
+   Smith      | Williams   | 2000-01-01 | 200
+   Smith      | Taylor     | 2002-09-27 | 1024
+   Smith      | Johnson    | 2005-06-26 | 512
+   Williams   | Johnson    | 2010-12-17 | 100
+   Williams   | Johnson    | 2004-03-22 | 10
+   Brown      | Johnson    | 2013-03-20 | 500
+   Johnson    | Williams   | 2007-06-02 | 400
+   Johnson    | Williams   | 2005-06-26 | 400
+   Johnson    | Williams   | 2005-06-26 | 200</tt>
+<p>your query should return the following rowset:</p>
+<tt style="white-space:pre-wrap">   account_name
+  --------------
+   Johnson
+   Taylor</tt>
+<p>The <tt style="white-space:pre-wrap">Johnson</tt> account is listed because it has received 1112 USD in the following three transfers: 512 USD + 100 USD + 500 USD = 1112 USD. The <tt style="white-space:pre-wrap">Taylor</tt> account has received 1024 USD in just one transfer. The <tt style="white-space:pre-wrap">Williams</tt> account received 1200 USD in four transfers, but it is not listed because no three transfers to that account total at least 1024 USD.</p>
+<p>The name of the column in the rowset doesn't matter.</p>
+</div>

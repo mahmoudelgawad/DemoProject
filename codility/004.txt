@@ -1,0 +1,15 @@
+<div id="brinza-task-description">
+<p>We are given a string S representing a phone number, which we would like to reformat. String S consists of N characters: digits, spaces and/or dashes. It contains at least two digits.</p>
+<p>Spaces and dashes in string S can be ignored. We want to reformat the given phone number in such a way that the digits are grouped in blocks of length three, separated by single dashes. If necessary, the final block or the last two blocks can be of length two.</p>
+<p>For example, given string S = "<tt style="white-space:pre-wrap">00-44  48 5555 8361</tt>", we would like to format it as "<tt style="white-space:pre-wrap">004-448-555-583-61</tt>".</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>class Solution { public string solution(string S); }</tt></p></blockquote>
+<p>that, given a string S representing a phone number, returns this phone number reformatted as described above.</p>
+<p>For example, given S = "<tt style="white-space:pre-wrap">00-44  48 5555 8361</tt>", the function should return "<tt style="white-space:pre-wrap">004-448-555-583-61</tt>". Given S = "<tt style="white-space:pre-wrap">0 - 22 1985--324</tt>", the function should return "<tt style="white-space:pre-wrap">022-198-53-24</tt>". Given S = "<tt style="white-space:pre-wrap">555372654</tt>", the function should return "<tt style="white-space:pre-wrap">555-372-654</tt>".</p>
+<p>Assume that:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">2</span>..<span class="number">100</span>];</li>
+<li>string S consists only of digits (<tt style="white-space:pre-wrap">0</tt>-<tt style="white-space:pre-wrap">9</tt>), spaces and/or dashes (<tt style="white-space:pre-wrap">-</tt>);</li>
+<li>string S contains at least two digits.</li>
+</ul>
+</blockquote><p>In your solution, focus on <b><b>correctness</b></b>. The performance of your solution will not be the focus of the assessment.</p>
+</div>
