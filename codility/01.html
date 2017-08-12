@@ -1,0 +1,43 @@
+<html>
+<body>
+<div id="brinza-task-description">
+</body>
+</html>
+
+
+
+<p>A <i>central sphere</i> of radius R is the set of all points (x, y, z) in 3D space that satisfy the following equation:</p>
+<blockquote><p>x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup> = R<sup>2</sup></p></blockquote>
+<p>We say that a set of central spheres <i>covers</i> a set of points if each of the points belongs to one of the spheres.</p>
+<p>Assume that the following declarations are given:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>class Point3D {
+  public int x;
+  public int y;
+  public int z;
+}</tt></p></blockquote>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>class Solution { public int solution(Point3D[] A); }</tt></p></blockquote>
+<p>that, given an array describing of a set of points in 3D space, returns the minimum number of central spheres required to cover them.</p>
+<p>For example, given the following array:</p>
+<tt style="white-space:pre-wrap">  A[0].x =  0  A[0].y =  5  A[0].z =  4
+  A[1].x =  0  A[1].y =  0  A[1].z = -3
+  A[2].x = -2  A[2].y =  1  A[2].z = -6
+  A[3].x =  1  A[3].y = -2  A[3].z =  2
+  A[4].x =  1  A[4].y =  1  A[4].z =  1
+  A[5].x =  4  A[5].y = -4  A[5].z =  3</tt>
+<p>the function should return 3, because three central spheres are required to cover these points:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>a central sphere of radius <b>sqrt</b>(3) covers point number 4,</li>
+<li>a central sphere of radius 3 covers points numbers 1 and 3,</li>
+<li>a central sphere of radius <b>sqrt</b>(41) covers points numbers 0, 2 and 5.</li>
+</ul>
+</blockquote><p>It is impossible to cover these points with fewer central spheres.</p>
+<p>Assume that:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">0</span>..<span class="number">100,000</span>];</li>
+<li>the coordinates of each point in array A are integers within the range [<span class="number">-10,000</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote><p>Complexity:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).</li>
+</ul>
+</blockquote><p>Elements of input arrays can be modified.</p>
+</div>
