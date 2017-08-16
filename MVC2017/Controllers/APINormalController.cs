@@ -13,6 +13,7 @@ using HttpMultipartParser;
 
 namespace MVC2017.Controllers
 {
+
     [RoutePrefix("api/apinormal")]
     public class APINormalController : ApiController
     {
