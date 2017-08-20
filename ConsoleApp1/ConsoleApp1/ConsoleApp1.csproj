@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryGap.cs" />
+    <Compile Include="ComapreFruitsSuperMarket.cs" />
+    <Compile Include="ConvertPhoneStringDashs.cs" />
     <Compile Include="CyclicRotation.cs" />
     <Compile Include="Elevator.cs" />
     <Compile Include="minCentralSperes.cs" />
