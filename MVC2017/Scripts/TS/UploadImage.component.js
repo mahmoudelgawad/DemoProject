@@ -44,6 +44,8 @@ var mainApp;
                     alert("the image too big");
                     var img = document.getElementById("imgElm");
                     model.imageData = getBase64Image(img);
+                    //SendFile($http, JSON.stringify( model.imageData));
+                    //console.log(model.imageData);
                 }
             };
             model.flowFileSuccess = function ($file, $message, $flow) {

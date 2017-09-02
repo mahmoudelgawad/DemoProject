@@ -29,6 +29,8 @@ D:\MyLab\MVC2017\MVC2017\bin\MVC2017.dll.config
 D:\MyLab\MVC2017\MVC2017\bin\MVC2017.dll
 D:\MyLab\MVC2017\MVC2017\bin\MVC2017.pdb
 D:\MyLab\MVC2017\MVC2017\bin\Antlr3.Runtime.dll
+D:\MyLab\MVC2017\MVC2017\bin\HttpMultipartParser.dll
+D:\MyLab\MVC2017\MVC2017\bin\ImageResizer.dll
 D:\MyLab\MVC2017\MVC2017\bin\Microsoft.AI.Agent.Intercept.dll
 D:\MyLab\MVC2017\MVC2017\bin\Microsoft.AI.DependencyCollector.dll
 D:\MyLab\MVC2017\MVC2017\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -50,6 +52,8 @@ D:\MyLab\MVC2017\MVC2017\bin\System.Web.WebPages.Deployment.dll
 D:\MyLab\MVC2017\MVC2017\bin\System.Web.WebPages.dll
 D:\MyLab\MVC2017\MVC2017\bin\System.Web.WebPages.Razor.dll
 D:\MyLab\MVC2017\MVC2017\bin\WebGrease.dll
+D:\MyLab\MVC2017\MVC2017\bin\HttpMultipartParser.xml
+D:\MyLab\MVC2017\MVC2017\bin\ImageResizer.xml
 D:\MyLab\MVC2017\MVC2017\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\MyLab\MVC2017\MVC2017\bin\System.Web.Helpers.xml
 D:\MyLab\MVC2017\MVC2017\bin\System.Web.Mvc.xml
@@ -68,10 +72,6 @@ D:\MyLab\MVC2017\MVC2017\bin\Microsoft.AI.DependencyCollector.xml
 D:\MyLab\MVC2017\MVC2017\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\MyLab\MVC2017\MVC2017\bin\Microsoft.AI.WindowsServer.xml
 D:\MyLab\MVC2017\MVC2017\bin\Microsoft.AI.Web.xml
+D:\MyLab\MVC2017\MVC2017\obj\Debug\MVC2017.csprojResolveAssemblyReference.cache
 D:\MyLab\MVC2017\MVC2017\obj\Debug\MVC2017.dll
 D:\MyLab\MVC2017\MVC2017\obj\Debug\MVC2017.pdb
-D:\MyLab\MVC2017\MVC2017\bin\ImageResizer.dll
-D:\MyLab\MVC2017\MVC2017\bin\ImageResizer.xml
-D:\MyLab\MVC2017\MVC2017\bin\HttpMultipartParser.dll
-D:\MyLab\MVC2017\MVC2017\bin\HttpMultipartParser.xml
-D:\MyLab\MVC2017\MVC2017\obj\Debug\MVC2017.csprojResolveAssemblyReference.cache

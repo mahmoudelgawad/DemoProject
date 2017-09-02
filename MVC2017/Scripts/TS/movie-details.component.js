@@ -9,6 +9,12 @@ var mainApp;
         controller: function () {
             var model = this;
         }
+        //controller: ["$stateParams", function ($stateParams) {
+        //    var model = this;
+        //    model.$onInit = function () {
+        //        model.id = $stateParams.id;
+        //    };
+        //}]
     });
 })(mainApp || (mainApp = {}));
 //# sourceMappingURL=movie-details.component.js.map
