@@ -1,0 +1,76 @@
+<div id="task">
+      <h2 class="mod-hidden">Task description</h2>
+      <div id="task_description">
+        <div id="standard_task_description"><div data-reactroot="" class="protected"><div class="task-description-content">
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<div id="brinza-task-description">
+<p>You have details of some companies that trade internationally and strengthen the economy of their countries. You know the nationality of each company and you have a list of trades between the various companies. Your task is to generate a summary that consists of sums of the value of goods imported and exported by every country. Note that when a company buys some goods, it contributes to its country's total import, and when the company sells some goods, it contributes to its country's total export.</p>
+<p>You are given two tables: <tt style="white-space:pre-wrap">companies</tt> and <tt style="white-space:pre-wrap">trades</tt>, with the following structure:</p>
+<tt style="white-space:pre-wrap">  create table companies (
+      name varchar(30) not null,
+      country varchar(30) not null,
+      unique(name)
+  );
+  create table trades (
+      id integer not null,
+      seller varchar(30) not null,
+      buyer varchar(30) not null,
+      value integer not null,
+      unique(id)
+  );</tt>
+<p>A row in table <tt style="white-space:pre-wrap">companies</tt> contains the name of a company and the name of the nationality of the company. A row in table <tt style="white-space:pre-wrap">trades</tt> contains the unique ID of the trade, the name of the selling company, the name of the buying company and the value of the traded goods.</p>
+<p>Write an SQL query that returns a table consisting of three columns, <tt style="white-space:pre-wrap">country</tt>, <tt style="white-space:pre-wrap">export</tt>, <tt style="white-space:pre-wrap">import</tt>, which contain the sums of the values of the exported (sold to other countries) and imported (purchased from other countries) goods for every country. Each country should appear in this table. The result table should be sorted increasingly by <tt style="white-space:pre-wrap">country</tt>.</p>
+<p>For example, for:</p>
+<tt style="white-space:pre-wrap">  companies:
+  +-------------+--------------------+
+  |        name |            country |
+  +-------------+--------------------+
+  |  Alice s.p. |         Wonderland |
+  |      Y-zap  |         Wonderland |
+  |    Absolute |          Mathlands |
+  |  Arcus t.g. |          Mathlands |
+  | Lil Mermaid | Underwater Kingdom |
+  | None at all |        Nothingland |
+  +-------------+--------------------+
+
+
+  trades:
+  +----------+-------------+------------+-------+
+  |       id |      seller |      buyer | value |
+  +----------+-------------+------------+-------+
+  | 20121107 | Lil Mermaid | Alice s.p. |    10 |
+  | 20123112 |  Arcus t.g. |      Y-zap |    30 |
+  | 20120125 |  Alice s.p. | Arcus t.g. |   100 |
+  | 20120216 | Lil Mermaid |   Absolute |    30 |
+  | 20120217 | Lil Mermaid |   Absolute |    50 |
+  +----------+-------------+------------+-------+</tt>
+<p>your query should return:</p>
+<tt style="white-space:pre-wrap">  +--------------------+--------+--------+
+  |            country | export | import |
+  +--------------------+--------+--------+
+  |          Mathlands |     30 |    180 |
+  |        Nothingland |      0 |      0 |
+  | Underwater Kingdom |     90 |      0 |
+  |         Wonderland |    100 |     40 |
+  +--------------------+--------+--------+</tt>
+<p>Assume that:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>There is no trade between companies within a single country;</li>
+<li>Every company in the table <tt style="white-space:pre-wrap">trades</tt> also appears in the table <tt style="white-space:pre-wrap">companies</tt>;</li>
+<li>Every company appears in table <tt style="white-space:pre-wrap">companies</tt> exactly once.</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2017 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+</div></div></div>
+      </div>
+
+      <div class="under-task">
+        <div id="test_cases_area"><div data-reactroot=""><ul class="test-case-list"></ul><div class="add-test-case test-case-row" tabindex="0"><div class="wide"><span class="title">Custom test cases</span><span class="case-format">format: "insert into companies values ('Alic…</span></div><div class="right counter"><!-- react-text: 8 -->0<!-- /react-text --><!-- react-text: 9 -->/<!-- /react-text --><!-- react-text: 10 -->10<!-- /react-text --></div><div class="right plus"><img src="/static/img/cui/add.png"></div></div></div></div>
+        <div id="accessible_test_cases_area"></div>
+      </div>
+    </div>
