@@ -1,0 +1,13 @@
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\DemoProject.BLL.dll.config
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\DemoProject.BLL.dll
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\DemoProject.BLL.pdb
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\DemoProject.Entities.dll
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.dll
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.SqlServer.dll
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\DemoProject.Entities.pdb
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\DemoProject.Entities.dll.config
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.xml
+D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.SqlServer.xml
+D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.csprojResolveAssemblyReference.cache
+D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.dll
+D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.pdb
