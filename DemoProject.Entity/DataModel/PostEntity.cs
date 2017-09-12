@@ -12,11 +12,12 @@ namespace DemoProject.Entities.DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Post
+    public partial class PostEntity
     {
         public int Id { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
+        public Nullable<byte> Rate { get; set; }
     }
 }

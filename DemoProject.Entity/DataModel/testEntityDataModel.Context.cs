@@ -25,6 +25,6 @@ namespace DemoProject.Entities.DataModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<PostEntity> PostEntities { get; set; }
     }
 }

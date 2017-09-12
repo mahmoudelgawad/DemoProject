@@ -18,12 +18,13 @@ namespace DemoProject.API.Controllers
             return View();
         }
         public void SetData() {
-            Post PostObj = new Post()
+            PostEntity PostObj = new PostEntity()
             {
-                Id = 1,
+                Id = 2,
                 CreatedDate = DateTime.Now,
                 Title = "Post Title",
-                Body = "to be good developer"
+                Body = "to be good developer",
+                Rate=2
             };
             PostBL PostBLObj = new PostBL(PostObj);
             PostBLObj.SaveChanges();

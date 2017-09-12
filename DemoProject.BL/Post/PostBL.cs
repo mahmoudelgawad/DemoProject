@@ -9,20 +9,20 @@ namespace DemoProject.BLL
 {
     public class PostBL : BaseBL
     {
-        public PostBL(Post PostObj)
+        public PostBL(PostEntity PostObj)
         {
             _post = PostObj;
         }
 
         #region Properties
-        private Post _post;
-        public Post PostEntity
+        private PostEntity _post;
+        public PostEntity PostEntity
         {
             get
             {
                 if (_post is null)
                 {
-                    return new Post();
+                    return new PostEntity();
                 }
                 else
                 {
@@ -41,7 +41,7 @@ namespace DemoProject.BLL
             if (PostEntity.Id == 0) {
                 return;
             }
-            context.Posts.Add(PostEntity);
+            context.PostEntities.Add(PostEntity);
             context.SaveChanges();
         }
 

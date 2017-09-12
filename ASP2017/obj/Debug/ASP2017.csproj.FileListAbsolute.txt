@@ -59,3 +59,5 @@ D:\MyLab\MVC2017\ASP2017\bin\Microsoft.AI.WindowsServer.xml
 D:\MyLab\MVC2017\ASP2017\bin\Microsoft.AI.Web.xml
 D:\MyLab\MVC2017\ASP2017\obj\Debug\ASP2017.dll
 D:\MyLab\MVC2017\ASP2017\obj\Debug\ASP2017.pdb
+D:\MyLab\MVC2017\ASP2017\obj\Debug\ASP2017.csprojResolveAssemblyReference.cache
+D:\MyLab\MVC2017\ASP2017\obj\Debug\ASP2017.csproj.CoreCompileInputs.cache

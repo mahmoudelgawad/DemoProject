@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModel\Post.cs">
+    <Compile Include="DataModel\PostEntity.cs">
       <DependentUpon>testEntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\testEntityDataModel.Context.cs">

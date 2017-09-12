@@ -70,3 +70,5 @@ D:\MyLab\MVC2017\MVC2017.Angular\bin\Microsoft.AI.WindowsServer.xml
 D:\MyLab\MVC2017\MVC2017.Angular\bin\Microsoft.AI.Web.xml
 D:\MyLab\MVC2017\MVC2017.Angular\obj\Debug\MVC2017.Angular.dll
 D:\MyLab\MVC2017\MVC2017.Angular\obj\Debug\MVC2017.Angular.pdb
+D:\MyLab\MVC2017\MVC2017.Angular\obj\Debug\MVC2017.Angular.csprojResolveAssemblyReference.cache
+D:\MyLab\MVC2017\MVC2017.Angular\obj\Debug\MVC2017.Angular.csproj.CoreCompileInputs.cache

@@ -8,6 +8,7 @@
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Rate" Type="tinyint" />
   </EntityType>
   <EntityContainer Name="testEntityDataModelStoreContainer">
     <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />

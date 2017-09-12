@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace MVC2017.Angular.Controllers.API
+namespace DemoProject.API
 {
     public class TestClass
     {
