@@ -239,7 +239,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\Templates\DTOTemplate.tst" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -269,12 +268,6 @@
       <Project>{2834e601-694d-4120-8357-c7fbf5cd1022}</Project>
       <Name>DemoProject.Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\Templates\PostEntity.ts">
-      <DependentUpon>DTOTemplate.tst</DependentUpon>
-      <CustomToolNamespace>..\DemoProject.Entity\DataModel\PostEntity.cs</CustomToolNamespace>
-    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
