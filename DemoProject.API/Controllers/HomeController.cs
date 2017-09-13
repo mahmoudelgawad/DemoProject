@@ -13,7 +13,7 @@ namespace DemoProject.API.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-            SetData();
+           // SetData();
 
             return View();
         }

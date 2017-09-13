@@ -30,15 +30,15 @@ namespace DemoProject.API
             _listTestClasses.Add(obj1);
         }
         //GET as api/TestClasses
-        public IEnumerable<TestClass> GetTestClasses()
+        public IEnumerable<TestClass> TestClasses()
         {
+            
             return _listTestClasses;
 
         }
 
         // GET as api/gettestclass/1
-
-        public TestClass GetTestClass(int ID)
+          public TestClass GetTestClass(int ID)
         {
             var TestClassObj = _listTestClasses.SingleOrDefault(t => t.ID == ID);
             if (TestClassObj == null)
