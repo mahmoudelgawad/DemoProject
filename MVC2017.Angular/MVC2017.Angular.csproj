@@ -257,6 +257,14 @@
       <DependentUpon>DTOTemplate.tst</DependentUpon>
       <CustomToolNamespace>..\DemoProject.Entity\DataModel\PostEntity.cs</CustomToolNamespace>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\Templates\testEntityDataModel.Context.ts">
+      <DependentUpon>DTOTemplate.tst</DependentUpon>
+      <CustomToolNamespace>..\DemoProject.Entity\DataModel\testEntityDataModel.Context.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\Templates\User.ts">
+      <DependentUpon>DTOTemplate.tst</DependentUpon>
+      <CustomToolNamespace>..\DemoProject.Entity\CustomeDataModel\User.cs</CustomToolNamespace>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />

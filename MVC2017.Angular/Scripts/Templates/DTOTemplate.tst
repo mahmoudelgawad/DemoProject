@@ -24,7 +24,7 @@ module MVC2017.Angular.Scripts.Templates {
 
     // More info: http://frhagn.github.io/Typewriter/
 module APP{
-    $Classes(*Entity)[
+    $Classes(*)[
     export class $Name {
         $Properties[
         // $LoudName

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomeDataModel\User.cs" />
     <Compile Include="DataModel\PostEntity.cs">
       <DependentUpon>testEntityDataModel.tt</DependentUpon>
     </Compile>
