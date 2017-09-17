@@ -1,2 +1,16 @@
 /.vs/MVC2017/v15
+/ConsoleApp1/ConsoleApp1/obj
+/ConsoleApp1/ConsoleApp1/bin
+/ASP2017/bin
+/ASP2017/obj
+/DemoProject.API/bin
+/DemoProject.API/obj
+/DemoProject.BL/bin
+/DemoProject.BL/obj
+/DemoProject.Entity/bin
+/DemoProject.Entity/obj
+/MVC2017.Angular/bin
+/MVC2017.Angular/obj
 /MVC2017.Angular/node_modules
+/MVC2017/bin
+/MVC2017/obj
