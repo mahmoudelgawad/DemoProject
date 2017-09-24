@@ -1,0 +1,8 @@
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\ConvertCSharpToTypeScript.exe.config
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\ConvertCSharpToTypeScript.exe
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\ConvertCSharpToTypeScript.pdb
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\TPCorp.TPApi.Clients.dll
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.csprojResolveAssemblyReference.cache
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.csproj.CoreCompileInputs.cache
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.exe
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.pdb

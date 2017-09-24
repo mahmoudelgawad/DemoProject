@@ -11,3 +11,4 @@ D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.SqlServer.xml
 D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.csprojResolveAssemblyReference.cache
 D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.dll
 D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.pdb
+D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.csproj.CoreCompileInputs.cache
