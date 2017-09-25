@@ -26,12 +26,18 @@ namespace ConvertCSharbToTypeScript.BLL
         //Convert function take AssemblyName as string to start converting with
         void Convert(string AssemblyName)
         {
+            StringBuilder FileContent = new StringBuilder();
             Type[] Types = Helper.ReflectDLLName(AssemblyName);
             foreach (Type ObjType in Types)
             {
-                Helper.ExportToTypeScriptFile(ObjType);
+               string TSSyntax= Helper.ConvertToTypeScriptSyntax(ObjType);
+                FileContent.Append(TSSyntax);
             }
+            Helper.CreateTSFile(AssemblyName, FileContent);
         }
+
+   
+       
         #endregion
     }
 }
