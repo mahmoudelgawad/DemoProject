@@ -13,7 +13,7 @@
     
    export interface testEntities extends DbContext{
         
-         PostEntities: $isID[string][PostEntity[]];
+         PostEntities: PostEntity[];
     }
 }
 

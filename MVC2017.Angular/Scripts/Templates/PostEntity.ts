@@ -13,11 +13,11 @@
     
    export interface PostEntity {
         
-         Id: $isID[string][number];
-         CreatedDate: $isID[string][Date];
-         Title: $isID[string][string];
-         Body: $isID[string][string];
-         Rate: $isID[string][number];
+         Id: number;
+         CreatedDate: Date;
+         Title: string;
+         Body: string;
+         Rate: number;
     }
 }
 

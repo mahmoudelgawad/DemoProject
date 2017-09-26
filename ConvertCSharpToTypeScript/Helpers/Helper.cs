@@ -24,10 +24,14 @@ namespace ConvertCSharbToTypeScript.Helpers
 
         public static string ConvertToTypeScriptSyntax(Type ObjType)
         {
+            if (!(ObjType.BaseType is null) && ObjType.BaseType.Name == "DbContext")
+            {
+                return "";
+            }
             string Syntax = "";
             string DateTypeName = GetTSDataTypeName(ObjType);
             // just for test
-           // Syntax += (ObjType.BaseType != null) ? ObjType.BaseType.Name + "----->\r\n" : "UNKNOWN----> \r\n";
+            // Syntax += (ObjType.BaseType != null) ? ObjType.BaseType.Name + "----->\r\n" : "UNKNOWN----> \r\n";
             Syntax += "export " + DateTypeName + " " + FilterSpecialChar(ObjType.Name) + " {";
             Syntax += "\r\n";
 

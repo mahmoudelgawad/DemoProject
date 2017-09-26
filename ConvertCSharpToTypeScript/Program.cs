@@ -11,9 +11,12 @@ namespace ConvertCSharpToTypeScript
     {
         static void Main(string[] args)
         {
-            string[] AssemplyNames = new string[] { "TPCorp.TPApi.Clients" };
+            string[] AssemplyNames = new string[] { "TPCorp.TPApi.Clients", "DemoProject.Entities" };
             ConvertProcessBL ObjConvert = new ConvertProcessBL(AssemplyNames);
             ObjConvert.Start();
+            Console.WriteLine("Convert Process Done...!");
+            Console.WriteLine("Press Any Key...");
+            Console.ReadKey();
         }
     }
 }

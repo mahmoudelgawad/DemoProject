@@ -16,3 +16,8 @@ D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\Snow.Erp.dll
 D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\Snow.Erp.System.dll
 D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\Snow.Erp.Tools.dll
 D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\Snow.Extensions.dll
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\DemoProject.Entities.dll
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\EntityFramework.dll
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\DemoProject.Entities.pdb
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\DemoProject.Entities.dll.config
+D:\MyLab\MVC2017\ConvertCSharpToTypeScript\bin\Debug\EntityFramework.xml

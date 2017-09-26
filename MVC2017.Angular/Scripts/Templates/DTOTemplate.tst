@@ -33,12 +33,12 @@ ${
     $Interfaces(*)[
    export interface $Name {
         $Properties[
-         $Name: $isID[string][$Type];]
+         $Name: $Type;]
     }]
     $Classes(*)[
    export interface $Name $BaseClass[extends $Name]{
         $Properties[
-         $Name: $isID[string][$Type];]
+         $Name: $Type;]
     }]
 }
 

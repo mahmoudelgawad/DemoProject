@@ -15,19 +15,19 @@
     
    export interface IUserOptions {
         
-         BirthDate: $isID[string][Date];
-         Address: $isID[string][string];
+         BirthDate: Date;
+         Address: string;
     }
     
    export interface UserBase {
         
-         BirthDate: $isID[string][Date];
-         Address: $isID[string][string];
+         BirthDate: Date;
+         Address: string;
     }
    export interface User extends UserBase{
         
-         Name: $isID[string][string];
-         Age: $isID[string][number];
+         Name: string;
+         Age: number;
     }
 }
 
