@@ -13,7 +13,9 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-        
+            TestClass obj= new TestClass();
+            obj.Address = "new nozha";
+            Console.WriteLine(obj.Address + "-->" + obj.ID);
         }
 
       
