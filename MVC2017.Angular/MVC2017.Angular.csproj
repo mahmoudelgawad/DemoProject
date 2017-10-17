@@ -109,6 +109,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="TPCorp.TPApi.Clients">
+      <HintPath>..\..\TPCorp.TPApi.Clients.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -230,6 +233,7 @@
     <Content Include="src\tsconfig.spec.json" />
     <Content Include="tslint.json" />
     <Content Include="Scripts\Templates\DTOTemplate.tst" />
+    <Content Include="Scripts\Templates\tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,6 +281,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DemoProject.Entity\DemoProject.Entities.csproj">
+      <Project>{2834e601-694d-4120-8357-c7fbf5cd1022}</Project>
+      <Name>DemoProject.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
