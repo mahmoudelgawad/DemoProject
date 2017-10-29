@@ -12,10 +12,14 @@
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
-
+    allowAddServer: boolean = false;
   constructor() { }
-
+  ;
   ngOnInit() {
+      setTimeout(() => {
+          this.allowAddServer = true;
+      }, 2000)
   }
+
 
 }
