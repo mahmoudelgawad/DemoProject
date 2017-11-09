@@ -1,1 +1,1 @@
-﻿<p><b [ngStyle]="{backgroundColor:getserverColor()}">the single server component is {{serverID}} and {{getServerStatus()}}</b></p>
+﻿<p><b [ngStyle]="{backgroundColor:getserverColor()}" [ngClass]="{online: getServerStatus() === 'online'}">the single server component is {{serverID}} and {{getServerStatus()}}</b></p>
