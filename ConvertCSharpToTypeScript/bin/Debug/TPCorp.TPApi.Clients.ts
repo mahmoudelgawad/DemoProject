@@ -1,3 +1,4 @@
+module TPApp{
 export interface ActionDetails {
 UserId : string;
 Time : Date;
@@ -23,20 +24,20 @@ ExchangeRates : ExchangeRateAuxData1[];
 AdjustmentOverviewFrom : TPOverviewEntity[];
 AdjustmentOverviewTo : TPOverviewEntity[];
 OverviewTotals : TPOverviewTotal[];
-LatestVersion : string;
+LatestVersion : number;
 }
 
 export interface ApiConfiguration {
-IsApiEnabled : Boolean;
+IsApiEnabled : boolean;
 }
 
 export interface ClientApiAuthDetails {
 UserId : string;
 AuthCreateTime : Date;
-Disabled : Boolean;
+Disabled : boolean;
 ClientUserId : string;
 UserName : string;
-AuthExpires : string;
+AuthExpires : Date;
 PasswordHint : string;
 }
 
@@ -61,21 +62,21 @@ Content : BenchmarkDataDetails;
 }
 
 export interface BenchmarkDataDetails {
-ValuePct100 : string;
-ValuePct75 : string;
-ValuePct50 : string;
-ValuePct25 : string;
-ValuePct0 : string;
+ValuePct100 : number;
+ValuePct75 : number;
+ValuePct50 : number;
+ValuePct25 : number;
+ValuePct0 : number;
 Period : string;
 BenchmarkRenewal : string;
-FromFinancialYear : string;
-ToFinancialYear : string;
-LastYearOfUse : string;
-PLI : string;
+FromFinancialYear : number;
+ToFinancialYear : number;
+LastYearOfUse : number;
+PLI : PLI;
 }
 
 export interface ClientBasisInfo {
-IsInitialized : Boolean;
+IsInitialized : boolean;
 AdminUserId : string;
 UserAccess : ClientUserAccess[];
 }
@@ -124,9 +125,9 @@ BenchmarkCollectionId : string;
 
 export interface TPInitialSettings {
 InitialSetupDataId : string;
-TPProfile : string;
+TPProfile : TPProfile;
 GroupCurrencyId : string;
-GroupCurrencyDetails : string;
+GroupCurrencyDetails : CurrencyDetails;
 DistSettings : TPInitialSettingsCompanyType;
 MfgsSettings : TPInitialSettingsCompanyType;
 }
@@ -146,24 +147,24 @@ CompanyAddress : AddressDetails;
 }
 
 export enum StdClientUserRole {
-Unknown : 0,
-RegularUser : 1,
-Advisor : 2,
-DataLoader : 3
+Unknown = 0,
+RegularUser = 1,
+Advisor = 2,
+DataLoader = 3
 }
 
 export enum ClientRoleType {
-Unknown : 0,
-Setup : 1,
-DataLoad : 2,
-Dashboard : 3,
-AcceptLoadedData : 4,
-CalculateAdjustments : 5
+Unknown = 0,
+Setup = 1,
+DataLoad = 2,
+Dashboard = 3,
+AcceptLoadedData = 4,
+CalculateAdjustments = 5
 }
 
 export interface ClientRoleDetails {
 Name : string;
-StdRole : string;
+StdRole : StdClientUserRole;
 }
 
 export interface ClientRoleData {
@@ -199,12 +200,12 @@ export interface ClientShortDetails {
 Code : string;
 Name : string;
 ClientState : ClientState;
-TpShortDetails : string;
+TpShortDetails : ClientTpShortDetails;
 }
 
 export interface ClientUserDetails {
 Name : string;
-SystemUserType : string;
+SystemUserType : ClientUserSystemUserTypeId;
 ClientUserEmail : string;
 MappedToUser : string;
 ContactPersonId : string;
@@ -222,16 +223,16 @@ export interface ClientUserDataAux1 {
 Id : string;
 Details : ClientUserDetails;
 UserEmail : string;
-IsAdministrator : Boolean;
-ClientUserOrderIndex : string;
+IsAdministrator : boolean;
+ClientUserOrderIndex : number;
 }
 
 export interface ClientUserDataAux2 {
 Id : string;
 Details : ClientUserDetails;
 UserEmail : string;
-IsAdministrator : Boolean;
-ClientUserOrderIndex : string;
+IsAdministrator : boolean;
+ClientUserOrderIndex : number;
 ClientRoles : ClientRole[];
 }
 
@@ -244,14 +245,14 @@ export interface CompanyEntityDetails {
 Name : string;
 ERPNumber : string;
 LocalCurrency : string;
-OrderIndex : string;
+OrderIndex : number;
 Type : CompanyEntityType;
 Country : string;
 FinancialYearEndDate : Date;
 FinancialYearEnd : YearIntervalType;
 ParentUnitId : string;
-PLI : string;
-FixedTargetMarginPct : string;
+PLI : PLI;
+FixedTargetMarginPct : number;
 TPUnitType : TPUnitType;
 BaseType : CompanyEntityType;
 }
@@ -268,35 +269,35 @@ History : CompanyEntityDetails[];
 
 export interface DataPointValue {
 Key : DataPointEnum;
-Value : Decimal;
+Value : number;
 }
 
 export interface CompanyEntityPeriodData {
-AdminCosts : string;
-Assets : string;
-Capital : string;
-CorpTaxPayment : string;
-CorpTaxRatePct : string;
-Ebit : string;
-EBT : string;
-FixedAssets : string;
-GrossProfit : string;
-GrossSales : string;
-IntercoAggrCogs : string;
-InterestExpenses : string;
-InterestIncome : string;
-MarketingCosts : string;
-NetExternalSales : string;
-NetIncomeAfterTax : string;
-NetIntercompanySales : string;
-NetTotalSales : string;
-Opex : string;
-OtherAssets : string;
-SalaryCosts : string;
-SalesCosts : string;
-TotalCogs : string;
-TotalCosts : string;
-TotalExternalCogs : string;
+AdminCosts : number;
+Assets : number;
+Capital : number;
+CorpTaxPayment : number;
+CorpTaxRatePct : number;
+Ebit : number;
+EBT : number;
+FixedAssets : number;
+GrossProfit : number;
+GrossSales : number;
+IntercoAggrCogs : number;
+InterestExpenses : number;
+InterestIncome : number;
+MarketingCosts : number;
+NetExternalSales : number;
+NetIncomeAfterTax : number;
+NetIntercompanySales : number;
+NetTotalSales : number;
+Opex : number;
+OtherAssets : number;
+SalaryCosts : number;
+SalesCosts : number;
+TotalCogs : number;
+TotalCosts : number;
+TotalExternalCogs : number;
 }
 
 export interface Constants {
@@ -331,7 +332,7 @@ Details : CurrencyDetails;
 export interface ReportingCurrency {
 Id : string;
 Code : string;
-ExchangeRateBaseCurrency : string;
+ExchangeRateBaseCurrency : number;
 ExchangeRateId : string;
 }
 
@@ -354,11 +355,11 @@ Companies : DashboardCompanyInfo[];
 }
 
 export interface CompanyInfoValue {
-LocalCurrencyAmount : string;
-GroupCurrencyAmount : string;
+LocalCurrencyAmount : number;
+GroupCurrencyAmount : number;
 TextValue : string;
-Percentage : string;
-Rank : string;
+Percentage : Percentage;
+Rank : number;
 }
 
 export interface DashboardCompanyAlternativePLI {
@@ -368,27 +369,27 @@ AlternativePLIValue : CompanyInfoValue;
 }
 
 export interface DashboardCompanyValues {
-TotalNetSales : string;
-TargetProfitPct : string;
-RealizedProfitPct : string;
-RealizedProfit : string;
-TargetVsRealizedProfitPct : string;
-TargetVsRealizedProfit : string;
-UpwardAdjustments : string;
-DownwardAdjustments : string;
-TotalAdjustments : string;
-IntercoPurchase : string;
-IntercoSale : string;
-IntercoTotal : string;
-AdjustmentsVsSales : string;
-AdjustmentsVsCOGS : string;
-UpperQuartile : string;
-Median : string;
-LowerQuartile : string;
-PLI : string;
-TargetMargin : string;
-ActualMargin : string;
-TargetMarginCompliance : string;
+TotalNetSales : CompanyInfoValue;
+TargetProfitPct : CompanyInfoValue;
+RealizedProfitPct : CompanyInfoValue;
+RealizedProfit : CompanyInfoValue;
+TargetVsRealizedProfitPct : CompanyInfoValue;
+TargetVsRealizedProfit : CompanyInfoValue;
+UpwardAdjustments : CompanyInfoValue;
+DownwardAdjustments : CompanyInfoValue;
+TotalAdjustments : CompanyInfoValue;
+IntercoPurchase : CompanyInfoValue;
+IntercoSale : CompanyInfoValue;
+IntercoTotal : CompanyInfoValue;
+AdjustmentsVsSales : CompanyInfoValue;
+AdjustmentsVsCOGS : CompanyInfoValue;
+UpperQuartile : CompanyInfoValue;
+Median : CompanyInfoValue;
+LowerQuartile : CompanyInfoValue;
+PLI : CompanyInfoValue;
+TargetMargin : CompanyInfoValue;
+ActualMargin : CompanyInfoValue;
+TargetMarginCompliance : CompanyInfoValue;
 AlternativePLIs : DashboardCompanyAlternativePLI[];
 }
 
@@ -412,53 +413,53 @@ ToDate : Date;
 }
 
 export enum DashboardTileType {
-ProfitDist : 0,
-ProfitMfgs : 1,
-ProfitPrincipal : 2,
-AdjustmentsDist : 3,
-AdjustmentsMfgs : 4,
-AdjustmentsPrincipal : 5,
-TopAdjustmentsDist : 6,
-TopAdjustmentsMfgs : 7,
-IntercoTradeDist : 8,
-IntercoTradeMfgs : 9,
-IntercoTradePrincipal : 10,
-ProfitDistributionBeforeAdj : 11,
-ProfitDistributionAfterAdj : 12,
-ProfitAllTypes : 13,
-IntercoTradeAll : 14,
-AdjustmentsAll : 15,
-AdjustmentsDistUpward : 16,
-AdjustmentsDistDownward : 17,
-AdjustmentsMfgsUpward : 18,
-AdjustmentsMfgsDownward : 19,
-ProfitAllRegions : 20,
-PrincipalIntercoSales : 21,
-PrincipalIntercoPurchases : 22,
-ProfitPrincipalBeforeAdj : 23,
-DistIntercoSales : 24,
-DistIntercoPurchases : 25,
-MfgsIntercoSales : 26,
-MfgsIntercoPurchases : 27,
-AdjustmentsByRegion : 28,
-IntercoByRegion : 29,
-IntercoPurchaseAll : 30,
-IntercoSalesAll : 31,
-AdjustmentsUpwardAll : 32,
-AdjustmentsDownwardAll : 33,
-AdjustmentsPrincipalUpward : 34,
-AdjustmentsPrincipalDownward : 35,
-AdjustmentsDistLastYear : 36,
-AdjustmentsMfgsLastYear : 37,
-AdjustmentsPrincipalLastYear : 38,
-ProfitByType : 39,
-IntercoTradeByCountry : 40,
-IntercoPurchaseByCountry : 41,
-IntercoSalesByCountry : 42,
-ProfitByCountry : 43,
-AdjustmentsByCountry : 44,
-AdjustmentsUpwardByCountry : 45,
-AdjustmentsDownwardByCountry : 46
+ProfitDist = 0,
+ProfitMfgs = 1,
+ProfitPrincipal = 2,
+AdjustmentsDist = 3,
+AdjustmentsMfgs = 4,
+AdjustmentsPrincipal = 5,
+TopAdjustmentsDist = 6,
+TopAdjustmentsMfgs = 7,
+IntercoTradeDist = 8,
+IntercoTradeMfgs = 9,
+IntercoTradePrincipal = 10,
+ProfitDistributionBeforeAdj = 11,
+ProfitDistributionAfterAdj = 12,
+ProfitAllTypes = 13,
+IntercoTradeAll = 14,
+AdjustmentsAll = 15,
+AdjustmentsDistUpward = 16,
+AdjustmentsDistDownward = 17,
+AdjustmentsMfgsUpward = 18,
+AdjustmentsMfgsDownward = 19,
+ProfitAllRegions = 20,
+PrincipalIntercoSales = 21,
+PrincipalIntercoPurchases = 22,
+ProfitPrincipalBeforeAdj = 23,
+DistIntercoSales = 24,
+DistIntercoPurchases = 25,
+MfgsIntercoSales = 26,
+MfgsIntercoPurchases = 27,
+AdjustmentsByRegion = 28,
+IntercoByRegion = 29,
+IntercoPurchaseAll = 30,
+IntercoSalesAll = 31,
+AdjustmentsUpwardAll = 32,
+AdjustmentsDownwardAll = 33,
+AdjustmentsPrincipalUpward = 34,
+AdjustmentsPrincipalDownward = 35,
+AdjustmentsDistLastYear = 36,
+AdjustmentsMfgsLastYear = 37,
+AdjustmentsPrincipalLastYear = 38,
+ProfitByType = 39,
+IntercoTradeByCountry = 40,
+IntercoPurchaseByCountry = 41,
+IntercoSalesByCountry = 42,
+ProfitByCountry = 43,
+AdjustmentsByCountry = 44,
+AdjustmentsUpwardByCountry = 45,
+AdjustmentsDownwardByCountry = 46
 }
 
 export interface DashboardExplanation2 {
@@ -479,7 +480,7 @@ ExchangeRates : ExchangeRateDetails[];
 
 export interface DashboardInfo2 {
 ClientState : ClientState;
-Details : string;
+Details : DashboardDetails2;
 }
 
 export interface DashboardDetails2 {
@@ -487,7 +488,7 @@ PeriodValues : DashboardPeriodValues[];
 PeriodId : string;
 Currencies : DashboardCurrency[];
 GroupCurrencyId : string;
-LatestUpdate : string;
+LatestUpdate : Date;
 Countries : DashboardCountry[];
 Companies : DashboardCompany[];
 FinancialDataSource : FinancialDataSource;
@@ -496,7 +497,7 @@ FinancialDataSource : FinancialDataSource;
 export interface DashboardCurrency {
 CurrencyId : string;
 Code : string;
-ExchangeRate : string;
+ExchangeRate : number;
 }
 
 export interface DashboardCountry {
@@ -516,20 +517,20 @@ Period : DashboardPeriodData;
 Tiles : DashboardTileDetails2[];
 }
 
-export interface DashboardAggregatedValue1 {
-AggregatedBy : T;
+export interface DashboardAggregatedValue {
+AggregatedBy : any;
 ValuesByType : DashboardTileValuesByAccount;
 }
 
 export interface DashboardTileDetails2 {
 Type : DashboardTileType;
-ValuesByType : string;
-CategorizedValue : string;
-AggregatedByCountry : string;
+ValuesByType : DashboardTileValuesByAccount;
+CategorizedValue : DashboardCategorizedValue[];
+AggregatedByCountry : DashboardAggregatedValue[];
 }
 
 export interface ReportValueAndType {
-Value : string;
+Value : number;
 Type : ReportValueType;
 }
 
@@ -539,25 +540,25 @@ Values : ReportValueAndType[];
 
 export interface DashboardCategorizedValue {
 CategoryName : string;
-Value : string;
+Value : number;
 Position : number;
 }
 
 export interface FiscalYearOverview {
 FiscalYearId : string;
 FiscalYears : FiscalYearData[];
-Titles : String[];
+Titles : string[];
 OverviewRows : OverviewStatusRow[];
 DetailedRows : OverviewStatusRow[];
 FiscalYearPeriods : PeriodData[];
 }
 
 export enum OverviewPeriodStatus {
-Initial : 0,
-Partial : 1,
-Warning : 2,
-Invalid : 3,
-Complete : 4
+Initial = 0,
+Partial = 1,
+Warning = 2,
+Invalid = 3,
+Complete = 4
 }
 
 export interface OverviewStatusPeriodEntry {
@@ -571,337 +572,337 @@ Periods : OverviewStatusPeriodEntry[];
 }
 
 export interface DataUploadTemplateDefaults {
-Interval : string;
+Interval : TPDateIntervalInclusive;
 }
 
 export interface DataUploadTemplateInfo {
-PeriodInterval : string;
-YTDInterval : string;
-ForecastInterval : string;
+PeriodInterval : TPDateInterval;
+YTDInterval : TPDateInterval;
+ForecastInterval : TPDateInterval;
 PeriodName : string;
 }
 
 export enum ClientState {
-Setup : 0,
-Ready : 1
+Setup = 0,
+Ready = 1
 }
 
 export enum ClientUserCategory {
-InternalUser : 0,
-ExternalUser : 1,
-Api : 2
+InternalUser = 0,
+ExternalUser = 1,
+Api = 2
 }
 
 export enum FiscalYearType {
-Primary : 0,
-Secondary : 1
+Primary = 0,
+Secondary = 1
 }
 
 export enum IntercompanyTransactionType {
-SaleOfGoods : 0
+SaleOfGoods = 0
 }
 
 export enum DistributionModel {
-DirectSale : 0,
-Principal : 1
+DirectSale = 0,
+Principal = 1
 }
 
 export enum TPProfile {
-DistEarnTargetMargin : 0,
-MfgsEarnTargetMargin : 1,
-PrincipalModel : 2
+DistEarnTargetMargin = 0,
+MfgsEarnTargetMargin = 1,
+PrincipalModel = 2
 }
 
 export enum TPAdjustmentMechanism {
-RetroActive : 0,
-Prospective : 1
+RetroActive = 0,
+Prospective = 1
 }
 
 export enum TPAdjustmentLocation {
-ProfitAndLossOnly : 0,
-ProfitAndLossAndBalance : 1
+ProfitAndLossOnly = 0,
+ProfitAndLossAndBalance = 1
 }
 
 export enum TPMethod {
-TNMM : 0
+TNMM = 0
 }
 
 export enum TPUnitType {
-Unknown : 0,
-LegalEntity : 1,
-TPU : 2
+Unknown = 0,
+LegalEntity = 1,
+TPU = 2
 }
 
 export enum PLI {
-EbitTotal : 0,
-BerryRatio : 1,
-NCP : 2,
-ROATotal : 3,
-EbitExtOnly : 4,
-EbtTotal : 5,
-EbtExtOnly : 6,
-GrossMarginTotal : 7,
-GrossMarginExtOnly : 8,
-ROAOperatingAssets : 9,
-ROAMfgAssets : 10,
-FCMU : 11
+EbitTotal = 0,
+BerryRatio = 1,
+NCP = 2,
+ROATotal = 3,
+EbitExtOnly = 4,
+EbtTotal = 5,
+EbtExtOnly = 6,
+GrossMarginTotal = 7,
+GrossMarginExtOnly = 8,
+ROAOperatingAssets = 9,
+ROAMfgAssets = 10,
+FCMU = 11
 }
 
 export enum TargetProfitMargin {
-Pct0 : 0,
-Pct25 : 1,
-Pct50 : 2,
-Pct75 : 3,
-Pct100 : 4,
-Fixed : 5
+Pct0 = 0,
+Pct25 = 1,
+Pct50 = 2,
+Pct75 = 3,
+Pct100 = 4,
+Fixed = 5
 }
 
 export enum OORResults {
-AlwaysTargetMargin : 0,
-DoNotAdjustIfInRange : 1,
-AdjustToRange : 2
+AlwaysTargetMargin = 0,
+DoNotAdjustIfInRange = 1,
+AdjustToRange = 2
 }
 
 export enum YearIntervalType {
-Unknown : 0,
-JanToDec : 1,
-FebToJan : 2,
-MarToFeb : 3,
-AprToMar : 4,
-MayToApr : 5,
-JunToMay : 6,
-JulToJun : 7,
-AugToJul : 8,
-SepToAug : 9,
-OctToSep : 10,
-NovToOct : 11,
-DecToNov : 12
+Unknown = 0,
+JanToDec = 1,
+FebToJan = 2,
+MarToFeb = 3,
+AprToMar = 4,
+MayToApr = 5,
+JunToMay = 6,
+JulToJun = 7,
+AugToJul = 8,
+SepToAug = 9,
+OctToSep = 10,
+NovToOct = 11,
+DecToNov = 12
 }
 
 export enum FinancialDataSource {
-LocalAccounts : 0,
-ConsolidatedAccounts : 1
+LocalAccounts = 0,
+ConsolidatedAccounts = 1
 }
 
 export enum DataFeedMode {
-Manual : 0
+Manual = 0
 }
 
 export enum FCSetup {
-GlobalFC : 0,
-LocalFC : 1
+GlobalFC = 0,
+LocalFC = 1
 }
 
 export enum CompanyType {
-Dist : 0,
-Mfgs : 1
+Dist = 0,
+Mfgs = 1
 }
 
 export enum BenchmarkClass {
-InitialSetup : 0,
-Live : 1
+InitialSetup = 0,
+Live = 1
 }
 
 export enum BenchmarkRegionalCategory {
-Regional : 0,
-Local : 1
+Regional = 0,
+Local = 1
 }
 
 export enum CompanyEntityType {
-Sales : 0,
-Mfg : 1,
-SalesAndMfg : 2,
-Principal : 3,
-Mixed : 4
+Sales = 0,
+Mfg = 1,
+SalesAndMfg = 2,
+Principal = 3,
+Mixed = 4
 }
 
 export enum FiscalYearStatus {
-Completed : 0,
-Active : 1
+Completed = 0,
+Active = 1
 }
 
 export enum PeriodStatus {
-Completed : 0,
-NotReady : 1,
-ReadyForData : 2,
-InProgressFileUploaded : 3,
-InProgressDataLoaded : 4,
-InProgressDataAccepted : 5,
-InProgressTPDraft : 6,
-InProgressDataUploadAccepted : 7
+Completed = 0,
+NotReady = 1,
+ReadyForData = 2,
+InProgressFileUploaded = 3,
+InProgressDataLoaded = 4,
+InProgressDataAccepted = 5,
+InProgressTPDraft = 6,
+InProgressDataUploadAccepted = 7
 }
 
 export enum AdjustmentExplanation {
-PeriodAdjustment : 0,
-YTDAdjustment : 1,
-ForecastAdjustment : 2
+PeriodAdjustment = 0,
+YTDAdjustment = 1,
+ForecastAdjustment = 2
 }
 
 export enum InputIntervalType {
-Actual : 0,
-Forecast : 1
+Actual = 0,
+Forecast = 1
 }
 
 export enum FiscalYearIntervalType {
-Unknown : 0,
-Period : 1,
-YTD : 2,
-Forecast : 3
+Unknown = 0,
+Period = 1,
+YTD = 2,
+Forecast = 3
 }
 
 export enum InitialSetupMode {
-Regular : 0,
-FastConfiguration : 1
+Regular = 0,
+FastConfiguration = 1
 }
 
 export interface QueryOptions {
 }
 
 export enum DataPointEnum {
-GrossSales : 0,
-NetTotalSales : 1,
-NetExternalSales : 2,
-NetIntercompanySales : 3,
-TotalCogs : 4,
-TotalExternalCogs : 5,
-IntercoAggrCogs : 6,
-GrossProfit : 7,
-AdminCosts : 8,
-SalesCosts : 9,
-MarketingCosts : 10,
-SalaryCosts : 11,
-EBITDA : 12,
-Depreciations : 13,
-OpEx : 14,
-EBIT : 15,
-InterestIncome : 16,
-InterestExpenses : 17,
-EBT : 18,
-CorpTaxRatePct : 19,
-CorpTaxPayment : 20,
-NetIncomeAfterTax : 21,
-TotalCosts : 22,
-FixedAssets : 23,
-OtherAssets : 24,
-Capital : 25,
-TotalAssets : 26
+GrossSales = 0,
+NetTotalSales = 1,
+NetExternalSales = 2,
+NetIntercompanySales = 3,
+TotalCogs = 4,
+TotalExternalCogs = 5,
+IntercoAggrCogs = 6,
+GrossProfit = 7,
+AdminCosts = 8,
+SalesCosts = 9,
+MarketingCosts = 10,
+SalaryCosts = 11,
+EBITDA = 12,
+Depreciations = 13,
+OpEx = 14,
+EBIT = 15,
+InterestIncome = 16,
+InterestExpenses = 17,
+EBT = 18,
+CorpTaxRatePct = 19,
+CorpTaxPayment = 20,
+NetIncomeAfterTax = 21,
+TotalCosts = 22,
+FixedAssets = 23,
+OtherAssets = 24,
+Capital = 25,
+TotalAssets = 26
 }
 
 export enum DataPointEnum_CrossValues {
-Cogs : 0
+Cogs = 0
 }
 
 export enum DataPointValueType {
-Amount : 0,
-Percent : 1
+Amount = 0,
+Percent = 1
 }
 
 export enum TPInvoiceType {
-Invoice : 0,
-CreditNote : 1
+Invoice = 0,
+CreditNote = 1
 }
 
 export enum ExchangeRateSource {
-UserDefined : 0,
-ECB : 1
+UserDefined = 0,
+ECB = 1
 }
 
 export enum ReportType {
-MainDashboard : 0,
-MainDashboard2 : 1
+MainDashboard = 0,
+MainDashboard2 = 1
 }
 
 export enum ReportValueType {
-Net : 0,
-Upward : 1,
-Downward : 2,
-Gross : 3
+Net = 0,
+Upward = 1,
+Downward = 2,
+Gross = 3
 }
 
 export enum ReportValueCalcType {
-AcceptedOnly : 0,
-IncludeDraft : 1
+AcceptedOnly = 0,
+IncludeDraft = 1
 }
 
 export enum PeriodInputDataIssueSeverity {
-Warning : 0,
-Error : 1
+Warning = 0,
+Error = 1
 }
 
 export enum GeneratedFileType {
-Unknown : 0,
-Excel : 1,
-Pdf : 2
+Unknown = 0,
+Excel = 1,
+Pdf = 2
 }
 
 export enum CompanyCalculationSegment {
-CompanyData : 0,
-Adjustments : 1
+CompanyData = 0,
+Adjustments = 1
 }
 
 export enum ClientMessageType {
-Unknown : 0,
-RefreshBasisClientInfo : 1
+Unknown = 0,
+RefreshBasisClientInfo = 1
 }
 
 export enum Frequency {
-Unknown : 0,
-Monthly : 1,
-Quarterly : 2,
-Biannualy : 3,
-Annually : 4
+Unknown = 0,
+Monthly = 1,
+Quarterly = 2,
+Biannualy = 3,
+Annually = 4
 }
 
 export enum Forecast {
-Disabled : 0,
-Enabled : 1
+Disabled = 0,
+Enabled = 1
 }
 
 export enum YtdDataSupport {
-Supported : 0,
-AllowedInsteadOfPeriodData : 1
+Supported = 0,
+AllowedInsteadOfPeriodData = 1
 }
 
 export enum TPOverviewInvoiceDirection {
-From : 0,
-To : 1
+From = 0,
+To = 1
 }
 
 export enum TPAdjustmentType {
-Unknown : 0,
-ProfitAdjustment : 1,
-PriceAdjustment : 2
+Unknown = 0,
+ProfitAdjustment = 1,
+PriceAdjustment = 2
 }
 
 export enum IntervalAnalysisOverallStatus {
-Unknown : 0,
-Ok : 1,
-NoPeriodsFound : 2,
-InvalidPeriods_TooMany : 3,
-InvalidPeriods_DifferentFiscalYears : 4,
-InvalidPeriods_MultipleWithSameStartDate : 5,
-InvalidPeriods_MultipleIndependentPeriods : 6,
-InvalidPeriods_IndividualIntervalsInvalid : 7,
-ConflictWithActivePeriods : 8,
-InvalidPeriod_OnlyOneForecastPeriodAllowed : 9,
-InvalidPeriods_CannotUnderstand : 10
+Unknown = 0,
+Ok = 1,
+NoPeriodsFound = 2,
+InvalidPeriods_TooMany = 3,
+InvalidPeriods_DifferentFiscalYears = 4,
+InvalidPeriods_MultipleWithSameStartDate = 5,
+InvalidPeriods_MultipleIndependentPeriods = 6,
+InvalidPeriods_IndividualIntervalsInvalid = 7,
+ConflictWithActivePeriods = 8,
+InvalidPeriod_OnlyOneForecastPeriodAllowed = 9,
+InvalidPeriods_CannotUnderstand = 10
 }
 
 export enum IntervalAnalysisStatus {
-Unknown : 0,
-Ok : 1,
-OkWithMissingFiscalYear : 2,
-MultipleFiscalYears : 3,
-InvalidIntervalStartAndEnd : 4,
-InvalidStartDate : 5,
-InvalidEndDate : 6,
-IntervalSpansCompletedPeriods : 7
+Unknown = 0,
+Ok = 1,
+OkWithMissingFiscalYear = 2,
+MultipleFiscalYears = 3,
+InvalidIntervalStartAndEnd = 4,
+InvalidStartDate = 5,
+InvalidEndDate = 6,
+IntervalSpansCompletedPeriods = 7
 }
 
 export enum DataRuleViolation {
-Unknown : 0,
-Missing : 1,
-APlusBMustEqualC : 2
+Unknown = 0,
+Missing = 1,
+APlusBMustEqualC = 2
 }
 
 export interface DD2IdBase {
@@ -955,13 +956,13 @@ Value : DD2ReportValue;
 
 export interface DDReportValueInCurrency {
 CurrencyId : string;
-Amount : Decimal;
-ExchangeRate : Decimal;
+Amount : number;
+ExchangeRate : number;
 AccountType : ReportValueType;
 }
 
 export interface DD2AccountValue {
-Amount : Decimal;
+Amount : number;
 AccountType : ReportValueType;
 }
 
@@ -1144,67 +1145,67 @@ export interface StoredFile {
 }
 
 export enum InitialSetupErrorCode {
-InitialSetupHasErrors : 0,
-ClientIsNotInInitialSetupMode : 1,
-ServiceCompaniesNotSupported : 2,
-IPCompaniesNotSupported : 3
+InitialSetupHasErrors = 0,
+ClientIsNotInInitialSetupMode = 1,
+ServiceCompaniesNotSupported = 2,
+IPCompaniesNotSupported = 3
 }
 
 export enum MiscTPErrorCode {
-PeriodStatusDoesNotAllowUpload : 0,
-PeriodStatusDoesNotAllowAcceptingSheet : 1,
-PeriodStatusDoesNotAllowDiscardingData : 2,
-PeriodContainsNoInputData : 3,
-PeriodStatusDoesNotAllowAcceptance : 4,
-PeriodStatusDoesNotAllowTPCalculation : 5,
-PeriodStatusDoesNotAllowFinalApproval : 6,
-NoFiscalYearsCreated : 7,
-InvalidDateRangeForPreviousFiscalYear : 8,
-PeriodDoesNotAllowBenchmarkEditing : 9,
-PeriodStatusDoesNotAllowDiscardDraft : 10,
-PeriodStatusDoesNotAllowReopen : 11,
-PeriodStatusDoesNotAllowBenchmarkUpdates : 12,
-MultipleBenchmarksForSameCountry : 13,
-MultipleBenchmarksForSameRegion : 14,
-PeriodStatusDoesNotAllowCorrections : 15,
-PropertyCannotBeChangedBecauseActiveInPeriod : 16,
-MultiplePrincipalCompanies : 17,
-NonUniqueERPNumber : 18,
-UserMustHaveAName : 19,
-UserSystemTypeCannotBeChanged : 20,
-BasisUserAlreadyMappedToOtherClientUser : 21,
-CannotDeleteClientAdministrator : 22,
-MultipleClientUsersMappedToSameContactPerson : 23,
-ApiIsDisabledForClient : 24,
-EndDateOfIntervalMustBeFirstOrLastDayInMonth : 25,
-InvalidDateForExchangeRate : 26,
-CompletedPeriodCannotReopen : 27,
-NonUniqueFiscalYearEndForPrincipalCompanies : 28,
-GroupCurrencyNotDefined : 29,
-LegalEntityCannotHaveParent : 30,
-TPUIsMissingParentUnit : 31,
-ParentUnitDoesNotExist : 32,
-PeriodDataIsNotValidForAcceptance : 33,
-PeriodStatusDoesNotAllowReopeningUpload : 34
+PeriodStatusDoesNotAllowUpload = 0,
+PeriodStatusDoesNotAllowAcceptingSheet = 1,
+PeriodStatusDoesNotAllowDiscardingData = 2,
+PeriodContainsNoInputData = 3,
+PeriodStatusDoesNotAllowAcceptance = 4,
+PeriodStatusDoesNotAllowTPCalculation = 5,
+PeriodStatusDoesNotAllowFinalApproval = 6,
+NoFiscalYearsCreated = 7,
+InvalidDateRangeForPreviousFiscalYear = 8,
+PeriodDoesNotAllowBenchmarkEditing = 9,
+PeriodStatusDoesNotAllowDiscardDraft = 10,
+PeriodStatusDoesNotAllowReopen = 11,
+PeriodStatusDoesNotAllowBenchmarkUpdates = 12,
+MultipleBenchmarksForSameCountry = 13,
+MultipleBenchmarksForSameRegion = 14,
+PeriodStatusDoesNotAllowCorrections = 15,
+PropertyCannotBeChangedBecauseActiveInPeriod = 16,
+MultiplePrincipalCompanies = 17,
+NonUniqueERPNumber = 18,
+UserMustHaveAName = 19,
+UserSystemTypeCannotBeChanged = 20,
+BasisUserAlreadyMappedToOtherClientUser = 21,
+CannotDeleteClientAdministrator = 22,
+MultipleClientUsersMappedToSameContactPerson = 23,
+ApiIsDisabledForClient = 24,
+EndDateOfIntervalMustBeFirstOrLastDayInMonth = 25,
+InvalidDateForExchangeRate = 26,
+CompletedPeriodCannotReopen = 27,
+NonUniqueFiscalYearEndForPrincipalCompanies = 28,
+GroupCurrencyNotDefined = 29,
+LegalEntityCannotHaveParent = 30,
+TPUIsMissingParentUnit = 31,
+ParentUnitDoesNotExist = 32,
+PeriodDataIsNotValidForAcceptance = 33,
+PeriodStatusDoesNotAllowReopeningUpload = 34
 }
 
 export interface AllClientErrors {
 }
 
 export interface ExchangeRateCustomDetails {
-ExchangeRate : string;
+ExchangeRate : number;
 }
 
 export interface ExchangeRateCustomData {
 CurrencyId : string;
-ExchangeRate : string;
+ExchangeRate : number;
 CurrencyCode : string;
 }
 
 export interface ExchangeRateCustomHistoryRate {
 ValidFrom : Date;
-ExchangeRate : Decimal;
-ChangeFromPrevious : Decimal;
+ExchangeRate : number;
+ChangeFromPrevious : number;
 }
 
 export interface ExchangeRateCustomDataAux {
@@ -1223,7 +1224,7 @@ export interface ExchangeRateDetails {
 FeedTimestamp : Date;
 FromCurrencyId : string;
 ToCurrencyId : string;
-ExchangeRate : Decimal;
+ExchangeRate : number;
 }
 
 export interface ExchangeRateData {
@@ -1237,8 +1238,8 @@ Details : ExchangeRateDetails;
 FromCurrencyCode : string;
 ToCurrencyCode : string;
 SourceCode : string;
-Issues : string;
-ItemEdit : string;
+Issues : ItemIssues;
+ItemEdit : ItemEdit;
 }
 
 export interface ExchangeRateAuxData2 {
@@ -1248,8 +1249,21 @@ ToCurrencyCode : string;
 }
 
 export interface ExchangeRateDetailsAux1 {
-ExchangeRate : Decimal;
+ExchangeRate : number;
 Comment : string;
+}
+
+export interface FileInitialParseResult {
+IsParsable : boolean;
+Message : string;
+}
+
+export interface FileReceiveResult {
+PeriodInputDataFileId : string;
+JsonResultObject : FileFeedback;
+IsOk : boolean;
+Message : string;
+SupportRef : string;
 }
 
 export interface FinancialDataValidation {
@@ -1257,11 +1271,11 @@ Issues : DataValidationIssue[];
 }
 
 export enum DVIssueType {
-Unknown : 0,
-DataMissing : 1,
-CurrencyMismatch : 2,
-IntercompanySumMismatch : 3,
-DataRuleViolation : 4
+Unknown = 0,
+DataMissing = 1,
+CurrencyMismatch = 2,
+IntercompanySumMismatch = 3,
+DataRuleViolation = 4
 }
 
 export interface DataValidationIssue {
@@ -1287,8 +1301,8 @@ CompanyIds : CompanyEntity[];
 export interface DVIssueIntercompanySumMismatch {
 CurrencyId : string;
 DataPoint : DataPointEnum;
-ExpectedSum : Decimal;
-ActualSum : Decimal;
+ExpectedSum : number;
+ActualSum : number;
 Type : DVIssueType;
 Interval : TPDateInterval;
 CompanyIds : CompanyEntity[];
@@ -1315,14 +1329,14 @@ Details : FiscalYearDetails;
 }
 
 export interface GeneratedFileCreationInfo {
-LifeTime : TimeSpan;
-Content : Byte[];
+LifeTime : Date;
+Content : number[];
 Type : GeneratedFileType;
 FileName : string;
 }
 
 export interface GeneratedFileContents {
-Content : Byte[];
+Content : number[];
 Type : GeneratedFileType;
 FileName : string;
 }
@@ -1344,9 +1358,9 @@ BenchmarkCollectionId : string;
 }
 
 export interface InitialSetupDataDetails {
-CompanyAccount : string;
-GroupTPPolicies : string;
-DataRetrieval : string;
+CompanyAccount : InitialSetup_CompanyAccount;
+GroupTPPolicies : InitialSetup_GroupTPPolicies;
+DataRetrieval : InitialSetup_DataRetrieval;
 }
 
 export interface InitialSetup_CompanyAccount {
@@ -1362,39 +1376,39 @@ Address : AddressDetails;
 export interface InitialSetup_GroupTPPolicies {
 GroupCurrency : string;
 IntercompanyTransactionName : string;
-TPProfile : string;
+TPProfile : TPProfile;
 Dist : InitialSetup_GroupTPPolicies_DistOrMfg;
 Mfgs : InitialSetup_GroupTPPolicies_DistOrMfg;
-AdjustmentFrequencyMonths : string;
-IntercompanyTransactionType : string;
-HasPrincipal : Boolean;
-HasDistributors : Boolean;
-HasManufacturers : Boolean;
-HasServiceCompanies : Boolean;
-HasIPCompanies : Boolean;
-TPMechanism : string;
-TPLocation : string;
-SetupMode : string;
-ExchangeRateSource : string;
-FinancialDataSource : string;
-DataFeedMode : string;
-DataFeedFrequency : string;
-FcSetup : string;
+AdjustmentFrequencyMonths : Frequency;
+IntercompanyTransactionType : IntercompanyTransactionType;
+HasPrincipal : boolean;
+HasDistributors : boolean;
+HasManufacturers : boolean;
+HasServiceCompanies : boolean;
+HasIPCompanies : boolean;
+TPMechanism : TPAdjustmentMechanism;
+TPLocation : TPAdjustmentLocation;
+SetupMode : InitialSetupMode;
+ExchangeRateSource : ExchangeRateSource;
+FinancialDataSource : FinancialDataSource;
+DataFeedMode : DataFeedMode;
+DataFeedFrequency : Frequency;
+FcSetup : FCSetup;
 }
 
 export interface InitialSetup_GroupTPPolicies_DistOrMfg {
-TPMechanism : string;
-TPLocation : string;
-TPMethod : string;
-PLI : string;
-ContactWithBenchmarkRenewal : string;
-TargetProfitMargin : string;
-FixedMarginPct : string;
-OORResults : string;
+TPMechanism : TPAdjustmentMechanism;
+TPLocation : TPAdjustmentLocation;
+TPMethod : TPMethod;
+PLI : PLI;
+ContactWithBenchmarkRenewal : boolean;
+TargetProfitMargin : TargetProfitMargin;
+FixedMarginPct : number;
+OORResults : OORResults;
 }
 
 export interface InitialSetup_DataRetrieval {
-FCSetup : string;
+FCSetup : FCSetup;
 }
 
 export interface InitialSetup_CompanyEntityDetails {
@@ -1402,8 +1416,8 @@ Name : string;
 ERPNumber : string;
 Country : string;
 LocalCurrency : string;
-FinancialYearEnd : string;
-CompanyEntityType : string;
+FinancialYearEnd : Date;
+CompanyEntityType : CompanyEntityType;
 }
 
 export interface InitialSetup_CompanyEntityDataAux1 {
@@ -1415,7 +1429,7 @@ LocalCurrencyCode : string;
 }
 
 export interface InitialSetupValidation {
-IsOk : Boolean;
+IsOk : boolean;
 ErrorMessage : string;
 }
 
@@ -1426,13 +1440,13 @@ export interface LoginOverview {
 ClientShortDetails : ClientShortDetails;
 ClientUserName : string;
 ClientRoles : ClientRoleType[];
-Logo : string;
+Logo : ClientLogo;
 }
 
 export interface NeededUpdates {
-PeriodsNeedsUpdates : Boolean;
+PeriodsNeedsUpdates : boolean;
 MigrationsNeeded : number;
-HasExpiredGeneratedFiles : Boolean;
+HasExpiredGeneratedFiles : boolean;
 }
 
 export interface OutboundMessageDetails {
@@ -1489,7 +1503,7 @@ InputPeriodId : string;
 EntityId : string;
 CurrencyId : string;
 Type : DataPointEnum;
-Value : Decimal;
+Value : number;
 Comment : string;
 }
 
@@ -1502,9 +1516,9 @@ Details : PeriodInputDataCorrectionDetails;
 export interface PeriodInputDataCorrectionDataPoint {
 Type : DataPointEnum;
 Title : string;
-CurrentValue : string;
-OriginalValue : string;
-CorrectionAction : string;
+CurrentValue : number;
+OriginalValue : number;
+CorrectionAction : ActionData;
 }
 
 export interface PeriodInputDataWithOptCorrectionOverview {
@@ -1517,13 +1531,13 @@ ClientUsers : ClientUserShortData[];
 
 export interface PeriodInputDataCorrectionDataPointChange {
 Type : DataPointEnum;
-OldValue : string;
-NewValue : string;
+OldValue : number;
+NewValue : number;
 }
 
 export interface PeriodInputDataFileAux1 {
 PeriodId : string;
-PeriodStatus : string;
+PeriodStatus : PeriodStatus;
 }
 
 export interface PeriodInputDataFileData {
@@ -1544,12 +1558,13 @@ OriginalFileId : string;
 export interface PeriodInputSheetResultDetails {
 SheetName : string;
 DataContent : PeriodEntityInputDataContentDetails[];
-Interpretation : string;
+Interpretation : PeriodInputDataFileInterpretationDetails;
 }
 
 export interface PeriodInputDataFileContents {
 OriginalFileName : string;
-StoredFileContents : string;
+StoredFileContents : StoredFileData;
+FileData : number[];
 }
 
 export interface PeriodInputDataFileInterpretationDetails {
@@ -1565,21 +1580,21 @@ Details : PeriodEntityInputDataContentDetails;
 export interface PeriodEntityInputDataContentDetails {
 CompanyEntityId : string;
 CurrencyId : string;
-Interval : string;
-Type : string;
+Interval : TPDateIntervalInclusive;
+Type : InputIntervalType;
 DataPointValues : PeriodEntityInputDataPointValueDetails[];
 CrossDataPointValues : PeriodEntityCrossInputDataPointDetails[];
 }
 
 export interface PeriodEntityInputDataPointValueDetails {
 Type : DataPointEnum;
-Value : Decimal;
+Value : number;
 }
 
 export interface PeriodEntityCrossInputDataPointDetails {
 CrossEntityId : string;
 Type : DataPointEnum_CrossValues;
-Value : Decimal;
+Value : number;
 }
 
 export interface SheetCellOffsetDetails {
@@ -1602,7 +1617,7 @@ UploadActionId : string;
 export interface PeriodInputSheetResultOverview {
 SheetName : string;
 DataContent : PeriodEntityInputDataContentData[];
-Interpretation : string;
+Interpretation : PeriodInputDataFileInterpretationDetails;
 }
 
 export interface PeriodInputDataFileValidation {
@@ -1618,21 +1633,21 @@ FiscalYearType : FiscalYearType;
 export interface PeriodInputDataFileSheetValidation {
 SheetName : string;
 OverallStatus : IntervalAnalysisOverallStatus;
-DataPeriodInterval : string;
+DataPeriodInterval : FiscalYearInterval;
 IntervalValidations : PeriodInputDataIntervalValidation[];
-PeriodIntervalStatus : string;
-YtdIntervalStatus : string;
+PeriodIntervalStatus : TPDateInterval;
+YtdIntervalStatus : TPDateInterval;
 ExistingPeriodId : string;
 PeriodsToBeRemoved : Period[];
 UnremovablePeriods : Period[];
-FiscalYearToBeCreated : string;
+FiscalYearToBeCreated : FiscalYearDetails;
 }
 
 export interface PeriodInputDataIntervalValidation {
 Interval : TPDateInterval;
 Status : IntervalAnalysisStatus;
 FiscalYearId : string;
-FiscalYearInterval : string;
+FiscalYearInterval : TPDateInterval;
 }
 
 export interface PeriodInputDataOverview {
@@ -1660,12 +1675,12 @@ CompanyEntityId : string;
 EntityName : string;
 CurrencyId : string;
 CurrencyCode : string;
-DateInterval : string;
+DateInterval : TPDateInterval;
 FormattedDateInterval : string;
 EntityPeriodData : CompanyEntityPeriodData;
-CogsPerEntity : Decimal[];
-Issues : string;
-ItemEdit : string;
+CogsPerEntity : number[];
+Issues : ItemIssues;
+ItemEdit : ItemEdit;
 TPUnitType : TPUnitType;
 TPUnitTypeName : string;
 Type : CompanyEntityType;
@@ -1688,8 +1703,8 @@ FiscalYearType : FiscalYearType;
 }
 
 export enum PrepareDataItemStatus {
-Invalid : 0,
-Valid : 1
+Invalid = 0,
+Valid = 1
 }
 
 export interface PrepareDataOverview {
@@ -1728,7 +1743,7 @@ Details : RegionDetails;
 }
 
 export interface ReportFullData {
-PdfData : Byte[];
+PdfData : number[];
 }
 
 export interface WhatIfReportData {
@@ -1750,13 +1765,39 @@ CompanyResults : WhatIfReportCompanyPeriodResult[];
 
 export interface WhatIfReportCompanyPeriodResult {
 CompanyId : string;
-ImpactAmountBaseCurrency : Decimal;
+ImpactAmountBaseCurrency : number;
+}
+
+export interface WorkBookParseInfo {
+SheetNames : string[];
+ActiveSheetName : string;
+}
+
+export interface FileFeedback {
+ActiveSheetName : string;
+Sheets : FileFeedback_Sheet[];
+}
+
+export interface FileFeedback_Sheet {
+SheetName : string;
+CompanyEntityNames : string[];
+DataPointNames : string[];
+Validation : PeriodInputDataFileSheetValidation;
+}
+
+export interface UploadResult {
+Ok : boolean;
+Msg : string;
+FileName : string;
+FileSize : number;
+JsonResultObject : FileFeedback;
+PeriodInputDataFileId : string;
 }
 
 export interface StoredFileDetails {
 Size : number;
-Key : Byte[];
-IV : Byte[];
+Key : number[];
+IV : number[];
 }
 
 export interface StoredFileData {
@@ -1792,7 +1833,7 @@ Details : TPAdjustmentDetails;
 }
 
 export interface TPAdjustmentReopenValidation {
-MayBeReopened : Boolean;
+MayBeReopened : boolean;
 BlockingIntervals : TPDateInterval[];
 }
 
@@ -1819,21 +1860,21 @@ CompanyCalcDataAux1 : TPCompanyEntityCalcDataAux1[];
 
 export interface TPCompanyEntityCalcDetails {
 CompanyEntity : string;
-TargetProfitPct : string;
-ActualProfitPct : string;
-AdjustmentPct : string;
+TargetProfitPct : Percentage;
+ActualProfitPct : Percentage;
+AdjustmentPct : Percentage;
 AdjustmentCurrencyId : string;
-AdjustmentAmountBaseCurrency : string;
-AdjustmentAmount : string;
-TotalAdjustmentAmountBaseCurrency : string;
-TotalAdjustmentAmount : string;
+AdjustmentAmountBaseCurrency : number;
+AdjustmentAmount : number;
+TotalAdjustmentAmountBaseCurrency : number;
+TotalAdjustmentAmount : number;
 }
 
 export interface TPCompanyEntityCalcDataAux1 {
 Details : TPCompanyEntityCalcDetails;
 CompanyName : string;
-AllPeriodsVsYTD : string;
-AllPeriodVsYTDBaseCurrency : string;
+AllPeriodsVsYTD : number;
+AllPeriodVsYTDBaseCurrency : number;
 }
 
 export interface TPDataPreparationDetails {
@@ -1852,7 +1893,7 @@ DataPreparationId : string;
 CompanyId : string;
 PeriodInputDataPeriodId : string;
 DataPointType : DataPointEnum;
-EditedAmount : Decimal;
+EditedAmount : number;
 }
 
 export interface TPDataPreparationDataPointData {
@@ -1882,9 +1923,9 @@ DataValues : TPDataPreparationLegalEntityDataValue[];
 export interface TPDataPreparationLegalEntityDataValue {
 DataPoint : DataPointEnum;
 DataPointName : string;
-UploadValue : string;
-UserInput : string;
-ModifiedValue : string;
+UploadValue : number;
+UserInput : number;
+ModifiedValue : number;
 }
 
 export interface TPDataPreparationLegalEntityModifications {
@@ -1895,13 +1936,13 @@ export interface TPDataPreparationLegalEntityModification {
 LegalEntityId : string;
 Interval : TPDateInterval;
 DataPoint : DataPointEnum;
-UpdatedUserInput : string;
+UpdatedUserInput : number;
 }
 
 export interface TPDraftAmount {
 Currency : string;
-Amount : Decimal;
-AmountInBaseCurrency : Decimal;
+Amount : number;
+AmountInBaseCurrency : number;
 }
 
 export interface TPDraft {
@@ -1931,8 +1972,8 @@ FromCompanyId : string;
 ToCompanyId : string;
 Type : AdjustmentExplanation;
 CurrencyId : string;
-PeriodFlowAmount : Decimal;
-PeriodFlowAmountBaseCurrency : Decimal;
+PeriodFlowAmount : number;
+PeriodFlowAmountBaseCurrency : number;
 }
 
 export interface TPFlowCalcDetailData {
@@ -1960,8 +2001,8 @@ Type : TPInvoiceType;
 FromCompanyId : string;
 ToCompanyId : string;
 CurrencyId : string;
-Amount : Decimal;
-AmountInBaseCurrency : Decimal;
+Amount : number;
+AmountInBaseCurrency : number;
 Explanation : AdjustmentExplanation;
 }
 
@@ -1979,7 +2020,7 @@ TypeName : string;
 TPAmount : TPDraftAmount;
 CurrencyCode : string;
 AdjustmentType : TPAdjustmentType;
-PriceAdjustmentPct : string;
+PriceAdjustmentPct : Percentage;
 }
 
 export interface TPOverviewEntity {
@@ -1991,7 +2032,16 @@ CurrencyCode : string;
 
 export interface TPOverviewTotal {
 Title : string;
-Amount : string;
+Amount : number;
+}
+
+export interface TPAdjustmentOverview {
+Invoices : TPInvoicePresentation[];
+BaseCurrencyId : string;
+BaseCurrencyCode : string;
+Totals : TPOverviewTotal[];
+ToEntities : TPOverviewEntity[];
+FromEntities : TPOverviewEntity[];
 }
 
 export interface TPUpdatedIntervalsResult {
@@ -2000,13 +2050,13 @@ UpdatedHistory : TPSettingsDetailsHistory;
 }
 
 export interface TPSettingsChangeValidation {
-IsValid : Boolean;
+IsValid : boolean;
 Intervals : HistoryValidationResult[];
 }
 
 export interface HistoryValidationResult {
 Validity : Validity;
-IsValid : Boolean;
+IsValid : boolean;
 ProblematicPeriods : ValidationProblematicPeriod[];
 Message : string;
 }
@@ -2025,8 +2075,8 @@ History : TPSettingsDetails[];
 export interface TPSettingsDetails {
 GroupCurrency : string;
 TPProfile : TPProfile;
-DistSettings : string;
-MfgsSettings : string;
+DistSettings : TPSettingsCompanyTypeDetails;
+MfgsSettings : TPSettingsCompanyTypeDetails;
 FinancialDataSource : FinancialDataSource;
 TPMethod : TPMethod;
 AdjustmentMechanism : TPAdjustmentMechanism;
@@ -2044,7 +2094,7 @@ export interface TPSettingsCompanyTypeSimpleDetails {
 PLI : PLI;
 TargetProfitMargin : TargetProfitMargin;
 OORResults : OORResults;
-FixedMarginPct : string;
+FixedMarginPct : number;
 }
 
 export interface TPSettingsCompanyTypeDetails {
@@ -2070,10 +2120,10 @@ LocalCurrencyId : string;
 LocalCurrencyCode : string;
 CountryId : string;
 CountryName : string;
-PLI : string;
+PLI : PLI;
 PLIName : string;
-TargetMargin : string;
-Type : string;
+TargetMargin : number;
+Type : CompanyType;
 TypeName : string;
 YearIntervalType : YearIntervalType;
 FiscalYearIntervalName : string;
@@ -2082,13 +2132,13 @@ ParentUnitCode : string;
 }
 
 export interface UserMappingInfo {
-Dummy : Boolean;
+Dummy : boolean;
 }
 
 export interface WhatIfReportCompanyTypeChange {
-ChangedPLI : string;
-TargetProfitMargin : string;
-ExactMargin : string;
+ChangedPLI : PLI;
+TargetProfitMargin : TargetProfitMargin;
+ExactMargin : Percentage;
 }
 
 export interface WhatIfReportQuery {
@@ -2097,9 +2147,10 @@ ChangedMfgsCompanies : WhatIfReportCompanyTypeChange;
 }
 
 export enum ShowSetting {
-ShowActive : 0,
-ShowAll : 1,
-ShowActiveForDataUpload : 2
+ShowActive = 0,
+ShowAll = 1,
+ShowActiveForDataUpload = 2
 }
 
+}
 

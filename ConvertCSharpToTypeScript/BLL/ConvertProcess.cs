@@ -7,37 +7,43 @@ namespace ConvertCSharbToTypeScript.BLL
 {
     class ConvertProcessBL
     {
-        string[] AssemplyNames;
+        Dictionary<string, List<string>> AssemplyNames; //Key:Assembly Name, Values: namespaces list
+        Dictionary<string,List<string>> IgnoredTypeNames; //Ignored List of TypedNames (as 'Value') with specific AssemplyNames in (as 'Key')
+        string ModuleName;
         //ConvertProcessBL constructor take AsemplyNames as strings to start reflecting with
-        public ConvertProcessBL(string[] AssemplyNames)
+        public ConvertProcessBL(Dictionary<string, List<string>> ValidAssemplyNames, string ModuleName, Dictionary<string, List<string>> IgnoredTypeNames = null)
         {
-            this.AssemplyNames = AssemplyNames;
+            this.AssemplyNames = ValidAssemplyNames;
+            this.ModuleName = ModuleName;
+            this.IgnoredTypeNames = IgnoredTypeNames;
         }
 
         #region Functions
         //Start function start reflecting process
         public void Start()
         {
-            foreach (string AssemblyName in AssemplyNames)
+            foreach (var AssemblyName in AssemplyNames)
             {
-                Convert(AssemblyName);
+                Convert(AssemblyName, IgnoredTypeNames);
             }
         }
-        //Convert function take AssemblyName as string to start converting with
-        void Convert(string AssemblyName)
+        //Convert function take AssemblyName as KeyValuePair to start converting with
+        void Convert(KeyValuePair<string, List<string>> AssemblyName, Dictionary<string, List<string>> IgnoredTypeNames =null)
         {
             StringBuilder FileContent = new StringBuilder();
-            Type[] Types = Helper.ReflectDLLName(AssemblyName);
+            FileContent.Append("module " + ModuleName + "{" + "\r\n");
+            Type[] Types = Helper.ReflectDLLName(AssemblyName.Key);
             foreach (Type ObjType in Types)
             {
-               string TSSyntax= Helper.ConvertToTypeScriptSyntax(ObjType);
+                string TSSyntax = Helper.ConvertToTypeScriptSyntax(ObjType, AssemblyName.Value,IgnoredTypeNames);
                 FileContent.Append(TSSyntax);
             }
-            Helper.CreateTSFile(AssemblyName, FileContent);
+            FileContent.Append("}" + "\r\n");
+            Helper.CreateTSFile(AssemblyName.Key, FileContent);
         }
 
-   
-       
+
+
         #endregion
     }
 }

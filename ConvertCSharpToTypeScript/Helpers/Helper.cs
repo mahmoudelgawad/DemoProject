@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
 using System.IO;
+using System.Linq;
 
 namespace ConvertCSharbToTypeScript.Helpers
 {
@@ -21,18 +22,64 @@ namespace ConvertCSharbToTypeScript.Helpers
             Assembly ObjAssembly = Assembly.Load(AssemblyName);
             return ObjAssembly.GetExportedTypes();
         }
-
-        public static string ConvertToTypeScriptSyntax(Type ObjType)
+        public static bool isNotValidTSType(Type ObjType, List<string> NamespacesList, Dictionary<string, List<string>> IgnoredTypeNames)
         {
+            if (!(NamespacesList is null) && NamespacesList.Any() && !NamespacesList.Contains(ObjType.Namespace))
+            {
+                return true;
+            }
+            if (!(IgnoredTypeNames is null))
+            {
+                foreach (var KeyValue in IgnoredTypeNames)
+                {
+
+                    if (KeyValue.Key == ObjType.Assembly.GetName().Name)
+                    {
+                        if (KeyValue.Value.Contains(ObjType.Name))
+                        {
+                            return true;
+                        }
+                    }
+                }
+
+
+            }
             if (!(ObjType.BaseType is null) && ObjType.BaseType.Name == "DbContext")
+            {
+                return true;
+            }
+            if (ObjType.Name.ToLower().Contains("itypeserializ"))
+            {
+                return true;
+            }
+            if (ObjType.Name.ToLower().Contains("controller"))
+            {
+                return true;
+            }
+            if (ObjType.Name.ToLower().Contains("encoder"))
+            {
+                return true;
+            }
+            if (ObjType.IsAbstract)
+            {
+                //return true;
+            }
+
+            return false;
+        }
+        public static string ConvertToTypeScriptSyntax(Type ObjType, List<string> NamespacesList = null, Dictionary<string, List<string>> IgnoredTypeNames = null)
+        {
+            if (isNotValidTSType(ObjType, NamespacesList, IgnoredTypeNames))
             {
                 return "";
             }
             string Syntax = "";
-            string DateTypeName = GetTSDataTypeName(ObjType);
+            string DataTypeName = GetTSDataTypeName(ObjType);
             // just for test
             // Syntax += (ObjType.BaseType != null) ? ObjType.BaseType.Name + "----->\r\n" : "UNKNOWN----> \r\n";
-            Syntax += "export " + DateTypeName + " " + FilterSpecialChar(ObjType.Name) + " {";
+            Syntax += "export " + DataTypeName + " " + FilterSpecialChar(ObjType.Name) + "" +
+                isGenericType(ObjType) +
+                " {";
             Syntax += "\r\n";
 
             PropertyInfo[] PropertiesList = ObjType.GetProperties();
@@ -53,7 +100,7 @@ namespace ConvertCSharbToTypeScript.Helpers
                     {
                         continue;
                     }
-                    Syntax += Member.Name + " : " + enumValue.ToString();
+                    Syntax += Member.Name + " = " + enumValue.ToString();
                     if (!Member.Equals(lastItem))
                     {
                         Syntax += ",";
@@ -70,7 +117,7 @@ namespace ConvertCSharbToTypeScript.Helpers
                     {
                         continue;
                     }
-                    Syntax += Member.Name + " : " + GetTSType(((FieldInfo)Member).FieldType) + ";";
+                    Syntax += Member.Name + " : " + GetTSType(((FieldInfo)Member).FieldType, null, ObjType.Assembly.GetName().Name) + ";";
                     Syntax += "\r\n";
                 }
             }
@@ -87,48 +134,171 @@ namespace ConvertCSharbToTypeScript.Helpers
             file.Close();
         }
 
-        public static string GetTSType(Type ObjType)
+        public static string GetTSTypeName(string TypeName)
         {
-            switch (ObjType.Name.ToLower())
+            switch (TypeName.ToLower())
             {
                 case "string":
                     return "string";
                 case "datetime":
                     return "Date";
-                case "nullable`1":
-                    return "string";
+                case "timespan":
+                    return "Date";
                 case "id`1":
                     return "string";
+                case "id`1[]":
+                    return "string[]";
                 case "int16":
+                    return "number";
+                case "uint16":
                     return "number";
                 case "int32":
                     return "number";
+                case "uint32":
+                    return "number";
                 case "int64":
+                    return "number";
+                case "uint64":
                     return "number";
                 case "float":
                     return "number";
                 case "double":
                     return "number";
-                case "imarray`1":
-                    return GetArrayTypeFromFullName(ObjType.FullName) + "[]";
-                default:
-                    return ObjType.Name;
+                case "decimal":
+                    return "number";
+                case "byte":
+                    return "number";
+                case "byte[]":
+                    return "number[]";
+                case "list<any>[]":
+                    return "any[]";
+                case "string[]":
+                    return "string[]";
+                case "boolean":
+                    return "boolean";
+                case "workbookparseinfo":
+                    return "any";
+                case "ipv4address":
+                    return "string";
+                case "ipv6address":
+                    return "string";
+                case "t":
+                    return "any";
 
             }
+            return TypeName;
+        }
+        public static string GetTSType(Type ObjType, string TypeName = null, string ContainerAssemplyName = null)
+        {
+
+            if (string.IsNullOrEmpty(TypeName))
+            {
+                TypeName = ObjType.Name;
+            }
+            TypeName = GetTSTypeName(TypeName);
+
+            if (TypeName.ToLower() == "nullable`1" && ObjType.IsGenericType && ObjType.GenericTypeArguments.Length > 0)
+            {
+                TypeName = GetTSTypeName(ObjType.GenericTypeArguments[0].Name);
+            }
+
+            if (TypeName.ToLower() == "imarray`1")
+            {
+                TypeName = (ObjType is null) ? TypeName + "[]" : GetArrayTypeFromFullName(ObjType.FullName, ContainerAssemplyName, ObjType) + "[]";
+            }
+
+
+            if (TypeName.Contains("`1"))
+            {
+                TypeName = GetTSTypeName(FilterSpecialChar(TypeName)) + isGenericTypeMember(ObjType) + "[]";
+                TypeName = GetTSTypeName(TypeName);
+            }
+
+            if (TypeName.Contains("`2"))
+            {
+                TypeName = "any[]";
+            }
+
+            return TypeName;
+
         }
 
         public static string FilterSpecialChar(string Name)
         {
-            return Name.Replace("'", "").Replace("`", "");
+            return Name.Replace("'", "").Replace("`1", "").Replace("`2", "").Replace("[", "").Replace("]", "");
         }
-        public static string GetArrayTypeFromFullName(string FullName)
+        public static string isGenericType(Type ObjType)
         {
+            string GenericName = "";
+            if (ObjType.IsGenericType && ObjType.IsGenericTypeDefinition && ObjType.ContainsGenericParameters)
+            {
+                GenericName = ((TypeInfo)ObjType).GenericTypeParameters[0].Name;
+                GenericName = FilterSpecialChar(GenericName);
+                if (GenericName.ToLower() == "t")
+                {
+                    return "";
+                }
+                else
+                {
+                    return "<" + GenericName + ">";
+                }
+
+            }
+            return GenericName;
+        }
+
+        public static string isGenericTypeMember(Type ObjType)
+        {
+            string GenericName = "";
+            if (ObjType.IsGenericType && ObjType.GenericTypeArguments.Length > 0)
+            {
+                //GenericName = ObjType.GenericTypeArguments[0].Name;
+                //GenericName = FilterSpecialChar(GenericName);
+                //return "<" + GenericName + ">";
+                return "<any>";
+            }
+            return GenericName;
+        }
+        public static string GetArrayTypeFromFullName(string FullName, string ContainerAssemplyName, Type ObjType = null)
+        {
+            string ArrayName = "";
+
+            if (string.IsNullOrEmpty(FullName))
+            {
+                return "any";
+            }
             int indxblock = FullName.IndexOf("[");
             int indxcomma = FullName.IndexOf(",");
             string FirstPart = FullName.Substring(indxblock, indxcomma - indxblock);
-            int indxpoint = FirstPart.LastIndexOf(".") + 1;
-            string ArrayName = FirstPart.Substring(indxpoint, FirstPart.Length - indxpoint);
-            return FilterSpecialChar(ArrayName);
+
+            if (FirstPart.Contains(ContainerAssemplyName))
+            {
+                int AssemplyNameIndex = FirstPart.IndexOf(ContainerAssemplyName);
+                FirstPart = FirstPart.Substring(AssemplyNameIndex, (FirstPart.Length - AssemplyNameIndex));
+                ArrayName = FirstPart.Replace(ContainerAssemplyName + ".", "");
+                if (ArrayName.Contains("`1"))
+                {
+                    int to = ArrayName.IndexOf("`1");
+                    ArrayName = ArrayName.Substring(0, ArrayName.Length - to);
+                }
+                else if (ArrayName.Contains("."))
+                {
+                    int indxpoint = FirstPart.LastIndexOf(".") + 1;
+                    ArrayName = FirstPart.Substring(indxpoint, FirstPart.Length - indxpoint);
+                }
+            }
+            else
+            {
+                int indxpoint = FirstPart.LastIndexOf(".") + 1;
+                ArrayName = FirstPart.Substring(indxpoint, FirstPart.Length - indxpoint);
+            }
+            if (ArrayName.Contains("+") && ObjType.GenericTypeArguments.Length > 0)
+            {
+                ArrayName = ObjType.GenericTypeArguments[0].Name;
+            }
+
+            return GetTSType(null, FilterSpecialChar(ArrayName));
+
         }
         public static string GetTSDataTypeName(Type ObjType)
         {
