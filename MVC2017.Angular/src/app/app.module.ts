@@ -12,6 +12,7 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import { ShopingListComponent } from './shoping-list/shoping-list.component';
 import { ShopingEditComponent } from './shoping-list/shoping-edit/shoping-edit.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { GlobalModelComponent } from './shared/global-model/global-model.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
       RecipeItemComponent,
       ShopingListComponent,
       ShopingEditComponent,
-      RecipeDetailComponent
+      RecipeDetailComponent,
+      GlobalModelComponent
   ],
   imports: [
       BrowserModule,
