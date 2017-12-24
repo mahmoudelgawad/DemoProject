@@ -16,3 +16,5 @@
 /MVC2017/obj
 /MVC2017.Angular/dist
 /IonicApp.Demo/node_modules
+/IonicApp.Demo/.sourcemaps
+/IonicApp.Demo/www
