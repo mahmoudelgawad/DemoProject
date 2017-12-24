@@ -1,0 +1,3 @@
+[submodule "IonicApp"]
+	path = IonicApp
+	url = https://github.com/mahmoudelgawad/MVC2017/IonicApp
