@@ -1,0 +1,67 @@
+<style>
+  .img-circle{
+    width: 150px; height: 150px; border-radius: 50%;
+  }
+  .padding-icon{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+</style>
+<ion-header >
+    <ion-navbar >
+      <ion-buttons end>
+        <button  ion-button icon-only >
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+  
+      <ion-title>
+        Mahmoud's Profile
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding text-center>
+  
+  <ion-slides pager style="height:35%;">
+
+      <ion-slide >
+          <img src="https://www.w3schools.com/bootstrap/newyork.jpg" class="img-circle" />
+      </ion-slide>
+    
+      <ion-slide >
+          <img src="https://www.w3schools.com/bootstrap/paris.jpg" class="img-circle" />
+      </ion-slide>
+    
+      <ion-slide >
+          <img src="https://www.w3schools.com/bootstrap/sanfran.jpg" class="img-circle" />
+      </ion-slide>
+    
+    </ion-slides>
+    <p style="font-weight: bold;color:darkblue;font-size: 18px;">Mahmoud, 33</p>
+    <p style="font-weight: 100;color:gray;font-size:27px">Cairo, Egypt</p>
+    <ion-icon name="link-outline" class="padding-icon"> 5</ion-icon>
+    <ion-icon name="man-outline" class="padding-icon"> 0</ion-icon>
+    <ion-icon name="md-locate" class="padding-icon"> 30 Km</ion-icon>
+    <ion-slides pager style="height:40%;">
+
+        <ion-slide >
+            <ion-card>
+                <ion-card-header style="color:darkblue;">
+                  About me
+                </ion-card-header>
+                <ion-card-content>
+                 <div>
+                   Hello, I am Mahmoud Ahmed<br/>
+                   I love football sport<br/>
+                   I would Like to meet someone play football with
+                 </div>
+                </ion-card-content>
+              </ion-card>
+        </ion-slide>
+
+      
+      </ion-slides>
+
+</ion-content>

@@ -13,7 +13,28 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let place of places">{{place.title}}</ion-item>
-  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      Places List
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let place of places">{{place.title}}</ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Profile
+    </ion-card-header>
+    <ion-card-content>
+      <ion-buttons>
+        <button (click)="onGoToProfile()" ion-button block icon-left>
+          <ion-icon name="home"></ion-icon>
+          Edit Profile
+        </button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

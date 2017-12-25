@@ -8,12 +8,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NewPlacePage } from '../pages/new-place/new-place';
 import { PlacesService } from '../services/places.service';
+import { MyProfilePage } from '../pages/my-profile/my-profile';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    NewPlacePage
+    NewPlacePage,
+    MyProfilePage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { PlacesService } from '../services/places.service';
   entryComponents: [
     MyApp,
     HomePage,
-    NewPlacePage
+    NewPlacePage,
+    MyProfilePage
   ],
   providers: [
     StatusBar,
