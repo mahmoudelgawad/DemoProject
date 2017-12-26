@@ -13,6 +13,8 @@ import { ShopingListComponent } from './shoping-list/shoping-list.component';
 import { ShopingEditComponent } from './shoping-list/shoping-edit/shoping-edit.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { GlobalModelComponent } from './shared/global-model/global-model.component';
+import { CourseComponent } from './courses/course/course.component';
+import { CourseListComponent } from './courses/course-list/course-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { GlobalModelComponent } from './shared/global-model/global-model.compone
       ShopingListComponent,
       ShopingEditComponent,
       RecipeDetailComponent,
-      GlobalModelComponent
+      GlobalModelComponent,
+      CourseComponent,
+      CourseListComponent
   ],
   imports: [
       BrowserModule,
