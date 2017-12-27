@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 @Component({
   selector: 'app-course',
@@ -10,6 +11,9 @@ export class CourseComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+  onAddCourse(value:NgForm){
+    
   }
 
 }

@@ -1,3 +1,18 @@
 <p>
-  course works!
+  *app-course component*
 </p>
+<hr/>
+<form (ngSumbit)="onAddCourse()" #f="ngForm">
+  <div>
+    <input type="text" name="name" placeholder="Name" ngModel required>
+  </div>
+  <div>
+    <input type="text" name=topic placeholder="Topic" ngModel required>
+  </div>
+  <div>
+    <button type="submit" [(disabled)]="!f.valid">Add Course</button>
+  </div>
+</form>
+<hr/>
+<p>Courses List :</p>
+<app-course-list></app-course-list>

@@ -15,6 +15,8 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { GlobalModelComponent } from './shared/global-model/global-model.component';
 import { CourseComponent } from './courses/course/course.component';
 import { CourseListComponent } from './courses/course-list/course-list.component';
+import { AppRoutingModule } from './app-routing.module';
+import { CourseService } from './courses/course.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,12 @@ import { CourseListComponent } from './courses/course-list/course-list.component
   ],
   imports: [
       BrowserModule,
-      FormsModule
+      FormsModule,
+      AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CourseService],
+  bootstrap: [AppComponent],
+  
 })
+
 export class AppModule { }
