@@ -1,24 +1,9 @@
 import {Course} from '../courses/course';
 import {IAppState} from './IAppState';
+import { CourseService } from '../courses/course.service';
 
 const initialState: IAppState = {
-courses:[
-    {
-        "id":1,
-        "name":"mahmoud course",
-        "topic":"Angular 5"
-    },
-    {
-        "id":2,
-        "name":"karim course",
-        "topic":"JQuery"
-    },
-    {
-        "id":3,
-        "name":"Jilan course",
-        "topic":"HTML"
-    }
-]
+    courses:(new CourseService()).getCourses()
 };
 
 export function reducer(state= initialState,action){

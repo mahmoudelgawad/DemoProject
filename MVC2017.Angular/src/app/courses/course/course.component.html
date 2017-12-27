@@ -2,7 +2,8 @@
   *app-course component*
 </p>
 <hr/>
-<form (ngSumbit)="onAddCourse()" #f="ngForm">
+<form (ngSumbit)="onAddCourse(f)" #f="ngForm">
+    <input type="hidden" name="id" ngModel >
   <div>
     <input type="text" name="name" placeholder="Name" ngModel required>
   </div>
