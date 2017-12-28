@@ -2,7 +2,7 @@
   *app-course component*
 </p>
 <hr/>
-<form (ngSumbit)="onAddCourse(f)" #f="ngForm">
+<form (ngSubmit)="onAddCourse(f)" #f="ngForm">
     <input type="hidden" name="id" ngModel >
   <div>
     <input type="text" name="name" placeholder="Name" ngModel required>
@@ -11,7 +11,7 @@
     <input type="text" name=topic placeholder="Topic" ngModel required>
   </div>
   <div>
-    <button type="submit" [(disabled)]="!f.valid">Add Course</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Add Course</button>
   </div>
 </form>
 <hr/>

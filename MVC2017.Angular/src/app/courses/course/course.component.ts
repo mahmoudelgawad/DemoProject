@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
-import { CourseService } from '../course.service';
+import { store, AddCourseAction } from '../../store/index';
+import { Course } from '../course';
+
 
 @Component({
   selector: 'app-course',
@@ -9,16 +11,16 @@ import { CourseService } from '../course.service';
 })
 export class CourseComponent implements OnInit {
 
-  constructor(private courseService:CourseService) {
-
+  constructor() {
    }
 
   ngOnInit() {
   }
+  
   onAddCourse(f:NgForm){
-    let index = this.courseService.getCourses().length+1;
-    f.value.id=index;
-    this.courseService.addCourse(f.value);
+    let newCourse:Course = f.value;
+    store.dispatch(AddCourseAction(newCourse));
+    console.log('onAddCourse -> CourseComponent');
   }
 
 }

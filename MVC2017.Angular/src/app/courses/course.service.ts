@@ -6,42 +6,46 @@ import { Course } from './course';
 
 @Injectable()
 export class CourseService {
-  courseList: Course[] =
+  private static courseList: Course[] =
     [
-        {
-            "id":1,
-            "name":"mahmoud course",
-            "topic":"Angular 5"
-        },
-        {
-            "id":2,
-            "name":"karim course",
-            "topic":"JQuery"
-        },
-        {
-            "id":3,
-            "name":"Jilan course",
-            "topic":"HTML"
-        }
+      {
+        "id": 1,
+        "name": "mahmoud course",
+        "topic": "Angular 5"
+      },
+      {
+        "id": 2,
+        "name": "karim course",
+        "topic": "JQuery"
+      },
+      {
+        "id": 3,
+        "name": "Jilan course",
+        "topic": "HTML"
+      }
     ];
   constructor() {
 
   }
 
   addCourse(course: Course) {
-    this.courseList.push(course);
-    console.log('add new course');
+    let index = CourseService.courseList.length + 1;
+    course.id = index;
+    CourseService.courseList.push(course);
+    console.log('addCourse -> Service');
+    console.log(CourseService.courseList);
+    return CourseService.courseList;
   }
 
   deleteCourse(course: Course) {
-    let index = this.courseList.indexOf(course);
+    let index = CourseService.courseList.indexOf(course);
     if (index > -1) {
-      this.courseList.splice(index);
+      CourseService.courseList.splice(index);
     }
   }
 
   getCourses() {
-    return this.courseList;
+    return CourseService.courseList;
   }
 
   getCourse(id: number) {

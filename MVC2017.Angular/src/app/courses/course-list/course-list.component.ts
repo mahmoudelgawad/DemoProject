@@ -14,12 +14,12 @@ export class CourseListComponent implements OnInit {
   constructor(private _courseService: CourseService) {
   }
 
-  getCourses() {
-    // this._courseService.getCourses()
-    //   .subscribe(courses => {
-    //     this.courses = this.filteredCourses = courses;
-    //   });
-  }
+  // getCourses() {
+  //   this._courseService.getCourses()
+  //      .subscribe(courses => {
+  //       this.courses = this.filteredCourses = courses;
+  //     });
+  // }
 
 
   updateFromState() {
