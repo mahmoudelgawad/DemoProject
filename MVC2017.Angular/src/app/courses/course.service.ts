@@ -48,10 +48,13 @@ export class CourseService {
     return CourseService.courseList;
   }
 
+  getFilteredCourses(filterText:string){
+    return CourseService.courseList.filter(c => c.name.toLowerCase().indexOf(filterText.toLowerCase()) > -1);
+  }
+
   getCourse(id: number) {
 
   }
-
 
   updateCourse(course: Course) {
 

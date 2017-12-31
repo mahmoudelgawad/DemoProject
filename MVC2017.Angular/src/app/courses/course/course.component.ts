@@ -21,6 +21,7 @@ export class CourseComponent implements OnInit {
     let newCourse:Course = f.value;
     store.dispatch(AddCourseAction(newCourse));
     console.log('onAddCourse -> CourseComponent');
+    f.reset();
   }
 
 }

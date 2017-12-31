@@ -1,8 +1,11 @@
 <p>
   *app-course-list component*
 </p>
+<div>
+    <input type="text" (input)="onCoursesFilter($event.target.value)">
+</div>
 <ul>
-  <li *ngFor="let course of courses; let i = index">
+  <li *ngFor="let course of filteredCourses$ | async; let i = index">
     {{course.name}} -> {{course.topic}}
     </li>
 </ul>
