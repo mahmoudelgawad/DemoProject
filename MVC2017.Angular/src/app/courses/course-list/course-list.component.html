@@ -2,10 +2,12 @@
   *app-course-list component*
 </p>
 <div>
-    <input type="text" (input)="onCoursesFilter($event.target.value)">
+  <input type="text" (input)="onCoursesFilter($event.target.value)">
 </div>
-<ul>
-  <li *ngFor="let course of filteredCourses$ | async; let i = index">
-    {{course.name}} -> {{course.topic}}
+<div *ngIf="courseState | async as cState">
+  <ul>
+    <li *ngFor="let course of cState.filteredCourses; let i = index">
+      {{course.name}} -> {{course.topic}}
     </li>
-</ul>
+  </ul>
+</div>

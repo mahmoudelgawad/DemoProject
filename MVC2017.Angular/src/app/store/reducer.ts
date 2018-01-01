@@ -1,30 +1,34 @@
+
 import { Course } from '../courses/course';
+import * as CourseActions from './actions';
 import { IAppState } from './IAppState';
 import { CourseService } from '../courses/course.service';
-import { ADD_COURSE, FILTER_COURSES } from './actions';
+import { InitialState } from '@ngrx/store/src/models';
+
+
+export type Action = CourseActions.All;
 
 const initialState: IAppState = {
     courses: (new CourseService()).getCourses(),
     filteredCourses: (new CourseService()).getCourses(),
 };
 
-function addCourse(state, action): IAppState {
-    return Object.assign({}, state, {
-        courses: (new CourseService()).addCourse(action.course)
-    });
+function addCourse(course: Course): Course[] {
+    return (new CourseService()).addCourse(course);
 }
-function filterCourses(state, action): IAppState {
-    return Object.assign({}, state, {
-        filteredCourses: (new CourseService()).getFilteredCourses(action.filterText)
-    });
+function filterCourses(filterText: string): Course[] {
+    return (new CourseService()).getFilteredCourses(filterText);
 }
 
-export function reducer(state = initialState, action) {
+const newState = (state, newData) => {
+    return Object.assign({}, state, newData);
+}
+export function courseReducer(state: IAppState = initialState, action: Action) {
     switch (action.type) {
-        case ADD_COURSE:
-            return addCourse(state, action);
-        case FILTER_COURSES:
-            return filterCourses(state, action);
+        case CourseActions.ADD_COURSE:
+            return newState(state, { courses: addCourse(action.payload) });
+        case CourseActions.FILTER_COURSES:
+            return newState(state, { filteredCourses: filterCourses(action.payload) });
         default:
             return state;
     }

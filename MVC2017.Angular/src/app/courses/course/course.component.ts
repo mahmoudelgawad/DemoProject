@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
-import { store, AddCourseAction } from '../../store/index';
+import { AddCourseAction, IAppState, FilterCoursesAction } from '../../store/index';
 import { Course } from '../course';
+import { Store } from '@ngrx/store';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Course } from '../course';
 })
 export class CourseComponent implements OnInit {
 
-  constructor() {
+  constructor(private store:Store<IAppState>) {
    }
 
   ngOnInit() {
@@ -19,7 +20,7 @@ export class CourseComponent implements OnInit {
   
   onAddCourse(f:NgForm){
     let newCourse:Course = f.value;
-    store.dispatch(AddCourseAction(newCourse));
+    this.store.dispatch(new AddCourseAction(newCourse));
     console.log('onAddCourse -> CourseComponent');
     f.reset();
   }

@@ -17,6 +17,9 @@ import { CourseComponent } from './courses/course/course.component';
 import { CourseListComponent } from './courses/course-list/course-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CourseService } from './courses/course.service';
+import {StoreModule } from '@ngrx/store';
+import { courseReducer } from './store/reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,13 @@ import { CourseService } from './courses/course.service';
   imports: [
       BrowserModule,
       FormsModule,
-      AppRoutingModule
+      AppRoutingModule,
+      StoreModule.forRoot({
+         courseState:courseReducer
+      }),
+      StoreDevtoolsModule.instrument({
+          maxAge:10
+      })
   ],
   providers: [CourseService],
   bootstrap: [AppComponent],
