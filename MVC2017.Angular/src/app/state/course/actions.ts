@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { Course } from "../courses/course";
+import { Course } from "../../courses/course";
 
 
 export const ADD_COURSE = "course/ADD";
