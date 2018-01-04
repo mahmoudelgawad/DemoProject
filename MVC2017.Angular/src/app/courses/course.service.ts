@@ -45,6 +45,7 @@ export class CourseService {
   }
 
   getCourses() {
+    console.log('get courses array '+ CourseService.courseList.length);
     return CourseService.courseList;
   }
 

@@ -4,11 +4,7 @@ import { CourseService } from '../course.service';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { IAppState, AddCourseAction, FilterCoursesAction } from '../../store/index';
-
-interface Appstate{
-  courseState:IAppState
-}
+import { CourseStateService } from '../../../state/index';
 
 @Component({
   selector: 'app-course-list',
@@ -17,23 +13,17 @@ interface Appstate{
 })
 export class CourseListComponent implements OnInit {
 
-  courseState: Observable<IAppState>
+  filteredCourses$: Observable<Course[]>
 
-  constructor(private store:Store<Appstate>) {
-    this.courseState = this.store.select('courseState');
+  constructor(private courseStateService:CourseStateService) {
+    this.filteredCourses$= this.courseStateService.selecFilteredCourses();
   }
 
   ngOnInit() {
-    // this.getCourses();
-
-    // this.updateFromState();
-    // store.subscribe(() => {
-    //   this.updateFromState();
-    // });
   }
 
   onCoursesFilter(filterText: string) {
-    this.store.dispatch(new FilterCoursesAction(filterText));
+    this.courseStateService.dispatchInputFilterCourses(filterText);
     console.log("filter -> "+filterText);
   }
 

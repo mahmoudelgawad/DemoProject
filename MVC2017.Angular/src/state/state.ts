@@ -4,8 +4,8 @@ export interface IState{
 course:ICourseState
 }
 
-export function initialState():IState{
-    return{
+export let  initialState:IState={
+    
         course:CourseInitialState
-    }
-}
+    
+};
