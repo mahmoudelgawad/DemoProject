@@ -7,5 +7,3 @@ D:\MyLab\MVC2017\DemoProject.Entity\bin\Debug\EntityFramework.xml
 D:\MyLab\MVC2017\DemoProject.Entity\bin\Debug\EntityFramework.SqlServer.xml
 D:\MyLab\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.dll
 D:\MyLab\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.pdb
-D:\MyLab\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.csprojResolveAssemblyReference.cache
-D:\MyLab\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.csproj.CoreCompileInputs.cache

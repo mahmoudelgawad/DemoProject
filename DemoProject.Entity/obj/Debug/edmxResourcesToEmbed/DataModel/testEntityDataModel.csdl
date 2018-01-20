@@ -12,5 +12,15 @@
   </EntityType>
   <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="PostEntities" EntityType="testEntityDataModel.PostEntity" />
+    <EntitySet Name="RecibeEntities" EntityType="testEntityDataModel.RecibeEntity" />
   </EntityContainer>
+  <EntityType Name="RecibeEntity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>
