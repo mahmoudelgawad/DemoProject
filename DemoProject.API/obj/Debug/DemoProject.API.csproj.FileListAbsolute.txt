@@ -79,4 +79,3 @@ D:\MyLab\MVC2017\DemoProject.API\bin\EntityFramework.xml
 D:\MyLab\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.csprojResolveAssemblyReference.cache
 D:\MyLab\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.dll
 D:\MyLab\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.pdb
-D:\MyLab\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.csproj.CoreCompileInputs.cache

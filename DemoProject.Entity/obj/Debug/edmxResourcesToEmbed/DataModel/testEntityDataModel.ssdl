@@ -10,7 +10,17 @@
     <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Rate" Type="tinyint" />
   </EntityType>
+  <EntityType Name="Recibe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="testEntityDataModelStoreContainer">
     <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recibe" EntityType="Self.Recibe" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -53,6 +53,9 @@
     <Compile Include="DataModel\PostEntity.cs">
       <DependentUpon>testEntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\RecibeEntity.cs">
+      <DependentUpon>testEntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\testEntityDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

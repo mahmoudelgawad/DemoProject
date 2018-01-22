@@ -4,6 +4,8 @@ using System.Text;
 using System.Reflection;
 using System.IO;
 using System.Linq;
+using System.Configuration;
+using System.Collections.Specialized;
 
 namespace ConvertCSharbToTypeScript.Helpers
 {
@@ -128,7 +130,20 @@ namespace ConvertCSharbToTypeScript.Helpers
         }
         public static void CreateTSFile(string AssemblyName, StringBuilder FileContent)
         {
-            string Path = Directory.GetCurrentDirectory();
+
+            string Path = "";
+
+            // path of specific folder , from App config file
+            //Path = ConfigurationManager.AppSettings["ExportPath"];
+            ExeConfigurationFileMap map = new ExeConfigurationFileMap { ExeConfigFilename = "App.config" };
+            Configuration config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
+            Path = config.AppSettings.Settings["ExportPath"].Value;
+
+            if (string.IsNullOrEmpty(Path))
+            {
+                // path of the current folder of runing console exe file
+                Path =  Directory.GetCurrentDirectory();
+            }
             StreamWriter file = new StreamWriter(@"" + Path + "\\" + AssemblyName + ".ts");
             file.WriteLine(FileContent.ToString());
             file.Close();

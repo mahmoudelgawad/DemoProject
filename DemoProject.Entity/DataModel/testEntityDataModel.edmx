@@ -15,8 +15,18 @@
           <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Rate" Type="tinyint" />
         </EntityType>
+        <EntityType Name="Recibe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="testEntityDataModelStoreContainer">
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recibe" EntityType="Self.Recibe" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -34,7 +44,17 @@
         </EntityType>
         <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PostEntities" EntityType="testEntityDataModel.PostEntity" />
+          <EntitySet Name="RecibeEntities" EntityType="testEntityDataModel.RecibeEntity" />
         </EntityContainer>
+        <EntityType Name="RecibeEntity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -49,6 +69,16 @@
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecibeEntities">
+            <EntityTypeMapping TypeName="testEntityDataModel.RecibeEntity">
+              <MappingFragment StoreEntitySet="Recibe">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
