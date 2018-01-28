@@ -13,9 +13,11 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            TestClass obj= new TestClass();
-            obj.Address = "new nozha";
-            Console.WriteLine(obj.Address + "-->" + obj.ID);
+            int month = 2;
+            int year = 2001;
+            DateTime date = new DateTime(year, month, 1);
+            Console.WriteLine(date.ToString("yy") + "      " + date.ToString("MM"));
+            Console.Read();
         }
 
       
