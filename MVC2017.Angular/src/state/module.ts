@@ -1,19 +1,19 @@
 
-import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-import { reducer } from "./reducer";
-import { IState } from "./state";
-import { CourseStateService } from "./index";
-import { NgModule } from "@angular/core";
-import { Store } from "@ngrx/store/src/store";
-import { StoreModule } from "@ngrx/store/src/store_module";
-import { reduce } from "rxjs/operator/reduce";
-import { ICourseState, CourseInitialState } from "./course/state";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducer } from './reducer';
+import { IState } from './state';
+import { CourseStateService } from './index';
+import { NgModule } from '@angular/core';
+import { Store } from '@ngrx/store/src/store';
+import { StoreModule } from '@ngrx/store/src/store_module';
+import { reduce } from 'rxjs/operator/reduce';
+import { ICourseState, CourseInitialState } from './course/state';
 
 
 @NgModule({
     imports: [
         StoreModule.forRoot({
-            mainRed:CourseInitialState
+            mainRed: CourseInitialState
         }),
         StoreDevtoolsModule.instrument({
             maxAge: 10
