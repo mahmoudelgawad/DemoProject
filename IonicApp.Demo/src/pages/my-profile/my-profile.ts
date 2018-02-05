@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Content } from 'ionic-angular/components/content/content';
 
 /**
  * Generated class for the MyProfilePage page.
@@ -15,7 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MyProfilePage {
 
+  @ViewChild('scrollContent')
+  scrollContent: Content;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  onScroll() {
+    this.scrollContent.scrollToBottom(450);
+
   }
 
 
