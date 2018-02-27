@@ -32,7 +32,7 @@ namespace ConvertCSharpToTypeScript
                 //IgnoredTypeNames.Add("Snow.Erp.Api.Session", new List<string>() { "InstanceDetailsAux1" });
 
 
-                ConvertProcessBL ObjConvert = new ConvertProcessBL(AssemplyNames, "TPApp", IgnoredTypeNames);
+                ConvertProcessBL ObjConvert = new ConvertProcessBL(AssemplyNames, "AppModule", IgnoredTypeNames);
                 ObjConvert.Start();
                 Console.WriteLine("Convert Process Done...!");
             }
