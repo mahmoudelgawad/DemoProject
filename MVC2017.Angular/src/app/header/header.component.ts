@@ -14,11 +14,17 @@ export class HeaderComponent implements OnInit {
     constructor(private courseStateService: CourseStateService) {
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.courseStateService.selectCourses().subscribe(c => {
-            this.courseCount = c.length;
+            if (c) {
+                this.courseCount = c.length;
+            }
+            else {
+                this.courseCount = 0;
+            }
+
         });
     }
-    
+
 }
 

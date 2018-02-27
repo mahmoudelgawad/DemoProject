@@ -2,16 +2,19 @@
   *app-course component*
 </p>
 <hr/>
-<form (ngSubmit)="onAddCourse(f)" #f="ngForm">
-    <input type="hidden" name="id" ngModel >
+<form [formGroup]="courseForm" (ngSubmit)="onAddCourse()">
+    <input type="hidden" formControlName="id"  name="id" >
   <div>
-    <input type="text" name="name" placeholder="Name" ngModel required>
+    <input type="text" formControlName="name" name="name"   placeholder="Name">
   </div>
   <div>
-    <input type="text" name=topic placeholder="Topic" ngModel required>
+    <input type="text" formControlName="topic" name=topic   placeholder="Topic">
   </div>
   <div>
-    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Add Course</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!courseForm.valid">Add Course</button>
+  </div>
+  <div style="background-color: red" *ngIf="!courseForm.valid && courseForm.touched">
+    there is some thing wrong
   </div>
 </form>
 <hr/>
