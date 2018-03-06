@@ -1,4 +1,4 @@
-module TPApp{
+export namespace  TPApp{
 export interface PostEntity {
 Id : number;
 CreatedDate : Date;
