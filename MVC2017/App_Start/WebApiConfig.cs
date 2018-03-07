@@ -9,6 +9,10 @@ namespace MVC2017
     {
         public static void Register(HttpConfiguration config)
         {
+            //To return json format only
+            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("application/json"));
+
+
             // Web API configuration and services
 
             // Web API routes
