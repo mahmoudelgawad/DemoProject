@@ -8,3 +8,14 @@ D:\MyLab\MVC2017\DemoProject.Entity\bin\Debug\EntityFramework.SqlServer.xml
 D:\MyLab\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.dll
 D:\MyLab\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.pdb
 D:\MyLab\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.csprojResolveAssemblyReference.cache
+C:\AA Drive\MVC2017\DemoProject.Entity\bin\Debug\DemoProject.Entities.dll.config
+C:\AA Drive\MVC2017\DemoProject.Entity\bin\Debug\DemoProject.Entities.dll
+C:\AA Drive\MVC2017\DemoProject.Entity\bin\Debug\DemoProject.Entities.pdb
+C:\AA Drive\MVC2017\DemoProject.Entity\bin\Debug\EntityFramework.dll
+C:\AA Drive\MVC2017\DemoProject.Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\AA Drive\MVC2017\DemoProject.Entity\bin\Debug\EntityFramework.xml
+C:\AA Drive\MVC2017\DemoProject.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\AA Drive\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.csprojResolveAssemblyReference.cache
+C:\AA Drive\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.csproj.CoreCompileInputs.cache
+C:\AA Drive\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.dll
+C:\AA Drive\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.pdb
