@@ -17,3 +17,10 @@ C:\MY Drive\MyLab\MVC2017\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojRe
 C:\MY Drive\MyLab\MVC2017\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
 C:\MY Drive\MyLab\MVC2017\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\MY Drive\MyLab\MVC2017\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\AA Drive\MVC2017\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\AA Drive\MVC2017\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\AA Drive\MVC2017\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\AA Drive\MVC2017\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\AA Drive\MVC2017\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\AA Drive\MVC2017\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\AA Drive\MVC2017\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojResolveAssemblyReference.cache

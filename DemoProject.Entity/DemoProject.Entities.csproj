@@ -71,6 +71,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>testEntityDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\User.cs">
+      <DependentUpon>testEntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
