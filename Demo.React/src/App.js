@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import SearchBar from './Components/search_bar';
 import VideoList from './Components/video_list';
+import VideoDetail from './Components/video_detail';
 import YTSearch from 'youtube-api-search';
 const API_KEY="AIzaSyDlw_E_mwaDv27xK9zVMMxo-5JjbwQbPcI";
 
@@ -27,7 +28,9 @@ class App extends Component {
         </p>
         <h1>Mahmoud Ahmed try touch with React :)</h1>
         <SearchBar/>
-        <VideoList className="video-list" videos={this.state.videos}/>
+        <VideoDetail video={this.state.videos[0]}/>
+        <VideoList  videos={this.state.videos}/>
+
       </div>
     );
   }
