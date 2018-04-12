@@ -10,28 +10,30 @@ namespace ConsoleApp1
 
     class Program
     {
-
-        public static void rotate(int[] nums, int k) {
-            if (k > nums.Length)
-                k = k % nums.Length;
-            int[] result = new int[nums.Length];
-
-            for (int i = 0; i < k; i++) {
-                result[i] = nums[nums.Length - k + i];
+        public static void RigthRotate(int[] A, int K)
+        {
+            if (A.Length == 0 || K <= 0)
+            {
+                return;
             }
-            int j = 0;
-            for (int i = k; i < nums.Length; i++) {
-                result[i] = nums[j];
-                j++;
+            int len = A.Length - 1;
+            while (K > 0)
+            {
+                int lastValue = A[len];
+                for (int i = len; i > 0; i--)
+                {
+                    A[i] = A[i - 1];
+                }
+                A[0] = lastValue;
+                --K;
             }
-            Array.Copy(result, nums, nums.Length);
         }
         static void Main(string[] args)
         {
-            int[] solution = new int[] { 5, 6, 7, 1, 2, 3, 4 };
-                rotate(solution, 3);
-            Console.WriteLine("");
-           
+            int[] A = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            RigthRotate(A, 4);
+            Console.WriteLine(string.Join(",",A));
+            Console.WriteLine("End");
         }
 
 

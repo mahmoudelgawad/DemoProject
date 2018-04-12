@@ -19,8 +19,19 @@
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Age" Type="tinyint" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="testEntityDataModelStoreContainer">
     <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Recibe" EntityType="Self.Recibe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

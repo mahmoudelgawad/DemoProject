@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SearchBar from './Components/search_bar';
+import VideoList from './Components/video_list';
+import VideoDetail from './Components/video_detail';
+import YTSearch from 'youtube-api-search';
+const API_KEY="AIzaSyDlw_E_mwaDv27xK9zVMMxo-5JjbwQbPcI";
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={videos:[]};
+
+    YTSearch({key:API_KEY,term:'surfboards'},(videos) =>{
+      this.setState({videos});
+  });
+  }
   render() {
     return (
       <div className="App">
@@ -14,6 +27,10 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <h1>Mahmoud Ahmed try touch with React :)</h1>
+        <SearchBar/>
+        <VideoDetail video={this.state.videos[0]}/>
+        <VideoList  videos={this.state.videos}/>
+
       </div>
     );
   }

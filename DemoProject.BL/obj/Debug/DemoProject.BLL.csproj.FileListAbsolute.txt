@@ -11,3 +11,17 @@ D:\MyLab\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.SqlServer.xml
 D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.csprojResolveAssemblyReference.cache
 D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.dll
 D:\MyLab\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.pdb
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\DemoProject.BLL.dll.config
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\DemoProject.BLL.dll
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\DemoProject.BLL.pdb
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\DemoProject.Entities.dll
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.dll
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.SqlServer.dll
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\DemoProject.Entities.pdb
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\DemoProject.Entities.dll.config
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.xml
+C:\AA Drive\MVC2017\DemoProject.BL\bin\Debug\EntityFramework.SqlServer.xml
+C:\AA Drive\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.csprojResolveAssemblyReference.cache
+C:\AA Drive\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.csproj.CoreCompileInputs.cache
+C:\AA Drive\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.dll
+C:\AA Drive\MVC2017\DemoProject.BL\obj\Debug\DemoProject.BLL.pdb
