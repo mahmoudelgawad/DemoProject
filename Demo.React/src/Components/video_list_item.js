@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 
 class VideoListItem extends Component {
-    imageUrl;
     constructor(props) {
         super(props);
     }
     render() {
-        this.imageUrl = this.props.video.snippet.thumbnails.default.url;
+        const imageUrl = this.props.video.snippet.thumbnails.default.url;
         return (
-            <li className="list-group-item">
+            <li onClick={() => this.props.onVideoSelect(this.props.video)} className="list-group-item">
                 <div className="video-list media">
-                    <div className="media-left">
-                        <img className="media-object"  src={this.imageUrl}/>
+                    <div className="media-left video-item">
+                        <img className="media-object"  src={imageUrl}/>
                     </div>
 
                     <div className="media-body">

@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import VideoListitem from './video_list_item';
 
 class VideoList extends Component {
-    videolistItems;
     constructor(props) {
         super(props);
     }
     render() {
-        this.videolistItems = this.props.videos.map((video) => {
+        const videolistItems = this.props.videos.map((video) => {
             return (
-                <VideoListitem key={video.etag} video={video} />
+                <VideoListitem key={video.etag} video={video} onVideoSelect={this.props.onVideoSelect}/>
             );
         });
         return (
             <ul className="col-md-4 list-group">
-                {this.videolistItems}
+                {videolistItems}
             </ul>
         );
     }

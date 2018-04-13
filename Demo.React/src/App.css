@@ -1,9 +1,7 @@
 .App {
   text-align: center;
 }
-.video-list{
-  text-align: left;
-}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -27,4 +25,35 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/*****************My Custom css*******************************/
+.search-bar{
+  margin:20px;
+  text-align:center;
+}
+.search-bar input{
+  width: 75%;
+}
+
+.video-item img{
+  max-width: 64px;
+}
+
+.video-detail{
+  margin:15px;
+  text-align: center;
+}
+.video-detail .details{
+  margin-top:10 px;
+  padding:10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.list-group-item{
+  cursor: pointer;
+}
+.list-group-item:hover{
+  background-color: #eee;
 }
