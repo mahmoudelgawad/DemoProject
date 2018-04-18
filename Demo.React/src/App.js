@@ -24,7 +24,6 @@ class App extends Component {
   render() {
     let searchVideo = _.debounce((term) => { this.onSearchVideo(term); }, 300);
     return (
-      <Provider store={store}>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -38,12 +37,11 @@ class App extends Component {
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList videos={this.state.videos} onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} />
         <hr />
-
+        <Provider store={store}>
         <BookList/>
-       
-
+        </Provider>
       </div>
-      </Provider>
+
     );
   }
 
