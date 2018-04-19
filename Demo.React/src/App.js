@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {Provider} from 'react-redux';
-import store from './Reducers/index';
 import _ from 'lodash';
 import logo from './logo.svg';
 import './App.css';
@@ -9,6 +7,7 @@ import VideoList from './Components/video_list';
 import VideoDetail from './Components/video_detail';
 import YTSearch from 'youtube-api-search';
 import BookList from './Containers/book-list';
+import BookDetail from './Containers/book-detail';
 const API_KEY = "AIzaSyDlw_E_mwaDv27xK9zVMMxo-5JjbwQbPcI";
 
 class App extends Component {
@@ -37,9 +36,10 @@ class App extends Component {
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList videos={this.state.videos} onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} />
         <hr />
-        <Provider store={store}>
+
         <BookList/>
-        </Provider>
+        <BookDetail/>
+
       </div>
 
     );
