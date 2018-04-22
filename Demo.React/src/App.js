@@ -8,7 +8,10 @@ import VideoDetail from './Components/video_detail';
 import YTSearch from 'youtube-api-search';
 import BookList from './Containers/book-list';
 import BookDetail from './Containers/book-detail';
+import WeatherSearchBar from './Containers/Weather/weather-search-bar'
+//youtube API key
 const API_KEY = "AIzaSyDlw_E_mwaDv27xK9zVMMxo-5JjbwQbPcI";
+
 
 class App extends Component {
   constructor(props) {
@@ -32,13 +35,16 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <h1>Mahmoud Ahmed try touch with React :)</h1>
-        <SearchBar onSearchTermChange={searchVideo} />
+        {/* <SearchBar onSearchTermChange={searchVideo} />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList videos={this.state.videos} onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} />
         <hr />
 
         <BookList/>
-        <BookDetail/>
+        <BookDetail/> 
+        <hr/>
+        */}
+        <WeatherSearchBar />
 
       </div>
 
