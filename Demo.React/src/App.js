@@ -9,6 +9,7 @@ import YTSearch from 'youtube-api-search';
 import BookList from './Containers/book-list';
 import BookDetail from './Containers/book-detail';
 import WeatherSearchBar from './Containers/Weather/weather-search-bar'
+import WeatherList from './Containers/Weather/weather-list';
 //youtube API key
 const API_KEY = "AIzaSyDlw_E_mwaDv27xK9zVMMxo-5JjbwQbPcI";
 
@@ -45,6 +46,7 @@ class App extends Component {
         <hr/>
         */}
         <WeatherSearchBar />
+        <WeatherList />
 
       </div>
 
