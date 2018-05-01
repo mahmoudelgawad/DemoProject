@@ -35,7 +35,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <h1>Mahmoud Ahmed & momo3 try touch with React :)</h1>
+        <h1>Mahmoud Ahmed try touch with React :)</h1>
         {/* <SearchBar onSearchTermChange={searchVideo} />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList videos={this.state.videos} onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} />
