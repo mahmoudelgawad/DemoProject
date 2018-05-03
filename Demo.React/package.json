@@ -10,6 +10,7 @@
     "react-dom": "^16.2.0",
     "react-google-maps": "^9.4.5",
     "react-redux": "^5.0.7",
+    "react-router": "^2.0.0-rc5",
     "react-scripts": "1.1.1",
     "react-sparklines": "^1.7.0",
     "redux": "^3.7.2",
