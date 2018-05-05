@@ -15,6 +15,8 @@ import BookDetail from './Containers/book-detail';
 
 import WeatherSearchBar from './Containers/Weather/weather-search-bar'
 import WeatherList from './Containers/Weather/weather-list';
+
+import Posts from './Components/Posts/index';
 //youtube API key
 const API_KEY = "AIzaSyDlw_E_mwaDv27xK9zVMMxo-5JjbwQbPcI";
 
@@ -41,8 +43,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <h1>Mahmoud Ahmed try touch with React ;)</h1>
-
           <Route path="/greet" component={this.greeting}/>
+          <hr/>
         
         {/* <SearchBar onSearchTermChange={searchVideo} />
         <VideoDetail video={this.state.selectedVideo} />
@@ -53,8 +55,11 @@ class App extends Component {
         <BookDetail/> 
         <hr/>
         */}
-        <WeatherSearchBar />
-        <WeatherList />
+
+        {/* <WeatherSearchBar />
+        <WeatherList /> */}
+
+        <Route exact path="/" component={Posts}/>
 
       </div>
 
