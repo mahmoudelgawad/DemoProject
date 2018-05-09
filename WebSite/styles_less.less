@@ -1,0 +1,34 @@
+@baseColor:#535353;
+
+header{
+    font-family:arial;
+    background-color:lighten(@baseColor,50%);
+    border: 1px solid darken(@baseColor,10%);
+    color:@baseColor;
+}
+
+h1,h2{
+    color:@myColor1;
+}
+
+#mypara{
+    border:@thinBorder;
+    .orangeBold;
+}
+#mypara:after{
+    content:@myStringVar;
+}
+#mypara2{
+ .orangeBold;
+}
+
+@myColor1:blue;
+@mayColor2:#000080;
+@myStringVar:'with mahmoud ahmed addition text';
+@thinBorder:1px solid @myColor1;
+
+.orangeBold{
+    font-weight: bold;
+    color:orange;
+}
+

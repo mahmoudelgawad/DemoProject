@@ -1,0 +1,26 @@
+header {
+  font-family: arial;
+  background-color: #d3d3d3;
+  border: 1px solid #3a3a3a;
+  color: #535353;
+}
+h1,
+h2 {
+  color: blue;
+}
+#mypara {
+  border: 1px solid blue;
+  font-weight: bold;
+  color: orange;
+}
+#mypara:after {
+  content: 'with mahmoud ahmed addition text';
+}
+#mypara2 {
+  font-weight: bold;
+  color: orange;
+}
+.orangeBold {
+  font-weight: bold;
+  color: orange;
+}
