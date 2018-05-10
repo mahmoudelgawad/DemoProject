@@ -24,6 +24,7 @@ h1,h2{
 
 @myColor1:blue;
 @mayColor2:#000080;
+@myColor3:#404040;
 @myStringVar:'with mahmoud ahmed addition text';
 @thinBorder:1px solid @myColor1;
 
@@ -32,3 +33,89 @@ h1,h2{
     color:orange;
 }
 
+.nestedcontent{
+    font-family: Arial, Helvetica, sans-serif;
+    p{
+font-family: Times;
+    }
+    p#mypara3{
+font-family: 'Courier New';
+    }
+}
+
+#mypara3{
+    color:@myColor3;
+    border:1px solid @myColor3;
+    padding:10px;
+    &:hover{
+        color:yellowgreen;
+    }
+}
+
+@myColor4:#f00;
+@basePadding:10px;
+@baseThikness:1px;
+
+#mypara4{
+    color:@myColor4;
+    border: (@baseThikness+11)/2 solid @myColor4+#00f;
+    padding:@basePadding @basePadding+50;
+}
+
+.border-radius(@radius:5px){
+    -moz-border-raduis:@radius;
+    -webkit-border-radius:@radius;
+    -ms-border-radius:@radius;
+    border-radius: @radius;
+}
+.customeBorder(@color:black,@width:1px){
+border:@width solid @color;
+}
+
+.box-shadow(@x:0,@y:0,@blur:1px,@color:#000){
+    -webkit-box-shadow:@arguments;
+    -ms-box-shadow:@arguments;
+    -mox-box-shadow:@arguments;
+    box-shadow: @arguments;
+}
+
+#mypara5{
+    .border-radius(10px);
+    .customeBorder; 
+    .box-shadow(10px,10px,10px,gray);
+    padding:10px;
+}
+
+
+.alert(warning){
+    @color:goldenrod;
+    color:@color;
+    border-color:darken(@color,10%);
+  }
+  .alert(error){
+    @color:red;
+    color:lighten(@color,10%);
+  }
+  .alert(other,@color){
+      color:lighten(@color,10%);
+      border-color:darken(@color,20%);
+  }
+  //match any one param 
+  .alert(@_){
+      display:block;
+      border-width:2px;
+      border-style:solid;
+      padding:10px;
+  }
+  //match any two param
+  .alert(@_,@_){
+    display:block;
+    border-width:2px;
+    border-style:solid;
+    padding:10px;
+}
+
+  @type:warning;
+  #mypara6{
+.alert(other,yellowgreen);
+  }
