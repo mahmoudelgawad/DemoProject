@@ -1,3 +1,6 @@
+//it just test  auto convert less and scss
+//you must install gulp(global,local) , gulp-less (local)
+
 var gulp = require('gulp');
 var less = require('gulp-less');
 
