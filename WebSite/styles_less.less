@@ -1,3 +1,5 @@
+@import "import_me.less";
+
 @baseColor:#535353;
 
 header{
@@ -119,3 +121,33 @@ border:@width solid @color;
   #mypara6{
 .alert(other,yellowgreen);
   }
+
+
+  //---------------------------------
+  .text3d(@color) when (lightness(@color) =< 50%){
+     color:@color;
+     font-size:32pt;
+     border: 2px solid gray;
+    // text-shadow: darken(@color,10%);
+    font-weight: bolder;
+  }
+
+  .text3d(@color) when (lightness(@color) > 50%){
+    color:@color;
+    font-size:32pt;
+    border: 2px dashed gray;
+    //  text-shadow: darken(@color,20%);
+ }
+.text3d(@_){
+    font-size: 32pt;
+    padding:5pt;
+}
+ #mypara7{
+.text3d(#658);
+ }
+
+ //using import less file
+ #mypara8{
+    border: @dahsBorderGreen;
+    padding: 16px;
+     }

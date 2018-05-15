@@ -66,3 +66,14 @@ h2 {
   border-style: solid;
   padding: 10px;
 }
+#mypara7 {
+  color: #658;
+  border: 2px solid gray;
+  font-weight: bolder;
+  font-size: 32pt;
+  padding: 5pt;
+}
+#mypara8 {
+  border: 5px dashed green;
+  padding: 16px;
+}
