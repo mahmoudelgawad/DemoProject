@@ -1,7 +1,7 @@
 
 App.component('greeting',{
     // template:'<div>{{$ctrl.message}}</div>',
-    templateUrl:'./component/GreetingComponent.html',
+    templateUrl:'./src/component/views/GreetingComponent.html',
     bindings:{},
     controller:Greeting
 });
