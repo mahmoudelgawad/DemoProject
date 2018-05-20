@@ -3,7 +3,9 @@ var pug = require('gulp-pug');
 
 gulp.task('pug',function(){
     gulp.src('src/pug/*.pug')
-        .pipe(pug())
+        .pipe(pug({
+            pretty:true
+        }))
         .pipe(gulp.dest('src/component/views'));
 });
 

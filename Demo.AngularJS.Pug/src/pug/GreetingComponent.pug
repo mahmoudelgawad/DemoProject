@@ -1,3 +1,13 @@
+-var authenticated = false
 div {{$ctrl.message}}
     br
-    p from template url page thanks
+    p from template url page thanks my princes
+a(class=autenticatec ? "button" : "anon"  href="google.com") Google
+input(
+    type="checkbox"
+    name="agreement"
+    checked
+)
+
+//angular sysntax
+div(class="div-class" , (click)="play()")
