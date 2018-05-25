@@ -17,6 +17,7 @@ import WeatherSearchBar from './Containers/Weather/weather-search-bar'
 import WeatherList from './Containers/Weather/weather-list';
 
 import Posts from './Components/Posts/index';
+import PostsNew from './Components/Posts/posts_new';
 //youtube API key
 const API_KEY = "AIzaSyDlw_E_mwaDv27xK9zVMMxo-5JjbwQbPcI";
 
@@ -29,7 +30,7 @@ class App extends Component {
       selectedVideo: null
     };
 
-    this.onSearchVideo("surfboards");
+    // this.onSearchVideo("surfboards");
   }
   render() {
     let searchVideo = _.debounce((term) => { this.onSearchVideo(term); }, 300);
@@ -59,7 +60,8 @@ class App extends Component {
         {/* <WeatherSearchBar />
         <WeatherList /> */}
 
-        <Route exact path="/" component={Posts}/>
+        <Route exact path="/posts" component={Posts}/>
+        <Route exact path="/posts/new" component={PostsNew}/> 
 
       </div>
 
