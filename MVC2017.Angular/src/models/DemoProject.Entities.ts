@@ -1,4 +1,4 @@
-module AppModule {
+// module AppModule {
     export interface PostEntity {
         Id: number;
         CreatedDate: Date;
@@ -14,5 +14,5 @@ module AppModule {
         ImagePath: string;
     }
 
-}
+// }
 

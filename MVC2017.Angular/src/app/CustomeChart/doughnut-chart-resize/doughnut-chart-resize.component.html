@@ -1,0 +1,32 @@
+<ngx-charts-pie-chart 
+[view]="view" 
+[scheme]="colorScheme" 
+[results]="dataList" 
+[legend]="showLegend" 
+[explodeSlices]="explodeSlices"
+[labels]="showLabels" 
+[doughnut]="doughnut" 
+[gradient]="gradient" 
+[animations]="animations" 
+[tooltipText]="tooltipText" 
+[labelFormatting]="labelFormatting" 
+(select)="onSelect($event)">
+</ngx-charts-pie-chart>
+
+<div>
+    <button type="button" (mousedown)="onMouseDown(true)" (mouseup)="onMouseUp(true)">+</button>
+    <button type="button" (mousedown)="onMouseDown(false)" (mouseup)="onMouseUp(false)">-</button>
+</div>
+<div>
+    <div class="container center">
+        <div class="row">
+<div class="col-sm-1" *ngFor="let item of dataList">
+    <div [ngClass]="{'colHighlight': isSelected(item) }">
+                <b>{{item.name}}</b><br/>
+        % {{item.value}}
+    </div>
+
+</div>
+        </div>
+    </div>
+</div>

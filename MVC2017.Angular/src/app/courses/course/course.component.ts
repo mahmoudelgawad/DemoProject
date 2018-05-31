@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../course';
 import { Store } from '@ngrx/store';
-import { CourseStateService } from '../../../state/index';
+// import { CourseStateService } from '../../../state/index';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { debug } from 'util';
 
@@ -13,7 +13,7 @@ import { debug } from 'util';
 })
 export class CourseComponent implements OnInit {
   public courseForm: FormGroup;
-  constructor(private courseStateService: CourseStateService) {
+  constructor(/*private courseStateService: CourseStateService*/) {
   }
 
   ngOnInit() {
@@ -30,11 +30,11 @@ export class CourseComponent implements OnInit {
     );
   }
   onAddCourse() {
-    const newCourse: Course = this.courseForm.value;
-    this.courseStateService.dispatchAddCourse(newCourse);
-    console.log('onAddCourse -> CourseComponent');
-    this.courseForm.reset();
-    this.courseForm.markAsUntouched();
+    // const newCourse: Course = this.courseForm.value;
+    // this.courseStateService.dispatchAddCourse(newCourse);
+    // console.log('onAddCourse -> CourseComponent');
+    // this.courseForm.reset();
+    // this.courseForm.markAsUntouched();
   }
 
 }

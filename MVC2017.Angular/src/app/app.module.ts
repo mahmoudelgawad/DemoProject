@@ -1,4 +1,5 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -17,8 +18,10 @@ import { CourseComponent } from './courses/course/course.component';
 import { CourseListComponent } from './courses/course-list/course-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CourseService } from './courses/course.service';
-import { StateModule } from '../state/module';
-import { CourseStateService } from '../state/index';
+// import { StateModule } from '../state/module';
+// import { CourseStateService } from '../state/index';
+import {NgxChartsModule} from '@swimlane/ngx-charts'
+import { DoughnutChartResizeComponent } from './CustomeChart/doughnut-chart-resize/doughnut-chart-resize.component'
 
 @NgModule({
     declarations: [
@@ -34,14 +37,17 @@ import { CourseStateService } from '../state/index';
         RecipeDetailComponent,
         GlobalModelComponent,
         CourseComponent,
-        CourseListComponent
+        CourseListComponent,
+        DoughnutChartResizeComponent
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
         AppRoutingModule,
-        StateModule
+        // StateModule,
+        NgxChartsModule
     ],
     providers: [
         CourseService,
