@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux"
+import {Link} from "react-router-dom";
 
 import {fetchPosts} from '../../Actions/Posts/index';
 
@@ -11,7 +12,14 @@ import {fetchPosts} from '../../Actions/Posts/index';
     }
     render() {
         return (
-            <div>posts list here !!</div>
+            <div>
+                <div className="text-right">
+<Link to="/posts/new" className="btn btn-primary"> 
+Add a Post
+</Link>
+                </div>
+                posts list here !!
+            </div>
         );
     }
 

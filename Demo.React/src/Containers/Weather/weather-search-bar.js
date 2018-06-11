@@ -33,7 +33,6 @@ class WeatherSearchBar extends Component {
                     <button type='Submit' className="btn-secondary" >Submit</button>
                 </span>
             </form>
-
         );
     }
 }

@@ -16,3 +16,7 @@ td:first-of-type{
   height:200px;
   width:200px;
 }
+
+form a{
+ margin-left: 5px;
+}
