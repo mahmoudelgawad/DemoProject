@@ -1,106 +1,112 @@
-﻿using DemoProject.Entities.DataModel;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
+using DemoProject.BL;
+using DemoProject.DTO;
 
 namespace DemoProject.API
 {
-    //public class User
-    //{
-    //    public int ID { get; set; }
-    //    public string Name { get; set; }
-    //    public short Age { get; set; }
-    //    public string Address { get; set; }
-    //    public DateTime CreatedDate { get; set; }
-    //}
+    [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
-        private testEntities _dbContext;
 
         public UsersController()
         {
-            _dbContext = new testEntities();
-            if (_dbContext.Users.Count() == 0)
-            {
-                User obj1 = new User();
-                obj1.ID = 100;
-                obj1.Name = "mahmoud ahmed";
-                obj1.Address = "Egypt, cairo , new nozha";
-                obj1.Age = 35;
-                obj1.CreatedDate = DateTime.Now;
-                _dbContext.Users.Add(obj1);
-                _dbContext.SaveChanges();
-            }
 
         }
-        //GET as api/TestClasses
+
+        /// <summary>
+        /// Get all users
+        /// </summary>
+        /// <returns>list of UserDto</returns>
+        [Route("")]
+        [Authorize]
         [HttpGet]
-        public IEnumerable<User> Users()
+        [ResponseType(typeof(IEnumerable<UserDto>))]
+        public IHttpActionResult Users()
         {
-
-            return _dbContext.Users.ToList();
-
+            UserLogic userLogic = new UserLogic();
+            return Ok(userLogic.GetUsers());
         }
 
-        // GET as api/gettestclass/1
+        /// <summary>
+        /// Get user by ID from 
+        /// </summary>
+        /// <param name="ID">user ID</param>
+        /// <returns>UsertDto object</returns>
+        [Route("{id}")]
         [HttpGet]
-        public User GetUser(int ID)
+        [ResponseType(typeof(UserDto))]
+        public IHttpActionResult GetUser(int ID)
         {
-            var TestClassObj = _dbContext.Users.SingleOrDefault(t => t.ID == ID);
-            if (TestClassObj == null)
+            UserLogic userlogic = new UserLogic();
+            var userDto = userlogic.GetUser(ID);
+            if (userDto == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                NotFound();
             }
-            return TestClassObj;
+            return Ok(userDto);
 
         }
+
+        /// <summary>
+        /// Create new user
+        /// </summary>
+        /// <param name="userDto"> new UserDto object ID is null or 0 value</param>
+        /// <returns>created UserDto object with ID value and location URI</returns>
+        [Route("")]
         [HttpPost]
-        public User CreateUser(User TestclassObj)
+        [ResponseType(typeof(UserDto))]
+        public IHttpActionResult CreateUser(UserDto userDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                BadRequest();
             }
-            TestclassObj.CreatedDate = DateTime.Now;
-            _dbContext.Users.Add(TestclassObj);
-            _dbContext.SaveChanges();
-            return TestclassObj;
+            UserLogic userLogic = new UserLogic(userDto);
+            var userDtoInDB = userLogic.Save();
+            return Created(Request.RequestUri+"/"+userDtoInDB.ID,userDtoInDB);
         }
 
+        /// <summary>
+        /// update specific UserDto 
+        /// </summary>
+        /// <param name="userDto"> UserDto object </param>
+        [Route("")]
         [HttpPut]
-        public void UpdateUser(int ID, User TestClassObj)
+        public IHttpActionResult UpdateUser(UserDto userDto)
         {
-
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                BadRequest();
             }
-            var TestClassInDB = _dbContext.Users.SingleOrDefault(t => t.ID == ID);
-            if (TestClassInDB == null)
-            { throw new HttpResponseException(HttpStatusCode.NotFound); }
-            TestClassInDB.Name = TestClassObj.Name;
-            TestClassInDB.Age = TestClassObj.Age;
-            TestClassInDB.Address = TestClassObj.Address;
-            _dbContext.SaveChanges();
-
-            //save changes
+            UserLogic userLogic = new UserLogic(userDto);
+            if (userLogic.Save() == null)
+            {
+                NotFound();
+            }
+           return  Ok();
         }
+
+        /// <summary>
+        /// Delete user by ID
+        /// </summary>
+        /// <param name="ID">user ID</param>
+        [Route("{id}")]
         [HttpDelete]
-        public int DeleteUser(int ID)
+        public IHttpActionResult DeleteUser(int ID)
         {
-
-            var TestClassInDB = _dbContext.Users.SingleOrDefault(t => t.ID == ID);
-            if (TestClassInDB == null)
-            { throw new HttpResponseException(HttpStatusCode.NotFound); }
-
-            _dbContext.Users.Remove(TestClassInDB);
-
-            _dbContext.SaveChanges();
-            //save changes
-            return 1;
+            UserLogic userLogic = new UserLogic();
+            if (!userLogic.Remove(ID))
+            {
+                NotFound();
+            }
+            return Ok();
         }
     }
 }

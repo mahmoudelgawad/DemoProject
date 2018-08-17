@@ -27,6 +27,6 @@ namespace DemoProject.Entities.DataModel
     
         public virtual DbSet<PostEntity> PostEntities { get; set; }
         public virtual DbSet<RecibeEntity> RecibeEntities { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserEntity> UserEntities { get; set; }
     }
 }

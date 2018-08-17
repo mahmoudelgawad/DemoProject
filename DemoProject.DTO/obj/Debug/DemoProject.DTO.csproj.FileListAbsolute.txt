@@ -1,0 +1,12 @@
+C:\AA Drive\MVC2017\DemoProject.DTO\bin\Debug\DemoProject.DTO.dll
+C:\AA Drive\MVC2017\DemoProject.DTO\bin\Debug\DemoProject.DTO.pdb
+C:\AA Drive\MVC2017\DemoProject.DTO\obj\Debug\DemoProject.DTO.csproj.CoreCompileInputs.cache
+C:\AA Drive\MVC2017\DemoProject.DTO\obj\Debug\DemoProject.DTO.dll
+C:\AA Drive\MVC2017\DemoProject.DTO\obj\Debug\DemoProject.DTO.pdb
+C:\AA Drive\MVC2017\DemoProject.DTO\obj\Debug\DemoProject.DTO.csprojResolveAssemblyReference.cache
+C:\ADrive\MVC2017\DemoProject.DTO\bin\Debug\DemoProject.DTO.dll
+C:\ADrive\MVC2017\DemoProject.DTO\bin\Debug\DemoProject.DTO.pdb
+C:\ADrive\MVC2017\DemoProject.DTO\obj\Debug\DemoProject.DTO.csproj.CoreCompileInputs.cache
+C:\ADrive\MVC2017\DemoProject.DTO\obj\Debug\DemoProject.DTO.dll
+C:\ADrive\MVC2017\DemoProject.DTO\obj\Debug\DemoProject.DTO.pdb
+C:\ADrive\MVC2017\DemoProject.DTO\obj\Debug\DemoProject.DTO.csprojResolveAssemblyReference.cache

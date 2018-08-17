@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import _ from 'lodash';
 import logo from './logo.svg';
 import './App.css';
 
-import {Route} from 'react-router-dom';
+import Header from './Components/Shared/Header/index';
 
 import SearchBar from './Components/search_bar';
 import VideoList from './Components/video_list';
@@ -13,11 +14,7 @@ import YTSearch from 'youtube-api-search';
 import BookList from './Containers/book-list';
 import BookDetail from './Containers/book-detail';
 
-import WeatherSearchBar from './Containers/Weather/weather-search-bar'
-import WeatherList from './Containers/Weather/weather-list';
-
-import Posts from './Components/Posts/index';
-import PostsNew from './Components/Posts/posts_new';
+import Routes from './routes';
 //youtube API key
 const API_KEY = "AIzaSyDlw_E_mwaDv27xK9zVMMxo-5JjbwQbPcI";
 
@@ -44,9 +41,12 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <h1>Mahmoud Ahmed try touch with React ;)</h1>
-          <Route path="/greet" component={this.greeting}/>
-          <hr/>
-        
+        <Header></Header>
+        <hr />
+        <Routes></Routes>
+
+
+
         {/* <SearchBar onSearchTermChange={searchVideo} />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList videos={this.state.videos} onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} />
@@ -56,13 +56,6 @@ class App extends Component {
         <BookDetail/> 
         <hr/>
         */}
-
-        {/* <WeatherSearchBar />
-        <WeatherList /> */}
-
-        <Route exact path="/posts" component={Posts}/>
-        <Route exact path="/posts/new" component={PostsNew}/> 
-
       </div>
 
     );
@@ -75,12 +68,6 @@ class App extends Component {
         selectedVideo: videos[0]
       });
     });
-  }
-
-    greeting(){
-    return(
-      <h1>Hi every one !!</h1>
-    );
   }
 }
 

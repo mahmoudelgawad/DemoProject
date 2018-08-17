@@ -22,9 +22,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="testEntityDataModel.User">
+    <EntitySetMapping Name="UserEntities">
+      <EntityTypeMapping TypeName="testEntityDataModel.UserEntity">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AuthID" ColumnName="AuthID" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Age" ColumnName="Age" />

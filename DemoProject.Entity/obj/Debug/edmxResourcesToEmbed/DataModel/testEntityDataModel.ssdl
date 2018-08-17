@@ -28,6 +28,8 @@
     <Property Name="Age" Type="tinyint" />
     <Property Name="Address" Type="nvarchar(max)" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="AuthID" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
   </EntityType>
   <EntityContainer Name="testEntityDataModelStoreContainer">
     <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />

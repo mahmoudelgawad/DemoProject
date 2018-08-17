@@ -161,5 +161,127 @@ C:\AA Drive\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.csprojResolveAssem
 C:\AA Drive\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.csproj.CoreCompileInputs.cache
 C:\AA Drive\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.dll
 C:\AA Drive\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.pdb
+C:\AA Drive\MVC2017\DemoProject.API\bin\DemoProject.DTO.dll
+C:\AA Drive\MVC2017\DemoProject.API\bin\AutoMapper.dll
+C:\AA Drive\MVC2017\DemoProject.API\bin\System.ValueTuple.dll
+C:\AA Drive\MVC2017\DemoProject.API\bin\DemoProject.DTO.pdb
+C:\AA Drive\MVC2017\DemoProject.API\bin\AutoMapper.pdb
+C:\AA Drive\MVC2017\DemoProject.API\bin\AutoMapper.xml
+C:\AA Drive\MVC2017\DemoProject.API\bin\System.ValueTuple.xml
 C:\AA Drive\MVC2017\DemoProject.API\bin\EntityFramework.SqlServer.dll
 C:\AA Drive\MVC2017\DemoProject.API\bin\EntityFramework.SqlServer.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\ApplicationInsights.config
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\csc.exe
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\csc.exe.config
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\csc.rsp
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\csi.exe
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\csi.rsp
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\System.AppContext.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\System.Collections.Immutable.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\System.IO.FileSystem.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\System.Reflection.Metadata.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\vbc.exe
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\vbc.exe.config
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\vbc.rsp
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\VBCSCompiler.exe
+C:\ADrive\MVC2017\DemoProject.API\bin\roslyn\VBCSCompiler.exe.config
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.API.dll.config
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.API.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.API.pdb
+C:\ADrive\MVC2017\DemoProject.API\bin\Antlr3.Runtime.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.BLL.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.DTO.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\EntityFramework.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\EntityFramework.SqlServer.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.Agent.Intercept.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.DependencyCollector.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.Web.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.WindowsServer.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.ApplicationInsights.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AspNet.Identity.Core.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.Cookies.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.OAuth.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Web.Infrastructure.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Newtonsoft.Json.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Owin.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Net.Http.Formatting.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Helpers.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.Owin.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.WebHost.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Mvc.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Optimization.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Razor.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.WebPages.Deployment.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.WebPages.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.WebPages.Razor.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\WebGrease.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\AutoMapper.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.Entities.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.ValueTuple.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.BLL.pdb
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.BLL.dll.config
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.DTO.pdb
+C:\ADrive\MVC2017\DemoProject.API\bin\EntityFramework.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\EntityFramework.SqlServer.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AspNet.Identity.Core.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.Cookies.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.OAuth.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Net.Http.Formatting.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.Owin.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Newtonsoft.Json.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Helpers.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.WebHost.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Mvc.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Optimization.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Razor.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.WebPages.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.WebPages.Deployment.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.WebPages.Razor.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Antlr3.Runtime.pdb
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.ApplicationInsights.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.DependencyCollector.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.WindowsServer.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.AI.Web.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\AutoMapper.pdb
+C:\ADrive\MVC2017\DemoProject.API\bin\AutoMapper.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.Entities.pdb
+C:\ADrive\MVC2017\DemoProject.API\bin\DemoProject.Entities.dll.config
+C:\ADrive\MVC2017\DemoProject.API\bin\System.ValueTuple.xml
+C:\ADrive\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.csprojResolveAssemblyReference.cache
+C:\ADrive\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.csproj.CoreCompileInputs.cache
+C:\ADrive\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.dll
+C:\ADrive\MVC2017\DemoProject.API\obj\Debug\DemoProject.API.pdb
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Cors.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Cors.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.Cors.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Cors.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.Cors.xml

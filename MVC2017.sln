@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC2017", "MVC2017\MVC2017.csproj", "{7B4A0AC0-16DB-4884-A115-63853101AFC7}"
 EndProject
@@ -13,11 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP2017", "ASP2017\ASP2017.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoProject.Entities", "DemoProject.Entity\DemoProject.Entities.csproj", "{2834E601-694D-4120-8357-C7FBF5CD1022}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoProject.BLL", "DemoProject.BL\DemoProject.BLL.csproj", "{DE70E95C-A85E-48E8-B9BF-98F428EA302E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoProject.BL", "DemoProject.BL\DemoProject.BL.csproj", "{DE70E95C-A85E-48E8-B9BF-98F428EA302E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoProject.API", "DemoProject.API\DemoProject.API.csproj", "{87424D92-DD24-4382-B298-4E2E7883644E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertCSharpToTypeScript", "ConvertCSharpToTypeScript\ConvertCSharpToTypeScript.csproj", "{A5C5425F-26B7-4A11-A930-436BC0891514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoProject.DTO", "DemoProject.DTO\DemoProject.DTO.csproj", "{CC144441-F782-4368-8A1B-05CF0943E8BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{A5C5425F-26B7-4A11-A930-436BC0891514}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5C5425F-26B7-4A11-A930-436BC0891514}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5C5425F-26B7-4A11-A930-436BC0891514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC144441-F782-4368-8A1B-05CF0943E8BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC144441-F782-4368-8A1B-05CF0943E8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC144441-F782-4368-8A1B-05CF0943E8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC144441-F782-4368-8A1B-05CF0943E8BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

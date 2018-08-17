@@ -33,6 +33,8 @@
           <Property Name="Age" Type="tinyint" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="AuthID" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="testEntityDataModelStoreContainer">
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
@@ -56,8 +58,8 @@
         <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PostEntities" EntityType="testEntityDataModel.PostEntity" />
           <EntitySet Name="RecibeEntities" EntityType="testEntityDataModel.RecibeEntity" />
-          <EntitySet Name="Users" EntityType="testEntityDataModel.User" />
-        </EntityContainer>
+          <EntitySet Name="UserEntities" EntityType="testEntityDataModel.UserEntity" />
+          </EntityContainer>
         <EntityType Name="RecibeEntity">
           <Key>
             <PropertyRef Name="Id" />
@@ -67,17 +69,19 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="User">
+        <EntityType Name="UserEntity">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Age" Type="Byte" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AuthID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -104,9 +108,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="testEntityDataModel.User">
+          <EntitySetMapping Name="UserEntities">
+            <EntityTypeMapping TypeName="testEntityDataModel.UserEntity">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AuthID" ColumnName="AuthID" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
@@ -115,7 +121,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

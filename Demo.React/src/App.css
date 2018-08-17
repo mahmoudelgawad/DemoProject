@@ -57,3 +57,7 @@
 .list-group-item:hover{
   background-color: #eee;
 }
+
+.auth-nav-link a{
+  margin-left: 10px;
+}

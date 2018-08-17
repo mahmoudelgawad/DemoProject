@@ -13,7 +13,7 @@
   <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="PostEntities" EntityType="testEntityDataModel.PostEntity" />
     <EntitySet Name="RecibeEntities" EntityType="testEntityDataModel.RecibeEntity" />
-    <EntitySet Name="Users" EntityType="testEntityDataModel.User" />
+    <EntitySet Name="UserEntities" EntityType="testEntityDataModel.UserEntity" />
   </EntityContainer>
   <EntityType Name="RecibeEntity">
     <Key>
@@ -24,14 +24,16 @@
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="User">
+  <EntityType Name="UserEntity">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Age" Type="Byte" />
     <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuthID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

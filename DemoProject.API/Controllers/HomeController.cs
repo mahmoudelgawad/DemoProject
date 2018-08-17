@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using DemoProject.Entities.DataModel;
-using DemoProject.BLL;
+using DemoProject.BL;
 
 namespace DemoProject.API.Controllers
 {
@@ -18,16 +17,16 @@ namespace DemoProject.API.Controllers
             return View();
         }
         public void SetData() {
-            PostEntity PostObj = new PostEntity()
-            {
-                Id = 2,
-                CreatedDate = DateTime.Now,
-                Title = "Post Title",
-                Body = "to be good developer",
-                Rate=2
-            };
-            PostBL PostBLObj = new PostBL(PostObj);
-            PostBLObj.SaveChanges();
+            //PostEntity PostObj = new PostEntity()
+            //{
+            //    Id = 2,
+            //    CreatedDate = DateTime.Now,
+            //    Title = "Post Title",
+            //    Body = "to be good developer",
+            //    Rate=2
+            //};
+            //Post PostBLObj = new Post(PostObj);
+            //PostBLObj.SaveChanges();
         }
     }
 }
