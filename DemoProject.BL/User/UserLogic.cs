@@ -11,15 +11,21 @@ namespace DemoProject.BL
 {
     public class UserLogic : BaseLogic
     {
-        public UserLogic(UserDto UserDtoObj = null, string AuthID = "")
+        public UserLogic(UserDto UserDtoObj = null, string AuthID = "",string PasswordHash="",string PasswordSalt="",string Username="")
         {
             _userDto = UserDtoObj;
             _authID = AuthID;
+            _passwordHash = PasswordHash;
+            _passwordSalt = PasswordSalt;
+            _username = Username;
         }
         #region Private Members
         private UserDto _userDto;
         private UserEntity _userEntity;
         private string _authID;
+        private string _passwordHash;
+        private string _passwordSalt;
+        private string _username;
         #endregion
 
         #region Public Members
@@ -46,6 +52,11 @@ namespace DemoProject.BL
         {
             UserEntity userEntity = context.UserEntities.SingleOrDefault(u => u.ID == ID);
             return MapperHelper.ToUserDto(userEntity);
+        }
+        public UserEntity GetUserByUsername(string Username)
+        {
+            UserEntity userEntity = context.UserEntities.SingleOrDefault(u => u.Username.ToLower() == Username.ToLower());
+            return userEntity;
         }
 
         public UserDto GetUserByAuthenticationID(string AuthID)
@@ -77,6 +88,7 @@ namespace DemoProject.BL
             context.SaveChanges();
             return true;
         }
+
         #endregion
 
         #region Helper Methods
@@ -84,6 +96,9 @@ namespace DemoProject.BL
         {
             var userEntity = Mapper.Map<UserDto, UserEntity>(userDto);
             userEntity.AuthID = _authID;
+            userEntity.Password = _passwordHash;
+            userEntity.PasswordSalt = _passwordSalt;
+            userEntity.Username = _username;
             userEntity.CreatedDate = DateTime.Now;
             userEntity = context.UserEntities.Add(userEntity);
             context.SaveChanges();

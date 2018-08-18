@@ -35,6 +35,9 @@
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="AuthID" Type="nvarchar(max)" />
           <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Username" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="PasswordSalt" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="testEntityDataModelStoreContainer">
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
@@ -80,6 +83,9 @@
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="AuthID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -111,6 +117,9 @@
           <EntitySetMapping Name="UserEntities">
             <EntityTypeMapping TypeName="testEntityDataModel.UserEntity">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="AuthID" ColumnName="AuthID" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
