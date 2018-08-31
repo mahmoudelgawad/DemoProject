@@ -26,7 +26,11 @@ namespace DemoProject.API
 
             using (AuthenticationBL authBL = new AuthenticationBL())
             {
-                IdentityUser user = authBL.FindUser(new UserLoginDTO { Username=context.UserName, Password = context.Password});
+                // using Asp.net identity
+                //IdentityUser user = authBL.FindUser(new UserLoginDTO { Username=context.UserName, Password = context.Password});
+
+                //using custome user Salt hash ecryption
+                var user = authBL.FindUserBySaltHash(new UserLoginDTO { Username = context.UserName, Password = context.Password });
 
                 if (user == null)
                 {

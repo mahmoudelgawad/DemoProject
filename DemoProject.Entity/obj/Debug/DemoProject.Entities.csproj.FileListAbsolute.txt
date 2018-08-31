@@ -33,4 +33,5 @@ C:\ADrive\MVC2017\DemoProject.Entity\bin\Debug\Microsoft.AspNet.Identity.Core.dl
 C:\ADrive\MVC2017\DemoProject.Entity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\ADrive\MVC2017\DemoProject.Entity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\ADrive\MVC2017\DemoProject.Entity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\ADrive\MVC2017\DemoProject.Entity\obj\Debug\DemoProject.Entities.csprojResolveAssemblyReference.cache
+C:\ADrive\MVC2017\DemoProject.Entity\bin\Debug\Newtonsoft.Json.dll
+C:\ADrive\MVC2017\DemoProject.Entity\bin\Debug\Newtonsoft.Json.xml

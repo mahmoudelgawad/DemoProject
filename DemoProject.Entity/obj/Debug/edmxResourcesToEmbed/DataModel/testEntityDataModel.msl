@@ -25,6 +25,9 @@
     <EntitySetMapping Name="UserEntities">
       <EntityTypeMapping TypeName="testEntityDataModel.UserEntity">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="AuthID" ColumnName="AuthID" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />

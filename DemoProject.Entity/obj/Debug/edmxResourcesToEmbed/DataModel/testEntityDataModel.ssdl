@@ -30,6 +30,9 @@
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
     <Property Name="AuthID" Type="nvarchar(max)" />
     <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Username" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="PasswordSalt" Type="nvarchar(max)" />
   </EntityType>
   <EntityContainer Name="testEntityDataModelStoreContainer">
     <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />

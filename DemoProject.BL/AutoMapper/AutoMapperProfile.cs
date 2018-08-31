@@ -13,9 +13,12 @@ namespace DemoProject.BL
     public class AutoMapperProfile : Profile
     {
         public AutoMapperProfile() {
-            CreateMap<UserEntity, UserDto>();
-            CreateMap<UserDto, UserEntity>();
+            CreateMap<UserEntity,UserDto>();
+            CreateMap<UserDto,UserEntity>()
+                .ForMember(dest => dest.Username,opt => opt.MapFrom(src => src.UserName));
             CreateMap<RegisterUserDTO, UserDto>();
+            CreateMap<ExternalRegisterUserDTO, UserDto>()
+         .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.UserName));
         }   
     }
 

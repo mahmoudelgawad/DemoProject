@@ -23,5 +23,9 @@ namespace DemoProject.BL
         {
             return Mapper.Map<RegisterUserDTO, UserDto>(registerUserDTO);
         }
+        public static UserDto ToUserDto(ExternalRegisterUserDTO externalRegisterUserDTO)
+        {
+            return Mapper.Map<ExternalRegisterUserDTO, UserDto>(externalRegisterUserDTO);
+        }
     }
 }

@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { Redirect } from 'react-router-dom';
-import { signinUser, changeRedirectUrl } from '../../Actions/Authentication/index';
+import { signinUser, changeRedirectUrl, externalLogin } from '../../Actions/Authentication/index';
 import * as Routes from '../../routes';
+import './sign_in.css';
+const ROOT_URL = "http://localhost:6619/api/auth";
+const CURRENT_URL = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`;
+const OAUTH_REDIRECT_URL = CURRENT_URL + "/signin/external";
 
 
 const renderInputField = ({ input, label, type, className, required, meta: { touched, error, invalid } }) => (
@@ -31,10 +35,16 @@ class SignIn extends Component {
             );
         }
     }
+    
+    externalLogin(provider) {
+        var externalProviderUrl = `${ROOT_URL}/login/external?provider=${provider}&response_type=token&client_id=DemoGoogleExternalOAuth&redirect_uri=${OAUTH_REDIRECT_URL}`;
+        // var oauthWindow = window.open(externalProviderUrl, "Authenticate Account", "location=0,status=0,width=600,height=750");
+        window.location = externalProviderUrl;
+    }
 
     render() {
         if (this.props.isAuth) {
-            console.log("will go home",Routes.HOME_URL);
+            console.log("will go home", Routes.HOME_URL);
             return (
                 <div>
                     <Redirect from={Routes.DEFAULT_URL} to={Routes.HOME_URL} />
@@ -45,15 +55,27 @@ class SignIn extends Component {
         const { handleSubmit } = this.props;
         return (
             <div>
-                <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="needs-validation">
-                    <fieldset className="form-group">
-                        <legend>Sign In</legend>
-                        <Field component={renderInputField} type="text" name="email" label="Email" className="form-control" />
-                        <Field component={renderInputField} type="password" name="password" label="Password" className="form-control" />
-                        {this.renderAuthError()}
-                        <button type="submit" className="btn btn-primary">Sign In</button>
-                    </fieldset>
-                </form>
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="needs-validation">
+                                <fieldset className="form-group">
+                                    <legend>Sign In</legend>
+                                    <Field component={renderInputField} type="text" name="email" label="Email" className="form-control" />
+                                    <Field component={renderInputField} type="password" name="password" label="Password" className="form-control" />
+                                    {this.renderAuthError()}
+                                    <button type="submit" className="btn btn-primary">Sign In</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div className="col login-btn-container">
+                            <button className="btn btn-danger" onClick={() => { this.externalLogin('Google') }}>Google Login</button>
+                            <br />
+                            <button className="btn btn-primary" onClick={() => { this.externalLogin('Facebook') }}>Facebook Login</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
 
@@ -79,4 +101,4 @@ function mapStateToProps(state) {
 export default reduxForm({
     form: "SignInForm",
     validate
-})(connect(mapStateToProps, { signinUser, changeRedirectUrl })(SignIn))
+})(connect(mapStateToProps, { signinUser, changeRedirectUrl, externalLogin })(SignIn))

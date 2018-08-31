@@ -285,3 +285,7 @@ C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Cors.dll
 C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.Cors.dll
 C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Cors.xml
 C:\ADrive\MVC2017\DemoProject.API\bin\System.Web.Http.Cors.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.Facebook.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.Google.dll
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.Facebook.xml
+C:\ADrive\MVC2017\DemoProject.API\bin\Microsoft.Owin.Security.Google.xml

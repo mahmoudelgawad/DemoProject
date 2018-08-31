@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import * as ActionTypes from '../types';
-const ROOT_URL = "";
+const ROOT_URL = "http://localhost:6619/api/auth";
 const EMAIL_VALUE = "mahmoud.elgawad@gmail.com";
 const PASSWORD_VALUE = "123admin";
 const TOKEN = "AXDFR221144554"; //simulate JWT token
@@ -59,11 +59,72 @@ export function signinUser({ email, password }) {
                 payload: "Wrong Username Or Passowre !!"
             });
         }
-        
+
         //step 2 if ok send user to feature
 
         //step3 if not ok show bad request
     }
+}
+
+export function externalLogin(userData) {
+
+    return function (dispatch) {
+        if (!userData.ExternalAccessToken) {
+            return;
+        }
+        if (userData.HasLocalAccount.toLowerCase() === "false") {
+            authenticate(false); //logout
+            //external register
+            axios.post(`${ROOT_URL}/register/external`, { 
+                ExternalAccessToken: userData.ExternalAccessToken,
+                Provider:userData.Provider,
+                UserName:userData.UserName
+            })
+                .then(Response => {
+                    console.log("external register response", Response);
+                    if (!Response.data.access_token) {
+                        return;
+                    }
+                    dispatch({
+                        type: ActionTypes.IS_AUTH,
+                        payload: true
+                    });
+                    localStorage.setItem(TOKEN_KEY_NAME, Response.data.access_token);
+                })
+                .catch(Response => {
+                    console.log("external register error", Response);
+                });
+
+        }
+        else {
+            // get local access token
+            axios.get(`${ROOT_URL}/token/external`,{
+                params:{
+                    Provider: userData.Provider,
+                    ExternalAccessToken: userData.ExternalAccessToken
+                }
+            })
+            .then(Response => {
+                console.log("get token response", Response);
+                if (!Response.data.access_token) {
+                    return;
+                }
+                dispatch({
+                    type: ActionTypes.IS_AUTH,
+                    payload: true
+                });
+                localStorage.setItem(TOKEN_KEY_NAME, Response.data.access_token);
+            })
+            .catch(Response => {
+                console.log("get token error", Response);
+            });
+
+        }
+
+    }
+
+
+
 }
 
 export function changeRedirectUrl(url = "") {

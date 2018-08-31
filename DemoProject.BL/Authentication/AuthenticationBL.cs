@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using DemoProject.Entities;
 using DemoProject.DTO;
 using System.Security.Cryptography;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace DemoProject.BL
 {
@@ -57,7 +58,7 @@ namespace DemoProject.BL
             byte[] Hash = Rfc.GetBytes(20);
             byte[] SaltHash = new byte[36];
             Array.Copy(salt, 0, SaltHash, 0, 16);
-            Array.Copy(Hash, 0, SaltHash, 16, 36);
+            Array.Copy(Hash, 0, SaltHash, 16, 20);
             string PasswordSalt = Convert.ToBase64String(SaltHash);
 
             //save user
@@ -69,9 +70,46 @@ namespace DemoProject.BL
             return userDto;
         }
 
+        public UserDto RegisterExternalUser(ExternalRegisterUserDTO externalRegisterUserDTO, ParsedExternalAccessTokenDTO parsedExternalAccessTokenDTO)
+        {
+            //Save asp idintity
+            string MixedUserName = externalRegisterUserDTO.UserName.Replace(" ","") + "_" + parsedExternalAccessTokenDTO.user_id.Substring(0,7);
+            externalRegisterUserDTO.UserName = MixedUserName;
+            IdentityUser identityUser = new IdentityUser(externalRegisterUserDTO.UserName);
+            var result = _userManager.Create(identityUser);
+            if (!result.Succeeded)
+            {
+                return null;
+            }
+            var externalLoginInfo = new ExternalLoginInfo()
+            {
+                DefaultUserName = externalRegisterUserDTO.UserName,
+                Login = new UserLoginInfo(externalRegisterUserDTO.Provider, parsedExternalAccessTokenDTO.user_id)
+            };
+            result = _userManager.AddLogin(identityUser.Id,externalLoginInfo.Login);
+            if (!result.Succeeded)
+            {
+                return null;
+            }
+            //save user
+            var userDto = MapperHelper.ToUserDto(externalRegisterUserDTO);
+            using (UserLogic userLogic = new UserLogic(userDto, identityUser.Id))
+            {
+                userDto = userLogic.Save();
+            }
+            return userDto;
+        }
+
+
+
         public IdentityUser FindUser(UserLoginDTO userloginDTO)
         {
             var user = _userManager.Find(userloginDTO.Username, userloginDTO.Password);
+            return user;
+        }
+        public IdentityUser FindUser(UserLoginInfo userloginInfo)
+        {
+            var user = _userManager.Find(userloginInfo);
             return user;
         }
         public UserDto FindUserBySaltHash(UserLoginDTO userloginDTO)
