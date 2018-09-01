@@ -230,4 +230,3 @@ C:\ADrive\MVC2017\MVC2017\bin\Microsoft.AI.Web.xml
 C:\ADrive\MVC2017\MVC2017\obj\Debug\MVC2017.csproj.CoreCompileInputs.cache
 C:\ADrive\MVC2017\MVC2017\obj\Debug\MVC2017.dll
 C:\ADrive\MVC2017\MVC2017\obj\Debug\MVC2017.pdb
-C:\ADrive\MVC2017\MVC2017\obj\Debug\MVC2017.csprojResolveAssemblyReference.cache

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import * as ActionTypes from '../types';
 const ROOT_URL = "http://localhost:6619/api/auth";
+// const ROOT_URL = "https://localhost:44306/api/auth";
 const EMAIL_VALUE = "mahmoud.elgawad@gmail.com";
 const PASSWORD_VALUE = "123admin";
 const TOKEN = "AXDFR221144554"; //simulate JWT token
@@ -78,7 +79,7 @@ export function externalLogin(userData) {
             axios.post(`${ROOT_URL}/register/external`, { 
                 ExternalAccessToken: userData.ExternalAccessToken,
                 Provider:userData.Provider,
-                UserName:userData.UserName
+                UserName:userData.UserName  
             })
                 .then(Response => {
                     console.log("external register response", Response);
@@ -122,8 +123,6 @@ export function externalLogin(userData) {
         }
 
     }
-
-
 
 }
 

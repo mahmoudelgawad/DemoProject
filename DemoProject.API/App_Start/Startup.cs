@@ -54,13 +54,13 @@ namespace DemoProject.API
                 Provider = new GoogleAuthProvider(),
             };
             app.UseGoogleAuthentication(googleAuthOptions);
-            //facebookAuthOptions = new FacebookAuthenticationOptions()
-            //{
-            //    AppId = "",
-            //    AppSecret = "",
-            //    Provider = new FacebookAuthProvider()
-            //};
-            //app.UseFacebookAuthentication(facebookAuthOptions);
+            facebookAuthOptions = new FacebookAuthenticationOptions()
+            {
+                AppId = "459339154559822",
+                AppSecret = "ff6d79e9be3c4a41dc9ccfc2b519f857",
+                Provider = new FacebookAuthProvider()
+            };
+            app.UseFacebookAuthentication(facebookAuthOptions);
         }
         #endregion
 

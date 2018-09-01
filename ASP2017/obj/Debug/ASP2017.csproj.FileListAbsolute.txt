@@ -185,4 +185,3 @@ C:\ADrive\MVC2017\ASP2017\bin\Microsoft.AI.Web.xml
 C:\ADrive\MVC2017\ASP2017\obj\Debug\ASP2017.csproj.CoreCompileInputs.cache
 C:\ADrive\MVC2017\ASP2017\obj\Debug\ASP2017.dll
 C:\ADrive\MVC2017\ASP2017\obj\Debug\ASP2017.pdb
-C:\ADrive\MVC2017\ASP2017\obj\Debug\ASP2017.csprojResolveAssemblyReference.cache
