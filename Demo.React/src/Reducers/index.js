@@ -7,6 +7,7 @@ import WeatherReducer from './Weather/reducer_weather';
 import PostsReducer from './Posts/reducer_posts';
 import AuthenticationReducer from './Authentication/reducer_authentication';
 import RedirectUrlReducer from './RedirectUrl/reducer_redirect_url';
+import ErrorHandlerReducer from './ErrorHandler/Reducer_ErrorHandler';
 const rootReducer = combineReducers({
     auth: AuthenticationReducer,
     books: BooksReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     weather: WeatherReducer,
     posts: PostsReducer,
     form: formReducer,
-    url: RedirectUrlReducer
+    url: RedirectUrlReducer,
+    error:ErrorHandlerReducer
 });
 
 export default rootReducer;

@@ -1,12 +1,12 @@
-import axios from 'axios';
 
 import * as ActionTypes from '../types';
-const ROOT_URL = "http://localhost:6619/api/auth";
-// const ROOT_URL = "https://localhost:44306/api/auth";
+import AuthService from '../../Services/AuthService';
+
 const EMAIL_VALUE = "mahmoud.elgawad@gmail.com";
 const PASSWORD_VALUE = "123admin";
 const TOKEN = "AXDFR221144554"; //simulate JWT token
 export const TOKEN_KEY_NAME = "TOKEN"; // it case sensative
+var authService = new AuthService();
 
 export function authenticate(isLoggedIn) {
     if (!isLoggedIn) {
@@ -76,50 +76,41 @@ export function externalLogin(userData) {
         if (userData.HasLocalAccount.toLowerCase() === "false") {
             authenticate(false); //logout
             //external register
-            axios.post(`${ROOT_URL}/register/external`, { 
+            authService.postExternalRegister({
                 ExternalAccessToken: userData.ExternalAccessToken,
-                Provider:userData.Provider,
-                UserName:userData.UserName  
-            })
-                .then(Response => {
-                    console.log("external register response", Response);
-                    if (!Response.data.access_token) {
-                        return;
-                    }
-                    dispatch({
-                        type: ActionTypes.IS_AUTH,
-                        payload: true
-                    });
-                    localStorage.setItem(TOKEN_KEY_NAME, Response.data.access_token);
-                })
-                .catch(Response => {
-                    console.log("external register error", Response);
-                });
-
-        }
-        else {
-            // get local access token
-            axios.get(`${ROOT_URL}/token/external`,{
-                params:{
-                    Provider: userData.Provider,
-                    ExternalAccessToken: userData.ExternalAccessToken
-                }
-            })
-            .then(Response => {
-                console.log("get token response", Response);
-                if (!Response.data.access_token) {
+                Provider: userData.Provider,
+                UserName: userData.UserName
+            }, (data) => {
+                if (!data.access_token) {
                     return;
                 }
+                let storage = { token: data.access_token, userName: data.userName };
+                localStorage.setItem(TOKEN_KEY_NAME,JSON.stringify(storage));
                 dispatch({
                     type: ActionTypes.IS_AUTH,
                     payload: true
                 });
-                localStorage.setItem(TOKEN_KEY_NAME, Response.data.access_token);
-            })
-            .catch(Response => {
-                console.log("get token error", Response);
             });
+        }
+        else {
+            // get local access token
+            authService.getExternalToken({
+                params: {
+                    Provider: userData.Provider,
+                    ExternalAccessToken: userData.ExternalAccessToken
+                }
+            }, (data) => {
+                if (!data.access_token) {
+                    return;
+                }
+                let storage = { token: data.access_token, userName: data.userName };
+                localStorage.setItem(TOKEN_KEY_NAME,JSON.stringify(storage));
+                dispatch({
+                    type: ActionTypes.IS_AUTH,
+                    payload: true
+                });
 
+            });
         }
 
     }

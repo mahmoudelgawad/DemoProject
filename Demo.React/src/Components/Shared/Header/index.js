@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import { Link,NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Routes from '../../../routes';
+import {TOKEN_KEY_NAME} from '../../../Actions/Authentication/index';
 
 
 class Header extends Component {
     authButton() {
         if (this.props.isAuth) {
+            let token = JSON.parse(localStorage.getItem(TOKEN_KEY_NAME));
+            let userName = (token)? token.userName : "";
+
             return (
-                <Link to={Routes.SIGNOUT_URL}>Sign Out</Link>
+                <div>
+                    <u><b>Hello,{userName} </b></u>
+                    <Link to={Routes.SIGNOUT_URL}>Sign Out</Link>  
+                </div>
+
             );
         }
         return [

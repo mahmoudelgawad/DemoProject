@@ -5,11 +5,8 @@ import { Redirect } from 'react-router-dom';
 import { signinUser, changeRedirectUrl, externalLogin } from '../../Actions/Authentication/index';
 import * as Routes from '../../routes';
 import './sign_in.css';
-const ROOT_URL = "http://localhost:6619/api/auth";
-const SSL_ROOT_URL = "https://localhost:44306/api/auth";
-const CURRENT_URL = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`;
-const OAUTH_REDIRECT_URL = CURRENT_URL + "/signin/external";
-const CLIENT_ID = "DemoReact";
+import AuthService from '../../Services/AuthService';
+
 
 
 const renderInputField = ({ input, label, type, className, required, meta: { touched, error, invalid } }) => (
@@ -23,6 +20,10 @@ const renderInputField = ({ input, label, type, className, required, meta: { tou
 );
 
 class SignIn extends Component {
+    constructor(props){
+        super(props)
+        this.authService = new AuthService();
+    }
 
     onSubmit(values) {
         console.log("sign in values", values);
@@ -39,10 +40,9 @@ class SignIn extends Component {
     }
 
     externalLogin(provider) {
-        let rootUrl = (provider.toLocaleLowerCase() === "google") ? ROOT_URL : SSL_ROOT_URL;
-        var externalProviderUrl = `${rootUrl}/login/external?provider=${provider}&response_type=token&client_id=${CLIENT_ID}&redirect_uri=${OAUTH_REDIRECT_URL}`;
-        // var oauthWindow = window.open(externalProviderUrl, "Authenticate Account", "location=0,status=0,width=600,height=750");
-        window.location = externalProviderUrl;
+        let authService = new AuthService();
+        // var oauthWindow = window.open(AuthService.serverExternalLoginURL(provider), "Authenticate Account", "location=0,status=0,width=600,height=750");
+        window.location = this.authService.serverExternalLoginURL(provider);
     }
 
     render() {
