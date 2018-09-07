@@ -1,12 +1,11 @@
 
 import * as ActionTypes from '../types';
-import AuthService from '../../Services/AuthService';
+import * as AuthService from '../../Services/AuthService';
 
 const EMAIL_VALUE = "mahmoud.elgawad@gmail.com";
 const PASSWORD_VALUE = "123admin";
 const TOKEN = "AXDFR221144554"; //simulate JWT token
 export const TOKEN_KEY_NAME = "TOKEN"; // it case sensative
-var authService = new AuthService();
 
 export function authenticate(isLoggedIn) {
     if (!isLoggedIn) {
@@ -76,7 +75,7 @@ export function externalLogin(userData) {
         if (userData.HasLocalAccount.toLowerCase() === "false") {
             authenticate(false); //logout
             //external register
-            authService.postExternalRegister({
+            AuthService.postExternalRegister({
                 ExternalAccessToken: userData.ExternalAccessToken,
                 Provider: userData.Provider,
                 UserName: userData.UserName
@@ -94,7 +93,7 @@ export function externalLogin(userData) {
         }
         else {
             // get local access token
-            authService.getExternalToken({
+            AuthService.getExternalToken({
                 params: {
                     Provider: userData.Provider,
                     ExternalAccessToken: userData.ExternalAccessToken

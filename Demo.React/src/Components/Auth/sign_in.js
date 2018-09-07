@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { signinUser, changeRedirectUrl, externalLogin } from '../../Actions/Authentication/index';
 import * as Routes from '../../routes';
 import './sign_in.css';
-import AuthService from '../../Services/AuthService';
+import * as AuthService from '../../Services/AuthService';
 
 
 
@@ -20,10 +20,6 @@ const renderInputField = ({ input, label, type, className, required, meta: { tou
 );
 
 class SignIn extends Component {
-    constructor(props){
-        super(props)
-        this.authService = new AuthService();
-    }
 
     onSubmit(values) {
         console.log("sign in values", values);
@@ -40,9 +36,8 @@ class SignIn extends Component {
     }
 
     externalLogin(provider) {
-        let authService = new AuthService();
         // var oauthWindow = window.open(AuthService.serverExternalLoginURL(provider), "Authenticate Account", "location=0,status=0,width=600,height=750");
-        window.location = this.authService.serverExternalLoginURL(provider);
+        window.location = AuthService.serverExternalLoginURL(provider);
     }
 
     render() {

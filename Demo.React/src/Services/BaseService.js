@@ -1,21 +1,16 @@
+import { store } from '../index';
 import * as ActionTypes from '../Actions/types';
 
-export default class BaseService {
+export const CURRENT_PORT = (window.location.port) ? `:${window.location.port}` : ``;
+export const CURRENT_URL = `${window.location.protocol}//${window.location.hostname}${CURRENT_PORT}`;
+export const ROOT_URL = "http://localhost:6619";
+export const SSL_ROOT_URL = "https://localhost:44306";
 
-    constructor(){
-        this.ROOT_URL = "http://localhost:6619";
-        this.SSL_ROOT_URL = "https://localhost:44306";
-    }
-
-
-    dispatchError(error) {
-        return function (dispatch) {
-            dispatch({
-                action: ActionTypes.ERROR_MESSAGE,
-                payload: error.Response
-            });
-        }
-
-    }
+export function dispatchError(error) {
+    console.log("BaseService", error);
+    store.dispatch({
+        type: ActionTypes.ERROR_MESSAGE,
+        payload: (error.response) ? error.response : "Network Error Request"
+    });
 }
 

@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import queryString from 'query-string';
 import { Redirect } from 'react-router-dom';
 import * as Routes from '../../routes';
-import {externalLogin} from '../../Actions/Authentication/index';
+import {externalLogin} from '../../Actions/Authentication';
 
-class ExternalSignin extends Component {
+class ExternalSigninCallBack extends Component {
     isValid = true;
     componentWillMount() {
         if (!this.props.location.hash) {
@@ -36,4 +36,4 @@ function mapStateToProps(state){
         isAuth:state.auth.isAuth
     }
 }
-export default connect(mapStateToProps,{externalLogin})(ExternalSignin);
+export default connect(mapStateToProps,{externalLogin})(ExternalSigninCallBack);

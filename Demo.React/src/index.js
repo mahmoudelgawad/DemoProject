@@ -16,7 +16,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 const createStoreWithMiddleWare = applyMiddleware(ReduxPromise,reduxThunk)(createStore);
-const store = createStoreWithMiddleWare(reducers);
+export const store = createStoreWithMiddleWare(reducers);
 const token = localStorage.getItem(TOKEN_KEY_NAME);
 if(token){
     store.dispatch({type:ActionTypes.IS_AUTH,payload:true});
