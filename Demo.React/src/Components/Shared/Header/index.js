@@ -11,6 +11,7 @@ class Header extends Component {
         if (!this.props.error) {
             return;
         }
+        debugger
         return (
             <Error error={this.props.error}></Error>
         );
@@ -18,7 +19,7 @@ class Header extends Component {
     authButton() {
         if (this.props.isAuth) {
             let token = JSON.parse(localStorage.getItem(TOKEN_KEY_NAME));
-            let userName = (token) ? token.userName : "";
+            let userName = (token) ? token.username : "";
 
             return (
                 <div>
@@ -34,6 +35,19 @@ class Header extends Component {
         ]
 
     }
+    renderAdministrationMenu() {
+        if (this.props.isAuth) {
+            let token = JSON.parse(localStorage.getItem(TOKEN_KEY_NAME));
+            let username = (token) ? token.username : "";
+            if (username && username === 'admin') {
+                return (
+                    <li className="nav-item">
+                        <NavLink to={Routes.ADMIN_REFRESHTOKENS} className="nav-link">Tokens</NavLink>
+                    </li>
+                );
+            }
+        }
+    }
     render() {
         return (
             <div>
@@ -43,6 +57,7 @@ class Header extends Component {
                         <li className="nav-item">
                             <NavLink to={Routes.HOME_URL} className="nav-link">Home</NavLink>
                         </li>
+                        {this.renderAdministrationMenu()}
                         <li className="nav-item">
                             <NavLink to={Routes.POSTS_URL} className="nav-link">Posts</NavLink>
                         </li>

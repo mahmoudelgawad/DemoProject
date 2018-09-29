@@ -14,6 +14,7 @@ using DemoProject.Entities;
 using DemoProject.DTO;
 using System.Security.Cryptography;
 using Microsoft.AspNet.Identity.Owin;
+using DemoProject.Entities.DataModel;
 
 namespace DemoProject.BL
 {
@@ -73,7 +74,7 @@ namespace DemoProject.BL
         public UserDto RegisterExternalUser(ExternalRegisterUserDTO externalRegisterUserDTO, ParsedExternalAccessTokenDTO parsedExternalAccessTokenDTO)
         {
             //Save asp idintity
-            string MixedUserName = externalRegisterUserDTO.UserName.Replace(" ","") + "_" + parsedExternalAccessTokenDTO.user_id.Substring(0,7);
+            string MixedUserName = externalRegisterUserDTO.UserName.Replace(" ", "") + "_" + parsedExternalAccessTokenDTO.user_id.Substring(0, 7);
             externalRegisterUserDTO.UserName = MixedUserName;
             IdentityUser identityUser = new IdentityUser(externalRegisterUserDTO.UserName);
             var result = _userManager.Create(identityUser);
@@ -86,7 +87,7 @@ namespace DemoProject.BL
                 DefaultUserName = externalRegisterUserDTO.UserName,
                 Login = new UserLoginInfo(externalRegisterUserDTO.Provider, parsedExternalAccessTokenDTO.user_id)
             };
-            result = _userManager.AddLogin(identityUser.Id,externalLoginInfo.Login);
+            result = _userManager.AddLogin(identityUser.Id, externalLoginInfo.Login);
             if (!result.Succeeded)
             {
                 return null;
@@ -99,8 +100,6 @@ namespace DemoProject.BL
             }
             return userDto;
         }
-
-
 
         public IdentityUser FindUser(UserLoginDTO userloginDTO)
         {
@@ -134,6 +133,50 @@ namespace DemoProject.BL
                 return MapperHelper.ToUserDto(user);
             }
         }
+
+        #region Refresh Tokens Mehtods
+        public Client FindClient(string Name)
+        {
+            var client = context.Clients.SingleOrDefault(c => c.Name == Name);
+            return client;
+        }
+        public bool AddRefreshToken(RefreshToken refreshToken)
+        {
+            var existToken = context.RefreshTokens.Where(r => r.Subject == refreshToken.Subject && r.ClientID == refreshToken.ClientID).SingleOrDefault();
+            if (existToken != null)
+            {
+                RemoveRefreshToken(existToken);
+            }
+
+            context.RefreshTokens.Add(refreshToken);
+            return context.SaveChanges() > 0;
+        }
+        public bool RemoveRefreshToken(RefreshToken refreshToken)
+        {
+            context.RefreshTokens.Remove(refreshToken);
+            return context.SaveChanges() > 0;
+        }
+        public bool RemoveRefreshToken(string TokenID)
+        {
+            var existToken = context.RefreshTokens.Find(TokenID);
+            if (existToken == null)
+            {
+                return false;
+            }
+            context.RefreshTokens.Remove(existToken);
+            return context.SaveChanges() > 0;
+
+        }
+        public RefreshToken GetRefreshToken(string TokenID)
+        {
+            var refreshToken = context.RefreshTokens.FirstOrDefault(r => r.TokenID == TokenID);
+            return refreshToken;
+        }
+        public List<RefreshToken> GetAllRefreshTokens()
+        {
+            return context.RefreshTokens.ToList();
+        }
+        #endregion
         public override void Dispose()
         {
             _userManager.Dispose();

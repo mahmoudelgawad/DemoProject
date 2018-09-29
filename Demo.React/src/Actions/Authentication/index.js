@@ -21,48 +21,24 @@ export function authenticate(isLoggedIn) {
 export function signinUser({ email, password }) {
     let isOK = false;
     return function (dispatch) {
-        // you can make asyncronous reqests
-        // dispatch({type:...})
 
-        //step 1 send email and password request to server
-        // axios.post(`${ROOT_URL}`,{email,password})
-        // .then(response =>{
-        //     //do something
-        // })
-        // .catch(() =>{
-        //     //do something
-        // });
-        //but I will make simple sinario here instead
-        if (email === EMAIL_VALUE && password === PASSWORD_VALUE) {
-            isOK = true;
-        }
-
-        if (isOK) {
-
+        AuthService.postToken(email,password, (data) => {
+            localStorage.setItem(TOKEN_KEY_NAME,JSON.stringify(data));
             dispatch({
                 type: ActionTypes.IS_AUTH,
-                payload: isOK
+                payload: true
             });
-            localStorage.setItem(TOKEN_KEY_NAME, TOKEN);
-            console.log("isOK= ", isOK);
-            /*will change the url but no rerender
-             so i will try use redux state instead */
-            // history.push('/posts');
-            // dispatch({
-            //     type: ActionTypes.REDIRECT_URL,
-            //     payload: "/posts"
-            // });
-        }
-        else {
-            dispatch({
-                type: ActionTypes.AUTH_ERROR,
-                payload: "Wrong Username Or Passowre !!"
-            });
-        }
+        });
 
-        //step 2 if ok send user to feature
+        // if (isOK) {
+        // }
+        // else {
+        //     dispatch({
+        //         type: ActionTypes.AUTH_ERROR,
+        //         payload: "Wrong Username Or Passowre !!"
+        //     });
+        // }
 
-        //step3 if not ok show bad request
     }
 }
 
@@ -83,8 +59,7 @@ export function externalLogin(userData) {
                 if (!data.access_token) {
                     return;
                 }
-                let storage = { token: data.access_token, userName: data.userName };
-                localStorage.setItem(TOKEN_KEY_NAME,JSON.stringify(storage));
+                localStorage.setItem(TOKEN_KEY_NAME, JSON.stringify(data));
                 dispatch({
                     type: ActionTypes.IS_AUTH,
                     payload: true
@@ -102,8 +77,7 @@ export function externalLogin(userData) {
                 if (!data.access_token) {
                     return;
                 }
-                let storage = { token: data.access_token, userName: data.userName };
-                localStorage.setItem(TOKEN_KEY_NAME,JSON.stringify(storage));
+                localStorage.setItem(TOKEN_KEY_NAME, JSON.stringify(data));
                 dispatch({
                     type: ActionTypes.IS_AUTH,
                     payload: true

@@ -340,7 +340,7 @@ namespace DemoProject.API
             var tokenExpiration = TimeSpan.FromDays(1);
             ClaimsIdentity identity = new ClaimsIdentity(OAuthDefaults.AuthenticationType);//Bearer
             identity.AddClaim(new Claim(ClaimTypes.Name, UserName));
-            identity.AddClaim(new Claim("role", "user"));
+            identity.AddClaim(new Claim(ClaimTypes.Role, "user"));
             var props = new AuthenticationProperties()
             {
                 IssuedUtc = DateTime.UtcNow,
@@ -349,7 +349,7 @@ namespace DemoProject.API
             var ticket = new AuthenticationTicket(identity, props);
             var accessToken = Startup.OAuthBearerOptions.AccessTokenFormat.Protect(ticket);
             JObject tokenResponse = new JObject(
-                                        new JProperty("userName", UserName),
+                                        new JProperty("username", UserName),
                                         new JProperty("access_token", accessToken),
                                         new JProperty("token_type", "bearer"),
                                         new JProperty("expires_in", tokenExpiration.TotalSeconds.ToString()),

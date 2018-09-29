@@ -1,5 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="testEntityDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Secret" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ApplicationType" Type="int" Nullable="false" />
+    <Property Name="AllowOrigin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="RefreshTokenLifeTime" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Post">
     <Key>
       <PropertyRef Name="Id" />
@@ -19,6 +32,18 @@
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="RefreshToken">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TokenID" Type="varchar(max)" Nullable="false" />
+    <Property Name="Subject" Type="varchar(max)" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpireDate" Type="datetime" Nullable="false" />
+    <Property Name="ProtectedTicket" Type="varchar(max)" Nullable="false" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
@@ -34,9 +59,27 @@
     <Property Name="Password" Type="nvarchar(max)" />
     <Property Name="PasswordSalt" Type="nvarchar(max)" />
   </EntityType>
+  <Association Name="FK_RefreshToken_Client_ClientID">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="RefreshToken" Type="Self.RefreshToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RefreshToken">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="testEntityDataModelStoreContainer">
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Recibe" EntityType="Self.Recibe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefreshToken" EntityType="Self.RefreshToken" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_RefreshToken_Client_ClientID" Association="Self.FK_RefreshToken_Client_ClientID">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="RefreshToken" EntitySet="RefreshToken" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

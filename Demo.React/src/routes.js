@@ -14,6 +14,7 @@ import SignOut from './Components/Auth/sign_out';
 import SignUp from './Components/Auth/sign_up';
 import HomePage from './Components/HomePage/index';
 import Users from './Components/Users/index';
+import RefreshTokens from './Components/Administration/RefreshTokens/index'
 
 
 export const DEFAULT_URL = "/";
@@ -28,6 +29,7 @@ export const NEW_POST_URL = "/posts/new";
 export const SHOW_POST_URL = "/posts/:id";
 export const WEATHER_URL = "/weather";
 export const USERS_URL = "/users";
+export const ADMIN_REFRESHTOKENS = "/admin/refreshtokens";
 
 class Routes extends Component {
     componentDidUpdate() {
@@ -55,6 +57,7 @@ class Routes extends Component {
                     <Route path={SHOW_POST_URL} component={requireAuth(PostsShow)} />
                     <Route path={WEATHER_URL} component={requireAuth(WeatherList)}></Route>
                     <Route path={USERS_URL} component={Users}/>
+                    <Route path={ADMIN_REFRESHTOKENS} component={requireAuth(RefreshTokens)}></Route>
                     <Route component={HomePage} />
                 </Switch>
             </div>

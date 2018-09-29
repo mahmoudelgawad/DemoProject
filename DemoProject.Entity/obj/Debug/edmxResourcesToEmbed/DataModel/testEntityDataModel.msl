@@ -38,5 +38,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="testEntityDataModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="RefreshTokenLifeTime" ColumnName="RefreshTokenLifeTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AllowOrigin" ColumnName="AllowOrigin" />
+          <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Secret" ColumnName="Secret" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefreshTokens">
+      <EntityTypeMapping TypeName="testEntityDataModel.RefreshToken">
+        <MappingFragment StoreEntitySet="RefreshToken">
+          <ScalarProperty Name="ProtectedTicket" ColumnName="ProtectedTicket" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="TokenID" ColumnName="TokenID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

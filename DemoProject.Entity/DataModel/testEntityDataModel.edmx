@@ -5,6 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="testEntityDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Secret" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ApplicationType" Type="int" Nullable="false" />
+          <Property Name="AllowOrigin" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RefreshTokenLifeTime" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Post">
           <Key>
             <PropertyRef Name="Id" />
@@ -24,6 +37,18 @@
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="RefreshToken">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TokenID" Type="varchar(max)" Nullable="false" />
+          <Property Name="Subject" Type="varchar(max)" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ExpireDate" Type="datetime" Nullable="false" />
+          <Property Name="ProtectedTicket" Type="varchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
@@ -39,10 +64,28 @@
           <Property Name="Password" Type="nvarchar(max)" />
           <Property Name="PasswordSalt" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_RefreshToken_Client_ClientID">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="RefreshToken" Type="Self.RefreshToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RefreshToken">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="testEntityDataModelStoreContainer">
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recibe" EntityType="Self.Recibe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefreshToken" EntityType="Self.RefreshToken" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_RefreshToken_Client_ClientID" Association="Self.FK_RefreshToken_Client_ClientID">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="RefreshToken" EntitySet="RefreshToken" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -62,6 +105,12 @@
           <EntitySet Name="PostEntities" EntityType="testEntityDataModel.PostEntity" />
           <EntitySet Name="RecibeEntities" EntityType="testEntityDataModel.RecibeEntity" />
           <EntitySet Name="UserEntities" EntityType="testEntityDataModel.UserEntity" />
+          <EntitySet Name="Clients" EntityType="testEntityDataModel.Client" />
+          <EntitySet Name="RefreshTokens" EntityType="testEntityDataModel.RefreshToken" />
+          <AssociationSet Name="FK_RefreshToken_Client_ClientID" Association="testEntityDataModel.FK_RefreshToken_Client_ClientID">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="RefreshToken" EntitySet="RefreshTokens" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="RecibeEntity">
           <Key>
@@ -87,6 +136,45 @@
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PasswordSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Secret" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationType" Type="Int32" Nullable="false" />
+          <Property Name="AllowOrigin" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RefreshTokenLifeTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RefreshTokens" Relationship="testEntityDataModel.FK_RefreshToken_Client_ClientID" FromRole="Client" ToRole="RefreshToken" />
+        </EntityType>
+        <EntityType Name="RefreshToken">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TokenID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProtectedTicket" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="testEntityDataModel.FK_RefreshToken_Client_ClientID" FromRole="RefreshToken" ToRole="Client" />
+        </EntityType>
+        <Association Name="FK_RefreshToken_Client_ClientID">
+          <End Type="testEntityDataModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="testEntityDataModel.RefreshToken" Role="RefreshToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RefreshToken">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -126,6 +214,33 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="testEntityDataModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="RefreshTokenLifeTime" ColumnName="RefreshTokenLifeTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AllowOrigin" ColumnName="AllowOrigin" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Secret" ColumnName="Secret" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefreshTokens">
+            <EntityTypeMapping TypeName="testEntityDataModel.RefreshToken">
+              <MappingFragment StoreEntitySet="RefreshToken">
+                <ScalarProperty Name="ProtectedTicket" ColumnName="ProtectedTicket" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="TokenID" ColumnName="TokenID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

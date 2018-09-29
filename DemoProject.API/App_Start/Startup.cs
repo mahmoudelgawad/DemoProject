@@ -38,9 +38,10 @@ namespace DemoProject.API
             OAuthAuthorizationServerOptions OAuthOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider()
+                TokenEndpointPath = new PathString("/api/auth/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(5),
+                Provider = new SimpleAuthorizationServerProvider(),
+                RefreshTokenProvider = new SimpleRefreshTokenProvider()
 
             };
             app.UseOAuthAuthorizationServer(OAuthOptions);

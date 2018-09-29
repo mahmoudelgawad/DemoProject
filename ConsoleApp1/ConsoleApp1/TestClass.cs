@@ -6,20 +6,32 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class TestClass
+    public class TestClass
     {
+        public TestClass()
+        {
+            name = "TestClass class";
+        }
         protected string name;
         private int salary;
 
         public string Address { get; set; } = String.Empty;
         public Guid ID { get; } = Guid.NewGuid();
+        public string GetName()
+        {
+            return "base class";
+        }
     }
-    class TestDerived:TestClass {
-        public TestDerived() {
+    public class TestDerived : TestClass
+    {
+        public TestDerived()
+        {
 
         }
-        public string GetName() {
-            return base.name;
+        public string GetName() //you can add public new keyword
+        {
+            //return base.name + " TestDerived class";
+            return base.GetName() + " TestDerived class";
         }
     }
 }

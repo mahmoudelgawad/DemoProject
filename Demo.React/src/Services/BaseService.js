@@ -8,9 +8,10 @@ export const SSL_ROOT_URL = "https://localhost:44306";
 
 export function dispatchError(error) {
     console.log("BaseService", error);
+    debugger
     store.dispatch({
         type: ActionTypes.ERROR_MESSAGE,
-        payload: (error.response) ? error.response : "Network Error Request"
+        payload: (error.response) ? error.response.data.message : "Network Error Request"
     });
 }
 

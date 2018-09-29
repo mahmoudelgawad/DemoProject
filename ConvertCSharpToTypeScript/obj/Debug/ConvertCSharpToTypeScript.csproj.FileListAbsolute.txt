@@ -87,3 +87,15 @@ C:\ADrive\MVC2017\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.
 C:\ADrive\MVC2017\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.csproj.CoreCompileInputs.cache
 C:\ADrive\MVC2017\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.exe
 C:\ADrive\MVC2017\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.pdb
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\bin\Debug\ConvertCSharpToTypeScript.exe.config
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\bin\Debug\ConvertCSharpToTypeScript.exe
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\bin\Debug\ConvertCSharpToTypeScript.pdb
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\bin\Debug\DemoProject.Entities.dll
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\bin\Debug\EntityFramework.dll
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\bin\Debug\DemoProject.Entities.pdb
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\bin\Debug\DemoProject.Entities.dll.config
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\bin\Debug\EntityFramework.xml
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.csprojResolveAssemblyReference.cache
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.csproj.CoreCompileInputs.cache
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.exe
+C:\ADrive\DemoProject\ConvertCSharpToTypeScript\obj\Debug\ConvertCSharpToTypeScript.pdb

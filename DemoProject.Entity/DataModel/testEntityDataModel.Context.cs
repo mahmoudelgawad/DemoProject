@@ -18,6 +18,7 @@ namespace DemoProject.Entities.DataModel
         public testEntities()
             : base("name=testEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -28,5 +29,7 @@ namespace DemoProject.Entities.DataModel
         public virtual DbSet<PostEntity> PostEntities { get; set; }
         public virtual DbSet<RecibeEntity> RecibeEntities { get; set; }
         public virtual DbSet<UserEntity> UserEntities { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 }

@@ -8,6 +8,9 @@
         <EntityTypeShape EntityType="testEntityDataModel.PostEntity" Width="1.5" PointX="1.125" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="testEntityDataModel.RecibeEntity" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="testEntityDataModel.UserEntity" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="testEntityDataModel.Client" Width="1.5" PointX="4.75" PointY="3.125" />
+        <EntityTypeShape EntityType="testEntityDataModel.RefreshToken" Width="1.5" PointX="7" PointY="3.125" />
+        <AssociationConnector Association="testEntityDataModel.FK_RefreshToken_Client_ClientID" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
