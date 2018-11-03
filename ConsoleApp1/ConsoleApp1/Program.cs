@@ -1,28 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Trial
 {
-
-
+    class basea
+    {
+        protected string Coco { get; set; } = "Coco WAWA";
+    }
+    class a : basea
+    {
+        public string name { get; set; }
+        public string CocoBaseName { get { return Coco; } }
+        static void fun() { }
+    }
     class Program
     {
-        static void Main(string[] args)
+        static void Main(String[] args)
         {
-            TestDerived objTestDerived = new TestDerived();
-            Console.WriteLine(objTestDerived.GetName());
-            Console.ReadKey();
+            Dictionary<string, string> d = new Dictionary<string, string> {
+                ["sdsd"]="",
+                ["asas"]=""
+            };
+            a obj = new a();
+            Console.WriteLine(obj.CocoBaseName);
+           
+
         }
-
-
-
-
-
-
-
-
     }
 }
